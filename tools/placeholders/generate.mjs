@@ -83,19 +83,5 @@ html,body{margin:0;width:${w}px;height:${h}px;overflow:hidden;background:#d9d1c4
 </style></head><body><div class="bg"></div><div class="laptop"><div class="lid"><img src="${img('demo/saneeraus.png')}"></div></div><div class="phone"><img src="${img('demo/maalaus-puhelin.png')}"></div><div class="shade"></div></body></html>`;
 await compose('hero-poster.png', 1920, 1080, posterScene(1920, 1080, false));
 await compose('hero-poster-mobile.png', 900, 1400, posterScene(900, 1400, true));
-await compose('og-image.png', 1200, 630, `<!doctype html><html><head>${fonts}<style>
-html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#ebe5dc;font-family:Figtree}
-.t{position:absolute;left:64px;top:72px;display:flex;flex-direction:column;gap:14px;width:600px}
-.logo{font:900 30px/1 Archivo;font-stretch:125%;text-transform:uppercase;color:#24221e}
-.h{font:900 64px/64px Archivo;font-stretch:125%;text-transform:uppercase;color:#24221e;margin-top:40px}
-.s{font:500 30px/38px Archivo;font-stretch:125%;color:#24221e}
-.p{display:flex;gap:10px;margin-top:24px}.p span{background:#24221e;color:#ebe5dc;border-radius:999px;padding:12px 20px;font:600 22px/1 Figtree}
-.p span.l{background:#868365;color:#11100d}
-.ph{position:absolute;right:70px;top:60px;width:230px;background:#24221e;border-radius:40px;padding:11px;transform:rotate(5deg)}
-.ph img{display:block;width:100%;border-radius:30px}
-.ph2{position:absolute;right:250px;top:150px;width:200px;background:#24221e;border-radius:36px;padding:10px;transform:rotate(-6deg)}
-.ph2 img{display:block;width:100%;border-radius:27px}
-</style></head><body><div class="t"><div class="logo">Tradesite</div><div class="h">Nettisivut<br>remppareille</div><div class="s">valmiina 1-3 viikossa</div><div class="p"><span>500 €</span><span class="l">Jos et tykkää, et maksa</span></div></div><div class="ph2"><img src="${img('demo/sahko-puhelin.png')}"></div><div class="ph"><img src="${img('demo/katot-puhelin.png')}"></div></body></html>`);
-
 await browser.close();
 console.log('Valmis. Aja seuraavaksi: npm run images');

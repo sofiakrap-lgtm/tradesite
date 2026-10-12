@@ -69,20 +69,20 @@ Lisää kuvia karuselliin: lisää kuva `assets/mobile/`-kansioon ja rivi `conte
 
 Ennen ja jälkeen -slideri toimii parhaiten, kun molemmat kuvat on otettu samasta kohdasta samalla ikkunakoolla.
 
-### 5. Hero ja jako (3 kuvaa + video)
+### 5. Hero ja jako (2 kuvaa + video)
 
 | Tiedosto | Koko | Sisältö |
 |---|---|---|
 | `assets/hero-poster.jpg` | 1920 x 1080 | Videon ensimmäinen ruutu (näkyy heti ja reduced motionilla) |
 | `assets/hero-poster-mobile.jpg` | 900 x 1400 | Pystyrajaus puhelimelle. Pääkohde keskelle |
-| `assets/og-image.jpg` | 1200 x 630 | Jakokuva (WhatsApp, Facebook, LinkedIn). Logo + "Nettisivut remppareille" |
+| `assets/og/og-image.png` | 1200 x 630 | Jakokuva (WhatsApp, Facebook, LinkedIn). Valmis, tuli logopaketissa |
 | `assets/hero.mp4` | 1920 x 1080, H.264, 8-15 s, alle 4 MB, ei ääntä | Taustavideo, saumaton luuppi |
 | `assets/hero.webm` | sama, VP9 | Sama video WebM:nä |
 
 Videon tunnelma: hidas ja rauhallinen. Esim. käsi selaa valmista nettisivua puhelimella työmaan reunalla, tai julkisivun maalaus etenee ja vaihtuu puhelimen ruudulla näkyvään sivuun. Ei stock-hymyjä. Vaalea, lämmin valo (sivu peittää kuvan vaalealla usvalla, jotta teksti erottuu). Kun video on lisätty: `config.mjs` -> `HERO_VIDEO: true`.
 
 ### 6. Logot
-Katso `assets/logo/README.md`. Tärkein: `assets/logo/logo.svg`.
+Valmiina. Logot `assets/logo/`, faviconit `assets/favicon/`, jakokuva `assets/og/`.
 
 ---
 

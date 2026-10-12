@@ -3,7 +3,7 @@
 Ajo:  npm run images   (vaatii Python 3 + Pillow: pip install pillow)
 - PNG muutetaan JPG:ksi (alkuperäinen PNG poistetaan, paitsi logo-kansiossa).
 - Olemassa olevaa JPG:tä ei pakata uudelleen (paitsi jos leveys > 2400 px).
-- assets/logo/ jätetään rauhaan.
+- assets/logo/, assets/favicon/ ja assets/og/ jätetään rauhaan.
 """
 import json
 import sys
@@ -13,7 +13,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "assets"
-SKIP_DIRS = {"logo"}
+SKIP_DIRS = {"logo", "favicon", "og"}
 MAX_W = 2400
 manifest = {}
 

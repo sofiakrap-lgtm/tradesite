@@ -10,7 +10,8 @@ export default function home(c, v) {
     description: c.meta.description,
     telephone: v.PHONE,
     email: v.EMAIL,
-    image: `${v.SITE_URL}/assets/og-image.jpg`,
+    image: `${v.SITE_URL}/assets/og/og-image.png`,
+    logo: `${v.SITE_URL}/assets/favicon/icon-512.png`,
     areaServed: { '@type': 'Country', name: 'Suomi' },
     parentOrganization: { '@type': 'Organization', name: v.COMPANY },
     makesOffer: {

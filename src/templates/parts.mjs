@@ -69,9 +69,10 @@ export const phone = inner =>
 
 // Logo: väliaikainen tekstilogo. Kun assets/logo/logo.svg on olemassa, se korvaa tekstin automaattisesti.
 export function logo(c, href = './') {
-  const file = path.join(ASSETS, 'logo/logo.svg');
+  // Inline-SVG, jotta väri tulee teemasta (currentColor)
+  const file = path.join(ASSETS, 'logo/tradesite-logo.svg');
   const inner = fs.existsSync(file)
-    ? `<img src="assets/logo/logo.svg" alt="Tradesite" width="160" height="28">`
+    ? fs.readFileSync(file, 'utf8').replace(/^<svg /, '<svg class="logo__svg" aria-hidden="true" focusable="false" ').replace(/ role="img" aria-label="[^"]*"/, '')
     : `<span class="logo__text">Tradesite</span>`;
   return `<a class="logo" href="${href}" aria-label="${esc(c.a11y.home)}">${inner}</a>`;
 }
@@ -158,12 +159,15 @@ export function head(c, v, { title, description, canonical, schema = '' }) {
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${canonical}">
-<meta property="og:image" content="${v.SITE_URL}/assets/og-image.jpg">
+<meta property="og:image" content="${v.SITE_URL}/assets/og/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="${esc(c.meta.ogImageAlt)}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon/favicon.ico" sizes="48x48">
+<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+<link rel="manifest" href="assets/favicon/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="${FONTS}" onload="this.onload=null;this.rel='stylesheet'">

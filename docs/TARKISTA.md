@@ -29,8 +29,7 @@
 ### Kuvat ja logo
 - Kaikki kuvat ovat placeholdereita. Lista ja koot: `docs/KUVAPROMPTI.md`.
 - Myrakin ennen ja jälkeen -kuvissa lukee "Placeholder". SVkatto ja Holske: "Kuvakaappaus tulossa".
-- Logo: väliaikainen tekstilogo. Lopullinen `assets/logo/logo.svg` (ohje `assets/logo/README.md`).
-- Favicon: väliaikainen T-merkki `assets/logo/favicon.svg`.
+- Logo, faviconit ja jakokuva: valmiit (logopaketti).
 - Hero-video puuttuu (`assets/hero.mp4`, `assets/hero.webm`).
 
 ## 2. Kontrastit, jotka korjattiin (WCAG AA)
