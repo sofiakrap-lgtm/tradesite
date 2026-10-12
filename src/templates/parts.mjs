@@ -87,11 +87,7 @@ export function sectionHeader({ id, caption, title, sub, fit = true, left = fals
 export function header(c, v, { home = true } = {}) {
   const base = home ? '' : './';
   const navItems = c.nav.items.map(i => `<a class="segmented__label" href="${base}${i.href}" data-spy="${i.href.slice(1)}">${esc(i.label)}</a>`).join('');
-  const contactItems = c.nav.contactMenu.map(i => {
-    const href = i.id === 'call' ? `tel:${v.PHONE_TEL}` : i.id === 'callback' ? `${base}#yhteys-soitto` : `${base}#yhteys-demo`;
-    return `<li><a class="dropdown__item" href="${href}" data-event="${i.event}"><span class="tile">${icon(i.icon)}</span><span class="dropdown__text">${esc(i.label)}<small>${esc(i.desc)}</small></span></a></li>`;
-  }).join('');
-  const groups = c.nav.menuGroups.map(g => `<div class="nav-mobile__group"><p class="nav-mobile__label">${esc(g.label)}</p><ul class="nav-mobile__links">${g.links.map(l => `<li><a href="${base}${l.href}">${esc(l.label)}</a></li>`).join('')}</ul></div>`).join('');
+  const menuLinks = c.nav.menu.map(l => `<li><a href="${base}${l.href}">${esc(l.label)}</a></li>`).join('');
   return `<a class="skip" href="#main">${esc(c.meta.skip)}</a>
 <header class="site-header" data-theme="birch">
   <div class="site-header__inner">
@@ -99,14 +95,11 @@ export function header(c, v, { home = true } = {}) {
     <nav class="nav" aria-label="${esc(c.a11y.mainNav)}"><div class="segmented" data-segmented>${navItems}</div></nav>
     <div class="site-header__accessories">
       <div class="lang" hidden aria-label="${esc(c.a11y.language)}"><a href="./" aria-current="true" lang="fi">FI</a><a href="sv/" lang="sv">SV</a><a href="en/" lang="en">EN</a></div>
-      <div class="dropdown contact-menu">
-        <button class="btn btn--primary btn--sm" type="button" data-dropdown aria-expanded="false" aria-controls="contact-menu" data-event="cta-ota-yhteytta">${esc(c.nav.contact)}<span class="contact-menu__chevron">${icon('chevron-down', 'icon--20')}</span></button>
-        <ul class="dropdown__sheet" id="contact-menu" role="list" hidden>${contactItems}</ul>
-      </div>
-      <button class="btn btn--ghost btn--sm btn--icon menu-toggle" type="button" aria-label="${esc(c.a11y.menu)}" aria-expanded="false" aria-controls="menu" data-menu-toggle data-label-open="${esc(c.a11y.menu)}" data-label-close="${esc(c.a11y.close)}">${icon('menu')}</button>
+      <a class="btn btn--primary btn--action" href="${base}#yhteys" data-event="cta-ota-yhteytta">${esc(c.nav.contact)}</a>
+      <button class="menu-toggle" type="button" aria-label="${esc(c.a11y.menu)}" aria-expanded="false" aria-controls="menu" data-menu-toggle data-label-open="${esc(c.a11y.menu)}" data-label-close="${esc(c.a11y.close)}"><span class="menu-icon" aria-hidden="true"><span></span><span></span></span></button>
     </div>
   </div>
-  <div class="nav-mobile" id="menu" hidden>${groups}</div>
+  <div class="nav-mobile" id="menu" hidden><p class="nav-mobile__label">${esc(c.nav.menuLabel)}</p><ul class="nav-mobile__links">${menuLinks}</ul></div>
 </header>`;
 }
 

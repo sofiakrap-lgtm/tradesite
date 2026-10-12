@@ -8,7 +8,7 @@
 .hero__poster img, .hero__video { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
 .hero__poster.ph { display: none; }
 .hero__wash { background: var(--color-hero-wash); }
-.hero__fade { background: linear-gradient(to bottom, rgb(235 229 220 / 0.35) 0%, transparent 30%, transparent 55%, var(--palette-raisin) 100%); }
+.hero__fade { background: linear-gradient(to bottom, rgb(235 229 220 / 0.35) 0%, transparent 30%, transparent 55%, var(--palette-cream-200) 100%); }
 .hero__inner { align-items: center; gap: 28px; }
 .hero-title { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; text-align: center; color: var(--color-heading); }
 .hero-title__line { display: block; max-width: 100%; hyphens: manual; }

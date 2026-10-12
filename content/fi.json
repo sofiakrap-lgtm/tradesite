@@ -17,35 +17,62 @@
   },
   "nav": {
     "items": [
-      { "label": "Hinta", "href": "#hinta" },
-      { "label": "Demot", "href": "#demot" },
-      { "label": "UKK", "href": "#ukk" }
+      {
+        "label": "Työt",
+        "href": "#tyot"
+      },
+      {
+        "label": "Hinta",
+        "href": "#hinta"
+      },
+      {
+        "label": "Demot",
+        "href": "#demot"
+      },
+      {
+        "label": "UKK",
+        "href": "#ukk"
+      }
     ],
     "contact": "Ota yhteyttä",
-    "contactMenu": [
-      { "id": "call", "icon": "phone", "label": "Soita", "desc": "{PHONE}", "event": "cta-soita" },
-      { "id": "callback", "icon": "calendar-check", "label": "Varaa soittopyyntö", "desc": "Soitamme sinulle sopivana aikana", "event": "cta-soittopyynto" },
-      { "id": "demo", "icon": "sparkles", "label": "Tee minulle demo", "desc": "Ilmainen, ei sitoumusta", "event": "cta-demo" }
-    ],
-    "menuGroups": [
-      { "label": "Palvelu", "links": [
-        { "label": "Hinta", "href": "#hinta" },
-        { "label": "Näin se toimii", "href": "#prosessi" },
-        { "label": "Vertailu", "href": "#vertailu" }
-      ] },
-      { "label": "Työt", "links": [
-        { "label": "Demot", "href": "#demot" },
-        { "label": "Ennen ja jälkeen", "href": "#referenssit" },
-        { "label": "Mitä sivuille tulee", "href": "#sisalto" }
-      ] },
-      { "label": "Apua", "links": [
-        { "label": "UKK", "href": "#ukk" },
-        { "label": "Ota yhteyttä", "href": "#yhteys" }
-      ] }
+    "menuLabel": "Sivut",
+    "menu": [
+      {
+        "label": "Etusivu",
+        "href": "#top"
+      },
+      {
+        "label": "Työt",
+        "href": "#tyot"
+      },
+      {
+        "label": "Hinta",
+        "href": "#hinta"
+      },
+      {
+        "label": "Näin se toimii",
+        "href": "#prosessi"
+      },
+      {
+        "label": "Demot",
+        "href": "#demot"
+      },
+      {
+        "label": "UKK",
+        "href": "#ukk"
+      },
+      {
+        "label": "Ota yhteyttä",
+        "href": "#yhteys"
+      }
     ]
   },
   "hero": {
-    "lines": ["Nettisivut", "remppareille", "valmiina 1-3 viikossa"],
+    "lines": [
+      "Nettisivut",
+      "remppareille",
+      "valmiina 1-3 viikossa"
+    ],
     "sub": "Brändätyt nettisivut rakennusalan yrityksille. Kiinteä hinta, ilmainen demo.",
     "form": {
       "company": "Yrityksen nimi",
@@ -54,31 +81,48 @@
       "note": "Ei sitoumusta. Soitamme ja kysymme muutaman asian."
     },
     "strip": [
-      { "icon": "euro", "caption": "Hinta", "title": "{PRICE} € kertamaksu", "body": "Ylläpito {MONTHLY} €/kk. Ei piilokuluja." },
-      { "icon": "timer", "caption": "Aikataulu", "title": "Valmis 1-3 viikossa", "body": "Sinä teet töitä. Me teemme sivut." },
-      { "icon": "shield-check", "caption": "Lupaus", "title": "Jos et tykkää, et maksa", "body": "Näytämme demon ennen kuin mitään sovitaan." }
+      {
+        "icon": "euro",
+        "caption": "Hinta",
+        "title": "{PRICE} € kertamaksu",
+        "body": "Ylläpito {MONTHLY} €/kk. Ei piilokuluja."
+      },
+      {
+        "icon": "timer",
+        "caption": "Aikataulu",
+        "title": "Valmis 1-3 viikossa",
+        "body": "Sinä teet töitä. Me teemme sivut."
+      },
+      {
+        "icon": "shield-check",
+        "caption": "Lupaus",
+        "title": "Jos et tykkää, et maksa",
+        "body": "Näytämme demon ennen kuin mitään sovitaan."
+      }
     ],
     "videoPause": "Pysäytä taustavideo",
     "videoPlay": "Toista taustavideo"
-  },
-  "stats": {
-    "title": "Hinnat yhdellä silmäyksellä",
-    "items": [
-      { "value": "{PRICE} €", "label": "kertamaksu", "icon": "euro" },
-      { "value": "{MONTHLY} €/kk", "label": "ylläpito", "icon": "server" },
-      { "value": "1-3 vk", "label": "toimitus", "icon": "timer" },
-      { "value": "0 €", "label": "demo", "icon": "sparkles" }
-    ],
-    "note": "Ei piilokuluja. Hinta-arvio aina etukäteen."
   },
   "problem": {
     "caption": "Näin asiakas valitsee urakoitsijan",
     "title": "Löytyykö teidät?",
     "sub": "Urakoitsija haetaan netistä, usein puhelimella. Jos sinua ei löydy, soitto menee jollekin toiselle.",
     "cards": [
-      { "icon": "smartphone", "title": "Asiakas etsii urakoitsijaa puhelimella", "body": "Haku tehdään kotisohvalta tai työmaalta. Sivun pitää toimia pienellä näytöllä." },
-      { "icon": "search", "title": "Pelkkä Facebook ei näy Google-haussa", "body": "Päivitykset hukkuvat syötteeseen. Oma sivu kertoo, kuka olet ja miten sinut tavoittaa." },
-      { "icon": "monitor-smartphone", "title": "Vanha sivu ei toimi mobiilissa", "body": "Pieni teksti, hidas lataus, ei soittonappia. Asiakas painaa takaisin." }
+      {
+        "icon": "smartphone",
+        "title": "Asiakas etsii urakoitsijaa puhelimella",
+        "body": "Haku tehdään kotisohvalta tai työmaalta. Sivun pitää toimia pienellä näytöllä."
+      },
+      {
+        "icon": "search",
+        "title": "Pelkkä Facebook ei näy Google-haussa",
+        "body": "Päivitykset hukkuvat syötteeseen. Oma sivu kertoo, kuka olet ja miten sinut tavoittaa."
+      },
+      {
+        "icon": "monitor-smartphone",
+        "title": "Vanha sivu ei toimi mobiilissa",
+        "body": "Pieni teksti, hidas lataus, ei soittonappia. Asiakas painaa takaisin."
+      }
     ]
   },
   "showcase": {
@@ -106,16 +150,40 @@
     "quoteAuthor": "Myrak Oy",
     "quoteRole": "Julkisivuremontit, Helsinki",
     "pills": [
-      { "icon": "sparkles", "label": "Uusi ilme" },
-      { "icon": "languages", "label": "3 kieltä" },
-      { "icon": "map-pinned", "label": "Referenssit kartalla" },
-      { "icon": "newspaper", "label": "Tiedotteet asukkaille" }
+      {
+        "icon": "sparkles",
+        "label": "Uusi ilme"
+      },
+      {
+        "icon": "languages",
+        "label": "3 kieltä"
+      },
+      {
+        "icon": "map-pinned",
+        "label": "Referenssit kartalla"
+      },
+      {
+        "icon": "newspaper",
+        "label": "Tiedotteet asukkaille"
+      }
     ],
     "visit": "Katso myrak.fi",
     "moreTitle": "Muita töitä",
     "refs": [
-      { "name": "SVkatto Oy", "field": "Kattoala", "img": "ref/svkatto", "href": "{SVKATTO_URL}", "icon": "house" },
-      { "name": "Holske Oy", "field": "[TARKISTA] Toimiala", "img": "ref/holske", "href": "{HOLSKE_URL}", "icon": "hard-hat" }
+      {
+        "name": "SVkatto Oy",
+        "field": "Kattoala",
+        "img": "ref/svkatto",
+        "href": "{SVKATTO_URL}",
+        "icon": "house"
+      },
+      {
+        "name": "Holske Oy",
+        "field": "[TARKISTA] Toimiala",
+        "img": "ref/holske",
+        "href": "{HOLSKE_URL}",
+        "icon": "hard-hat"
+      }
     ],
     "refLink": "Katso sivu"
   },
@@ -124,20 +192,74 @@
     "title": "Tätä sivuillesi tulee",
     "sub": "Kaikki mitä asiakas tarvitsee päätöksen tekoon. Valmiiksi tehtynä, sinun alallesi.",
     "items": [
-      { "icon": "phone-call", "title": "Soita nyt -nappi", "body": "Mobiilissa soittonappi on aina peukalon ulottuvilla.", "img": "features/soita-nyt", "frame": "phone" },
-      { "icon": "file-text", "title": "Yhteydenottolomake", "body": "Asiakas jättää tiedot, ja viesti tulee suoraan sinulle.", "img": "features/lomake", "frame": "browser" },
-      { "icon": "images", "title": "Ennen ja jälkeen -galleria", "body": "Työn jälki näkyy parhaiten vierekkäin.", "img": "features/galleria", "frame": "browser" },
-      { "icon": "message-square-quote", "title": "Asiakasarviot", "body": "Tyytyväisten asiakkaiden omat sanat näkyville.", "img": "features/arviot", "frame": "phone" },
-      { "icon": "map-pin", "title": "Kartta ja palvelualue", "body": "Asiakas näkee heti, toimitko hänen alueellaan.", "img": "features/kartta", "frame": "browser" },
-      { "icon": "receipt", "title": "Kotitalousvähennys", "body": "Valmis selitys vähennyksestä. Yksi kysymys vähemmän puhelimessa.", "img": "features/kotitalousvahennys", "frame": "phone" }
+      {
+        "icon": "phone-call",
+        "title": "Soita nyt -nappi",
+        "body": "Mobiilissa soittonappi on aina peukalon ulottuvilla.",
+        "img": "features/soita-nyt",
+        "frame": "phone"
+      },
+      {
+        "icon": "file-text",
+        "title": "Yhteydenottolomake",
+        "body": "Asiakas jättää tiedot, ja viesti tulee suoraan sinulle.",
+        "img": "features/lomake",
+        "frame": "browser"
+      },
+      {
+        "icon": "images",
+        "title": "Ennen ja jälkeen -galleria",
+        "body": "Työn jälki näkyy parhaiten vierekkäin.",
+        "img": "features/galleria",
+        "frame": "browser"
+      },
+      {
+        "icon": "message-square-quote",
+        "title": "Asiakasarviot",
+        "body": "Tyytyväisten asiakkaiden omat sanat näkyville.",
+        "img": "features/arviot",
+        "frame": "phone"
+      },
+      {
+        "icon": "map-pin",
+        "title": "Kartta ja palvelualue",
+        "body": "Asiakas näkee heti, toimitko hänen alueellaan.",
+        "img": "features/kartta",
+        "frame": "browser"
+      },
+      {
+        "icon": "receipt",
+        "title": "Kotitalousvähennys",
+        "body": "Valmis selitys vähennyksestä. Yksi kysymys vähemmän puhelimessa.",
+        "img": "features/kotitalousvahennys",
+        "frame": "phone"
+      }
     ],
     "more": [
-      { "icon": "search-check", "label": "Perus-SEO" },
-      { "icon": "languages", "label": "1-2 kieltä" },
-      { "icon": "palette", "label": "Värimaailma puolestasi" },
-      { "icon": "pen-line", "label": "Tekstit puolestasi" },
-      { "icon": "shield", "label": "Tietosuoja ja evästeet" },
-      { "icon": "smartphone", "label": "Mobiiliversio" }
+      {
+        "icon": "search-check",
+        "label": "Perus-SEO"
+      },
+      {
+        "icon": "languages",
+        "label": "1-2 kieltä"
+      },
+      {
+        "icon": "palette",
+        "label": "Värimaailma puolestasi"
+      },
+      {
+        "icon": "pen-line",
+        "label": "Tekstit puolestasi"
+      },
+      {
+        "icon": "shield",
+        "label": "Tietosuoja ja evästeet"
+      },
+      {
+        "icon": "smartphone",
+        "label": "Mobiiliversio"
+      }
     ]
   },
   "process": {
@@ -145,12 +267,36 @@
     "title": "Näin se toimii",
     "sub": "Sinulta tarvitaan yksi soitto ja yksi haastattelu. Kaiken muun hoidamme me.",
     "steps": [
-      { "icon": "phone", "title": "Soitto tai lomake", "body": "Kerro yrityksesi nimi ja ala." },
-      { "icon": "sparkles", "title": "Ilmainen demo", "body": "Teemme sivusta demoversion sinun alallesi." },
-      { "icon": "mic", "title": "Haastattelu", "body": "Lyhyt puhelu, jonka nauhoitamme. Me kysymme, sinä vastaat. Teksti syntyy sinun sanoillasi." },
-      { "icon": "pen-line", "title": "Muutokset", "body": "1-3 kierrosta, kunnes sivu on sinun näköisesi." },
-      { "icon": "rocket", "title": "Julkaisu", "body": "Sivu on netissä 1-3 viikossa." },
-      { "icon": "wrench", "title": "Ylläpito", "body": "Hoidamme hostingin, turvallisuuden ja pienet muutokset. Sinä teet töitä." }
+      {
+        "icon": "phone",
+        "title": "Soitto tai lomake",
+        "body": "Kerro yrityksesi nimi ja ala."
+      },
+      {
+        "icon": "sparkles",
+        "title": "Ilmainen demo",
+        "body": "Teemme sivusta demoversion sinun alallesi."
+      },
+      {
+        "icon": "mic",
+        "title": "Haastattelu",
+        "body": "Lyhyt puhelu, jonka nauhoitamme. Me kysymme, sinä vastaat. Teksti syntyy sinun sanoillasi."
+      },
+      {
+        "icon": "pen-line",
+        "title": "Muutokset",
+        "body": "1-3 kierrosta, kunnes sivu on sinun näköisesi."
+      },
+      {
+        "icon": "rocket",
+        "title": "Julkaisu",
+        "body": "Sivu on netissä 1-3 viikossa."
+      },
+      {
+        "icon": "wrench",
+        "title": "Ylläpito",
+        "body": "Hoidamme hostingin, turvallisuuden ja pienet muutokset. Sinä teet töitä."
+      }
     ]
   },
   "package": {
@@ -159,19 +305,59 @@
     "sub": "Yksi hinta. Valmis sivu. Ei yllätyksiä.",
     "includedTitle": "Sisältyy",
     "included": [
-      { "icon": "layout-template", "label": "Enintään 5 sivua" },
-      { "icon": "languages", "label": "1-2 kieltä" },
-      { "icon": "smartphone", "label": "Mobiiliversio" },
-      { "icon": "phone-call", "label": "\"Soita nyt\" -nappi mobiilissa" },
-      { "icon": "file-text", "label": "Yhteydenottolomake" },
-      { "icon": "map", "label": "Kartta" },
-      { "icon": "mic", "label": "Tekstit kirjoitetaan puolestasi", "note": "Haastattelupuhelun pohjalta, sinun omilla sanoillasi" },
-      { "icon": "palette", "label": "Värimaailma valitaan puolestasi" },
-      { "icon": "images", "label": "Ennen ja jälkeen -kuvagalleria" },
-      { "icon": "message-square-quote", "label": "Asiakasarviot" },
-      { "icon": "receipt", "label": "Kotitalousvähennys-info" },
-      { "icon": "search-check", "label": "Perus-SEO" },
-      { "icon": "shield", "label": "Tietosuojaseloste ja evästeilmoitus" }
+      {
+        "icon": "layout-template",
+        "label": "Enintään 5 sivua"
+      },
+      {
+        "icon": "languages",
+        "label": "1-2 kieltä"
+      },
+      {
+        "icon": "smartphone",
+        "label": "Mobiiliversio"
+      },
+      {
+        "icon": "phone-call",
+        "label": "\"Soita nyt\" -nappi mobiilissa"
+      },
+      {
+        "icon": "file-text",
+        "label": "Yhteydenottolomake"
+      },
+      {
+        "icon": "map",
+        "label": "Kartta"
+      },
+      {
+        "icon": "mic",
+        "label": "Tekstit kirjoitetaan puolestasi",
+        "note": "Haastattelupuhelun pohjalta, sinun omilla sanoillasi"
+      },
+      {
+        "icon": "palette",
+        "label": "Värimaailma valitaan puolestasi"
+      },
+      {
+        "icon": "images",
+        "label": "Ennen ja jälkeen -kuvagalleria"
+      },
+      {
+        "icon": "message-square-quote",
+        "label": "Asiakasarviot"
+      },
+      {
+        "icon": "receipt",
+        "label": "Kotitalousvähennys-info"
+      },
+      {
+        "icon": "search-check",
+        "label": "Perus-SEO"
+      },
+      {
+        "icon": "shield",
+        "label": "Tietosuojaseloste ja evästeilmoitus"
+      }
     ],
     "priceCaption": "Hinta",
     "price": "{PRICE} €",
@@ -180,24 +366,58 @@
     "monthly": "+ {MONTHLY} €/kk",
     "monthlyLabel": "Ylläpito: hosting, SSL, domain ja pienet tekstimuutokset.",
     "specs": [
-      { "icon": "refresh-cw", "label": "1-3 muutoskierrosta" },
-      { "icon": "calendar-check", "label": "Sopimus {COMMITMENT_MONTHS} kk" },
-      { "icon": "timer", "label": "Valmis 1-3 viikossa" }
+      {
+        "icon": "refresh-cw",
+        "label": "1-3 muutoskierrosta"
+      },
+      {
+        "icon": "calendar-check",
+        "label": "Sopimus {COMMITMENT_MONTHS} kk"
+      },
+      {
+        "icon": "timer",
+        "label": "Valmis 1-3 viikossa"
+      }
     ],
     "extrasTitle": "Lisäpalveluna",
     "extrasNote": "Tuntiveloitus, hinta-arvio aina etukäteen.",
     "extras": [
-      { "icon": "calculator", "label": "Hintalaskuri" },
-      { "icon": "image-plus", "label": "AI-kuvat tai kuvapankkikuvat" },
-      { "icon": "camera", "label": "Uudet referenssikuvat" },
-      { "icon": "layers", "label": "Laajemmat muutokset" }
+      {
+        "icon": "calculator",
+        "label": "Hintalaskuri"
+      },
+      {
+        "icon": "image-plus",
+        "label": "AI-kuvat tai kuvapankkikuvat"
+      },
+      {
+        "icon": "camera",
+        "label": "Uudet referenssikuvat"
+      },
+      {
+        "icon": "layers",
+        "label": "Laajemmat muutokset"
+      }
     ],
     "excludedTitle": "Ei sisälly",
     "excluded": [
-      { "icon": "x", "label": "Logo", "note": "oma logo tarvitaan valmiina" },
-      { "icon": "x", "label": "Google Business -profiili" },
-      { "icon": "x", "label": "Kävijäseuranta" },
-      { "icon": "x", "label": "Sähköpostin käyttöönotto" }
+      {
+        "icon": "x",
+        "label": "Logo",
+        "note": "oma logo tarvitaan valmiina"
+      },
+      {
+        "icon": "x",
+        "label": "Google Business -profiili"
+      },
+      {
+        "icon": "x",
+        "label": "Kävijäseuranta"
+      },
+      {
+        "icon": "x",
+        "label": "Sähköpostin käyttöönotto"
+      }
     ],
     "cta": "Pyydä demo",
     "promise": "Jos et tykkää demosta, et maksa mitään."
@@ -210,11 +430,36 @@
     "colUs": "Tradesite",
     "colAgency": "Tavallinen mainostoimisto",
     "rows": [
-      { "icon": "euro", "label": "Hinta", "us": "{PRICE} € + {MONTHLY} €/kk", "agency": "{AGENCY_PRICE_RANGE}" },
-      { "icon": "timer", "label": "Toimitusaika", "us": "1-3 viikkoa", "agency": "{AGENCY_DELIVERY}" },
-      { "icon": "pen-line", "label": "Tekstien kirjoitus", "us": "Sisältyy, haastattelun pohjalta", "agency": "{AGENCY_TEXTS}" },
-      { "icon": "eye", "label": "Demo ennen ostoa", "us": "Kyllä, 0 €", "agency": "{AGENCY_DEMO}" },
-      { "icon": "server", "label": "Ylläpito", "us": "{MONTHLY} €/kk, sisältää hostingin, SSL:n ja domainin", "agency": "{AGENCY_MAINTENANCE}" }
+      {
+        "icon": "euro",
+        "label": "Hinta",
+        "us": "{PRICE} € + {MONTHLY} €/kk",
+        "agency": "{AGENCY_PRICE_RANGE}"
+      },
+      {
+        "icon": "timer",
+        "label": "Toimitusaika",
+        "us": "1-3 viikkoa",
+        "agency": "{AGENCY_DELIVERY}"
+      },
+      {
+        "icon": "pen-line",
+        "label": "Tekstien kirjoitus",
+        "us": "Sisältyy, haastattelun pohjalta",
+        "agency": "{AGENCY_TEXTS}"
+      },
+      {
+        "icon": "eye",
+        "label": "Demo ennen ostoa",
+        "us": "Kyllä, 0 €",
+        "agency": "{AGENCY_DEMO}"
+      },
+      {
+        "icon": "server",
+        "label": "Ylläpito",
+        "us": "{MONTHLY} €/kk, sisältää hostingin, SSL:n ja domainin",
+        "agency": "{AGENCY_MAINTENANCE}"
+      }
     ],
     "totalLabel": "Ensimmäinen vuosi yhteensä",
     "totalUs": "{FIRST_YEAR} €",
@@ -233,29 +478,72 @@
     "order": "Tee minulle tällainen",
     "note": "Eikö alasi ole listalla? Teemme demon silti.",
     "items": [
-      { "slug": "saneeraus", "icon": "hammer", "name": "Saneeraus", "body": "Isot remontit selkeästi: palvelut, vaiheet ja valmiit kohteet kuvina.", "tags": ["Ennen ja jälkeen", "Kotitalousvähennys", "Palvelualue"] },
-      { "slug": "sahko", "icon": "zap", "name": "Sähkö", "body": "Sähköurakointi ja asennukset. Päivystysnumero ja palvelut heti näkyvillä.", "tags": ["Soita nyt", "Palvelut", "Lomake"] },
-      { "slug": "putki-lvi", "icon": "droplets", "name": "Putki ja LVI", "body": "Putkityöt, lämmitys ja ilmanvaihto. Asiakas löytää oikean palvelun nopeasti.", "tags": ["Palvelut", "Kartta", "Asiakasarviot"] },
-      { "slug": "remontti", "icon": "drill", "name": "Remontti", "body": "Pintaremontit, keittiöt ja kylpyhuoneet. Kuvat tekevät myyntityön.", "tags": ["Galleria", "Kotitalousvähennys", "Lomake"] },
-      { "slug": "katot", "icon": "house", "name": "Katot", "body": "Kattoremontit ja pellitykset. Referenssikohteet kartalla ja kuvina.", "tags": ["Kartta", "Ennen ja jälkeen", "Asiakasarviot"] },
-      { "slug": "maalaus", "icon": "paint-roller", "name": "Maalaus", "body": "Sisä- ja ulkomaalaus. Värikäs galleria ja selkeä tarjouspyyntö.", "tags": ["Galleria", "Lomake", "Soita nyt"] }
-    ]
-  },
-  "mobile": {
-    "caption": "Mobiili ensin",
-    "title": "Toimii puhelimessa",
-    "sub": "Asiakkaasi katsoo sivusi todennäköisesti puhelimelta. Siksi suunnittelemme mobiiliversion ensin.",
-    "prev": "Edellinen",
-    "next": "Seuraava",
-    "pause": "Pysäytä",
-    "play": "Toista",
-    "slideLabel": "Kuva {n}",
-    "slides": [
-      { "img": "mobile/etusivu", "title": "Etusivu", "body": "Kuka olet, mitä teet ja missä. Heti ensimmäisellä ruudulla." },
-      { "img": "mobile/palvelut", "title": "Palvelut", "body": "Selkeät kortit, joista asiakas löytää oman työnsä." },
-      { "img": "mobile/galleria", "title": "Galleria", "body": "Ennen ja jälkeen -kuvat, joita selataan peukalolla." },
-      { "img": "mobile/arviot", "title": "Asiakasarviot", "body": "Oikeiden asiakkaiden sanat, ei keksittyjä tähtiä." },
-      { "img": "mobile/yhteys", "title": "Yhteystiedot", "body": "Soittonappi, lomake ja kartta samassa näkymässä." }
+      {
+        "slug": "saneeraus",
+        "icon": "hammer",
+        "name": "Saneeraus",
+        "body": "Isot remontit selkeästi: palvelut, vaiheet ja valmiit kohteet kuvina.",
+        "tags": [
+          "Ennen ja jälkeen",
+          "Kotitalousvähennys",
+          "Palvelualue"
+        ]
+      },
+      {
+        "slug": "sahko",
+        "icon": "zap",
+        "name": "Sähkö",
+        "body": "Sähköurakointi ja asennukset. Päivystysnumero ja palvelut heti näkyvillä.",
+        "tags": [
+          "Soita nyt",
+          "Palvelut",
+          "Lomake"
+        ]
+      },
+      {
+        "slug": "putki-lvi",
+        "icon": "droplets",
+        "name": "Putki ja LVI",
+        "body": "Putkityöt, lämmitys ja ilmanvaihto. Asiakas löytää oikean palvelun nopeasti.",
+        "tags": [
+          "Palvelut",
+          "Kartta",
+          "Asiakasarviot"
+        ]
+      },
+      {
+        "slug": "remontti",
+        "icon": "drill",
+        "name": "Remontti",
+        "body": "Pintaremontit, keittiöt ja kylpyhuoneet. Kuvat tekevät myyntityön.",
+        "tags": [
+          "Galleria",
+          "Kotitalousvähennys",
+          "Lomake"
+        ]
+      },
+      {
+        "slug": "katot",
+        "icon": "house",
+        "name": "Katot",
+        "body": "Kattoremontit ja pellitykset. Referenssikohteet kartalla ja kuvina.",
+        "tags": [
+          "Kartta",
+          "Ennen ja jälkeen",
+          "Asiakasarviot"
+        ]
+      },
+      {
+        "slug": "maalaus",
+        "icon": "paint-roller",
+        "name": "Maalaus",
+        "body": "Sisä- ja ulkomaalaus. Värikäs galleria ja selkeä tarjouspyyntö.",
+        "tags": [
+          "Galleria",
+          "Lomake",
+          "Soita nyt"
+        ]
+      }
     ]
   },
   "why": {
@@ -263,10 +551,26 @@
     "title": "Alan omat tekijät",
     "sub": "Näkyvyys kuuluu kaikille. Ammattimainen nettisivu ei saa olla vain isojen firmojen etuoikeus.",
     "items": [
-      { "icon": "hard-hat", "title": "Tunnemme rakennusalan omasta kokemuksesta", "body": "Taustamme on sähköalalla sekä maalaus- ja peltitöissä. Tiedämme, miten asiakas valitsee urakoitsijan." },
-      { "icon": "badge-euro", "title": "Kiinteä hinta, ei yllätyksiä", "body": "{PRICE} € ja {MONTHLY} €/kk. Lisätöistä kerromme hinnan aina ennen kuin aloitamme." },
-      { "icon": "mic", "title": "Teksti sinun sanoillasi", "body": "Sinun ei tarvitse kirjoittaa riviäkään. Haastattelemme ja kirjoitamme." },
-      { "icon": "wrench", "title": "Hoidamme ylläpidon, sinä teet töitä", "body": "Hosting, turvallisuus ja pienet muutokset kuuluvat kuukausihintaan." }
+      {
+        "icon": "hard-hat",
+        "title": "Tunnemme rakennusalan omasta kokemuksesta",
+        "body": "Taustamme on sähköalalla sekä maalaus- ja peltitöissä. Tiedämme, miten asiakas valitsee urakoitsijan."
+      },
+      {
+        "icon": "badge-euro",
+        "title": "Kiinteä hinta, ei yllätyksiä",
+        "body": "{PRICE} € ja {MONTHLY} €/kk. Lisätöistä kerromme hinnan aina ennen kuin aloitamme."
+      },
+      {
+        "icon": "mic",
+        "title": "Teksti sinun sanoillasi",
+        "body": "Sinun ei tarvitse kirjoittaa riviäkään. Haastattelemme ja kirjoitamme."
+      },
+      {
+        "icon": "wrench",
+        "title": "Hoidamme ylläpidon, sinä teet töitä",
+        "body": "Hosting, turvallisuus ja pienet muutokset kuuluvat kuukausihintaan."
+      }
     ],
     "coming": "Tulossa: videot ja some."
   },
@@ -276,17 +580,50 @@
     "sub": "Etkö löytänyt vastausta? Soita, niin kerromme.",
     "cta": "Ota yhteyttä",
     "items": [
-      { "q": "Mitä {PRICE} € sisältää?", "a": "Enintään 5 sivua, 1-2 kieltä ja mobiiliversion. Mukana \"Soita nyt\" -nappi, yhteydenottolomake, kartta, ennen ja jälkeen -galleria, asiakasarviot, kotitalousvähennys-info, perus-SEO sekä tietosuojaseloste ja evästeilmoitus. Kirjoitamme tekstit ja valitsemme värit puolestasi." },
-      { "q": "Mitä ylläpito {MONTHLY} €/kk sisältää?", "a": "Hostingin, SSL-sertifikaatin, domainin, varmuuskopiot ja pienet tekstimuutokset." },
-      { "q": "Voinko ostaa sivun ilman ylläpitoa?", "a": "Ei. Ylläpito pitää sivun turvallisena ja toimivana." },
-      { "q": "Kauanko sivun teko kestää?", "a": "1-3 viikkoa. Nopeimmin silloin, kun saamme tiedot ja kuvat ajoissa." },
-      { "q": "Pitääkö minun kirjoittaa tekstit?", "a": "Ei. Haastattelemme sinut puhelimessa ja kirjoitamme tekstit sinun sanoillasi." },
-      { "q": "Entä jos en tykkää demosta?", "a": "Et maksa mitään." },
-      { "q": "Mitä jos haluan jotain, mikä ei kuulu pakettiin?", "a": "Arvioimme työn ja kerromme hinnan ennen kuin aloitamme. Lisätyö on tuntiveloitteista." },
-      { "q": "Tarvitsenko logon?", "a": "Kyllä. Oma logo tarvitaan valmiina." },
-      { "q": "Mitä kuvia sivulla käytetään?", "a": "Mieluiten omia työmaakuviasi. Tarvittaessa kuvapankkia tai AI-kuvia, jotka merkitään selvästi. Emme koskaan esitä muiden töitä sinun töinäsi." },
-      { "q": "Kuinka pitkä sopimus on?", "a": "{COMMITMENT_MONTHS} kuukautta." },
-      { "q": "Lupaatteko Google-ykkössijan?", "a": "Emme. Teemme perus-SEO:n kuntoon, mutta sijoitusta ei voi luvata kukaan rehellisesti." }
+      {
+        "q": "Mitä {PRICE} € sisältää?",
+        "a": "Enintään 5 sivua, 1-2 kieltä ja mobiiliversion. Mukana \"Soita nyt\" -nappi, yhteydenottolomake, kartta, ennen ja jälkeen -galleria, asiakasarviot, kotitalousvähennys-info, perus-SEO sekä tietosuojaseloste ja evästeilmoitus. Kirjoitamme tekstit ja valitsemme värit puolestasi."
+      },
+      {
+        "q": "Mitä ylläpito {MONTHLY} €/kk sisältää?",
+        "a": "Hostingin, SSL-sertifikaatin, domainin, varmuuskopiot ja pienet tekstimuutokset."
+      },
+      {
+        "q": "Voinko ostaa sivun ilman ylläpitoa?",
+        "a": "Ei. Ylläpito pitää sivun turvallisena ja toimivana."
+      },
+      {
+        "q": "Kauanko sivun teko kestää?",
+        "a": "1-3 viikkoa. Nopeimmin silloin, kun saamme tiedot ja kuvat ajoissa."
+      },
+      {
+        "q": "Pitääkö minun kirjoittaa tekstit?",
+        "a": "Ei. Haastattelemme sinut puhelimessa ja kirjoitamme tekstit sinun sanoillasi."
+      },
+      {
+        "q": "Entä jos en tykkää demosta?",
+        "a": "Et maksa mitään."
+      },
+      {
+        "q": "Mitä jos haluan jotain, mikä ei kuulu pakettiin?",
+        "a": "Arvioimme työn ja kerromme hinnan ennen kuin aloitamme. Lisätyö on tuntiveloitteista."
+      },
+      {
+        "q": "Tarvitsenko logon?",
+        "a": "Kyllä. Oma logo tarvitaan valmiina."
+      },
+      {
+        "q": "Mitä kuvia sivulla käytetään?",
+        "a": "Mieluiten omia työmaakuviasi. Tarvittaessa kuvapankkia tai AI-kuvia, jotka merkitään selvästi. Emme koskaan esitä muiden töitä sinun töinäsi."
+      },
+      {
+        "q": "Kuinka pitkä sopimus on?",
+        "a": "{COMMITMENT_MONTHS} kuukautta."
+      },
+      {
+        "q": "Lupaatteko Google-ykkössijan?",
+        "a": "Emme. Teemme perus-SEO:n kuntoon, mutta sijoitusta ei voi luvata kukaan rehellisesti."
+      }
     ]
   },
   "contact": {
@@ -307,7 +644,12 @@
       "name": "Nimi",
       "phone": "Puhelin",
       "time": "Sopiva aika",
-      "times": ["Milloin vain", "Aamupäivällä", "Iltapäivällä", "Illalla"],
+      "times": [
+        "Milloin vain",
+        "Aamupäivällä",
+        "Iltapäivällä",
+        "Illalla"
+      ],
       "submit": "Varaa soitto"
     },
     "demo": {
@@ -317,9 +659,33 @@
       "company": "Yrityksen nimi",
       "industry": "Ala",
       "industryPlaceholder": "Valitse ala",
-      "industries": ["Saneeraus", "Sähkö", "Putki ja LVI", "Remontti", "Katot", "Maalaus", "Laatoitus", "Julkisivut", "Kylpyhuoneet", "Purkutyöt", "Rakennusliike", "Muu ala"],
+      "industries": [
+        "Saneeraus",
+        "Sähkö",
+        "Putki ja LVI",
+        "Remontti",
+        "Katot",
+        "Maalaus",
+        "Laatoitus",
+        "Julkisivut",
+        "Kylpyhuoneet",
+        "Purkutyöt",
+        "Rakennusliike",
+        "Muu ala"
+      ],
       "city": "Paikkakunta",
-      "cities": ["Pääkaupunkiseutu", "Tampere", "Turku", "Oulu", "Jyväskylä", "Kuopio", "Lahti", "Pori", "Vaasa", "Seinäjoki"],
+      "cities": [
+        "Pääkaupunkiseutu",
+        "Tampere",
+        "Turku",
+        "Oulu",
+        "Jyväskylä",
+        "Kuopio",
+        "Lahti",
+        "Pori",
+        "Vaasa",
+        "Seinäjoki"
+      ],
       "site": "Nykyinen sivu tai some-linkki",
       "phone": "Puhelin",
       "email": "Sähköposti",
@@ -338,10 +704,22 @@
     "colService": "Palvelu",
     "colContact": "Yhteystiedot",
     "links": [
-      { "label": "Hinta", "href": "#hinta" },
-      { "label": "Demot", "href": "#demot" },
-      { "label": "Näin se toimii", "href": "#prosessi" },
-      { "label": "UKK", "href": "#ukk" }
+      {
+        "label": "Hinta",
+        "href": "#hinta"
+      },
+      {
+        "label": "Demot",
+        "href": "#demot"
+      },
+      {
+        "label": "Näin se toimii",
+        "href": "#prosessi"
+      },
+      {
+        "label": "UKK",
+        "href": "#ukk"
+      }
     ],
     "operator": "Tradesite on {COMPANY}:n palvelu",
     "businessId": "Y-tunnus {Y_TUNNUS}",
@@ -366,12 +744,30 @@
       "title": "Tietosuojaseloste",
       "intro": "[TARKISTA] Pohja. Sisältö täytetään ennen julkaisua.",
       "sections": [
-        { "h": "Rekisterinpitäjä", "p": "{COMPANY}, Y-tunnus {Y_TUNNUS}. Yhteystiedot: {EMAIL}, {PHONE}." },
-        { "h": "Mitä tietoja keräämme", "p": "[TARKISTA] Lomakkeilla lähetetyt tiedot: nimi, yrityksen nimi, puhelinnumero, sähköposti, paikkakunta, ala ja verkkosivun osoite." },
-        { "h": "Käyttötarkoitus", "p": "[TARKISTA] Tietoja käytetään yhteydenottoon, demon tekemiseen ja asiakassuhteen hoitoon." },
-        { "h": "Säilytys", "p": "[TARKISTA] Säilytysaika ja poistokäytäntö." },
-        { "h": "Tietojen käsittelijät", "p": "[TARKISTA] Lomakepalvelu ja hosting (esim. Cloudflare)." },
-        { "h": "Oikeutesi", "p": "[TARKISTA] Oikeus tarkastaa, korjata ja poistaa tietosi. Ota yhteyttä: {EMAIL}." }
+        {
+          "h": "Rekisterinpitäjä",
+          "p": "{COMPANY}, Y-tunnus {Y_TUNNUS}. Yhteystiedot: {EMAIL}, {PHONE}."
+        },
+        {
+          "h": "Mitä tietoja keräämme",
+          "p": "[TARKISTA] Lomakkeilla lähetetyt tiedot: nimi, yrityksen nimi, puhelinnumero, sähköposti, paikkakunta, ala ja verkkosivun osoite."
+        },
+        {
+          "h": "Käyttötarkoitus",
+          "p": "[TARKISTA] Tietoja käytetään yhteydenottoon, demon tekemiseen ja asiakassuhteen hoitoon."
+        },
+        {
+          "h": "Säilytys",
+          "p": "[TARKISTA] Säilytysaika ja poistokäytäntö."
+        },
+        {
+          "h": "Tietojen käsittelijät",
+          "p": "[TARKISTA] Lomakepalvelu ja hosting (esim. Cloudflare)."
+        },
+        {
+          "h": "Oikeutesi",
+          "p": "[TARKISTA] Oikeus tarkastaa, korjata ja poistaa tietosi. Ota yhteyttä: {EMAIL}."
+        }
       ]
     },
     "cookies": {
@@ -379,9 +775,18 @@
       "title": "Evästeet",
       "intro": "[TARKISTA] Pohja. Sisältö täytetään ennen julkaisua.",
       "sections": [
-        { "h": "Välttämättömät", "p": "Sivu muistaa selaimesi paikallisessa tallennustilassa, että olet kuitannut evästeilmoituksen. Tieto ei lähde meille." },
-        { "h": "Analytiikka", "p": "Kävijäseurantaa ei ole käytössä. Jos otamme sen käyttöön, kysymme luvan ensin." },
-        { "h": "Kolmannet osapuolet", "p": "[TARKISTA] Fontit ladataan Google Fontsista. Kartat ja videot lisätään myöhemmin." }
+        {
+          "h": "Välttämättömät",
+          "p": "Sivu muistaa selaimesi paikallisessa tallennustilassa, että olet kuitannut evästeilmoituksen. Tieto ei lähde meille."
+        },
+        {
+          "h": "Analytiikka",
+          "p": "Kävijäseurantaa ei ole käytössä. Jos otamme sen käyttöön, kysymme luvan ensin."
+        },
+        {
+          "h": "Kolmannet osapuolet",
+          "p": "[TARKISTA] Fontit ladataan Google Fontsista. Kartat ja videot lisätään myöhemmin."
+        }
       ]
     }
   }

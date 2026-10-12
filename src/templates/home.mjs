@@ -27,7 +27,6 @@ export default function home(c, v) {
 ${header(c, v)}
 <main id="main">
 ${hero(c, v)}
-${stats(c)}
 ${problem(c)}
 ${showcase(c)}
 ${beforeAfter(c, v)}
@@ -36,7 +35,6 @@ ${processSection(c)}
 ${pkg(c)}
 ${compare(c)}
 ${demos(c, v)}
-${mobile(c)}
 ${why(c)}
 ${faq(c)}
 ${contact(c, v)}
@@ -97,18 +95,6 @@ function hero(c, v) {
   </div>
   ${pause}
 </section>`;
-}
-
-/* 2. Luvut */
-function stats(c) {
-  const s = c.stats;
-  return section({ theme: 'asphalt', cls: 'section--compact stats', label: 'stats-title', body: `<div class="container">
-    <h2 class="sr-only" id="stats-title">${esc(s.title)}</h2>
-    <ul class="stat-strip" role="list">
-      ${s.items.map(i => `<li class="stat-strip__item"><span class="tile tile--signal">${icon(i.icon)}</span><p class="stat" data-roll="${esc(i.value)}">${esc(i.value)}</p><p class="caption">${esc(i.label)}</p></li>`).join('')}
-    </ul>
-    <p class="section-note">${icon('circle-check', 'icon--20')}${esc(s.note)}</p>
-  </div>` });
 }
 
 /* 3. Ongelma */
@@ -278,27 +264,7 @@ function demos(c, v) {
   return section({ id: 'demot', theme: 'birch', cls: 'demos', label: 'demos-title', body: `<div class="container">
     ${sectionHeader({ id: 'demos-title', caption: d.caption, title: d.title, sub: d.sub })}
     <ul class="demo-grid" role="list" data-demos>${cards}</ul>
-    <p class="section-note demos__note">${icon('circle-help', 'icon--20')}<span>${esc(d.note)} <a class="link" href="#yhteys-demo" data-event="cta-demo">${esc(c.nav.contactMenu[2].label)}</a></span></p>
-  </div>` });
-}
-
-/* 11. Mobiili ensin: puhelinkaruselli */
-function mobile(c) {
-  const m = c.mobile;
-  const slides = m.slides.map((s, i) => `<article class="phone-slide" aria-label="${esc(fill(m.slideLabel, { n: i + 1 }))}">${phone(pic(s.img, s.title, { sizes: '280px' }))}<div class="phone-slide__text"><h3 class="heading heading--xs">${esc(s.title)}</h3><p class="small muted">${esc(s.body)}</p></div></article>`).join('');
-  return section({ id: 'mobiili', theme: 'light-grey', cls: 'mobile', label: 'mobile-title', body: `<div class="container">
-    ${sectionHeader({ id: 'mobile-title', caption: m.caption, title: m.title, sub: m.sub })}
-    <div class="carousel" data-carousel data-autoplay>
-      <div class="carousel__track" tabindex="0" aria-label="${esc(m.title)}">${slides}</div>
-      <div class="carousel__nav">
-        <div class="page-indicator" data-indicator></div>
-        <div class="carousel__arrows">
-          <button class="btn btn--tertiary btn--md btn--icon" type="button" aria-label="${esc(m.pause)}" data-carousel-play data-label-pause="${esc(m.pause)}" data-label-play="${esc(m.play)}">${icon('pause')}</button>
-          <button class="btn btn--tertiary btn--md btn--icon" type="button" aria-label="${esc(m.prev)}" data-carousel-prev>${icon('chevron-left')}</button>
-          <button class="btn btn--tertiary btn--md btn--icon" type="button" aria-label="${esc(m.next)}" data-carousel-next>${icon('chevron-right')}</button>
-        </div>
-      </div>
-    </div>
+    <p class="section-note demos__note">${icon('circle-help', 'icon--20')}<span>${esc(d.note)} <a class="link" href="#yhteys-demo" data-event="cta-demo">Tee minulle demo</a></span></p>
   </div>` });
 }
 
