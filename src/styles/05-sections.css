@@ -282,3 +282,16 @@
 .section-note, .hero__note { display: block; text-align: center; text-wrap: balance; }
 .section-note > .icon, .hero__note > .icon { display: inline-block; vertical-align: -4px; margin-right: 8px; }
 .section-note > span { display: inline; }
+
+/* ---------- karsitut ikonit: ei taustaa, vain viiva ---------- */
+.plain-icon { display: inline-flex; color: var(--color-highlight-text); flex: 0 0 auto; }
+[data-theme="asphalt"] .plain-icon { color: var(--palette-shadow-300); }
+.feature-tile__text { align-items: center; }
+.why .feature .plain-icon { margin-bottom: -4px; }
+@media (max-width: 767px) { .why .feature { display: flex; } }
+.icon-list__mark { display: inline-flex; color: var(--palette-shadow-700); flex: 0 0 auto; }
+.icon-list--x .icon-list__mark { color: var(--color-text-muted); }
+.icon-list--quiet li { padding-left: 0; }
+.pill--text { padding: 8px 18px; min-height: 40px; font-size: 16px; }
+.panel--price .pill--text { padding: 4px 14px; min-height: 34px; font-size: 15px; }
+.contact-card__head { display: block; }

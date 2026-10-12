@@ -111,8 +111,8 @@ export function footer(c, v, { home = true } = {}) {
       <div class="footer__brand">${logo(c, home ? '#top' : './')}<p class="heading heading--s">${esc(c.footer.tagline)}</p><p class="small muted">${esc(c.footer.body)}</p></div>
       <nav class="footer__col" aria-label="${esc(c.footer.colService)}"><p class="footer__h">${esc(c.footer.colService)}</p><ul role="list">${c.footer.links.map(l => `<li><a href="${base}${l.href}">${esc(l.label)}</a></li>`).join('')}</ul></nav>
       <div class="footer__col"><p class="footer__h">${esc(c.footer.colContact)}</p><ul role="list">
-        <li><a href="tel:${v.PHONE_TEL}" data-event="cta-soita">${icon('phone', 'icon--20')}${esc(v.PHONE)}</a></li>
-        <li><a href="mailto:${esc(v.EMAIL)}">${icon('mail', 'icon--20')}${esc(v.EMAIL)}</a></li>
+        <li><a href="tel:${v.PHONE_TEL}" data-event="cta-soita">${esc(v.PHONE)}</a></li>
+        <li><a href="mailto:${esc(v.EMAIL)}">${esc(v.EMAIL)}</a></li>
       </ul></div>
     </div>
     <div class="footer__bottom">
@@ -132,7 +132,7 @@ export function cookieBanner(c) {
 }
 
 export function mobileBar(c, v, { home = true } = {}) {
-  return `<div class="mobile-bar" data-theme="birch"><a class="btn btn--tertiary" href="tel:${v.PHONE_TEL}" data-event="cta-soita">${icon('phone')}${esc(c.mobileBar.call)}</a><a class="btn btn--primary" href="${home ? '' : './'}#yhteys-demo" data-event="cta-demo">${icon('sparkles')}${esc(c.mobileBar.demo)}</a></div>`;
+  return `<div class="mobile-bar" data-theme="birch"><a class="btn btn--tertiary" href="tel:${v.PHONE_TEL}" data-event="cta-soita">${icon('phone')}${esc(c.mobileBar.call)}</a><a class="btn btn--primary" href="${home ? '' : './'}#yhteys-demo" data-event="cta-demo">${esc(c.mobileBar.demo)}</a></div>`;
 }
 
 const FONTS = 'https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Figtree:wght@300..700&display=swap';
