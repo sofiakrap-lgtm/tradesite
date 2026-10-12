@@ -1,0 +1,122 @@
+{
+  "demo/katot-puhelin.jpg": {
+    "width": 780,
+    "height": 1688
+  },
+  "demo/katot.jpg": {
+    "width": 1600,
+    "height": 1000
+  },
+  "demo/maalaus-puhelin.jpg": {
+    "width": 780,
+    "height": 1688
+  },
+  "demo/maalaus.jpg": {
+    "width": 1600,
+    "height": 1000
+  },
+  "demo/putki-lvi-puhelin.jpg": {
+    "width": 780,
+    "height": 1688
+  },
+  "demo/putki-lvi.jpg": {
+    "width": 1600,
+    "height": 1000
+  },
+  "demo/remontti-puhelin.jpg": {
+    "width": 780,
+    "height": 1688
+  },
+  "demo/remontti.jpg": {
+    "width": 1600,
+    "height": 1000
+  },
+  "demo/sahko-puhelin.jpg": {
+    "width": 780,
+    "height": 1688
+  },
+  "demo/sahko.jpg": {
+    "width": 1600,
+    "height": 1000
+  },
+  "demo/saneeraus-puhelin.jpg": {
+    "width": 780,
+    "height": 1688
+  },
+  "demo/saneeraus.jpg": {
+    "width": 1600,
+    "height": 1000
+  },
+  "features/arviot.jpg": {
+    "width": 780,
+    "height": 1688
+  },
+  "features/galleria.jpg": {
+    "width": 1600,
+    "height": 1000
+  },
+  "features/kartta.jpg": {
+    "width": 1600,
+    "height": 1000
+  },
+  "features/kotitalousvahennys.jpg": {
+    "width": 780,
+    "height": 1688
+  },
+  "features/lomake.jpg": {
+    "width": 1600,
+    "height": 1000
+  },
+  "features/soita-nyt.jpg": {
+    "width": 780,
+    "height": 1688
+  },
+  "hero-poster-mobile.jpg": {
+    "width": 900,
+    "height": 1400
+  },
+  "hero-poster.jpg": {
+    "width": 1920,
+    "height": 1080
+  },
+  "mobile/arviot.jpg": {
+    "width": 780,
+    "height": 1688
+  },
+  "mobile/etusivu.jpg": {
+    "width": 780,
+    "height": 1688
+  },
+  "mobile/galleria.jpg": {
+    "width": 780,
+    "height": 1688
+  },
+  "mobile/palvelut.jpg": {
+    "width": 780,
+    "height": 1688
+  },
+  "mobile/yhteys.jpg": {
+    "width": 780,
+    "height": 1688
+  },
+  "og-image.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "ref/holske.jpg": {
+    "width": 1600,
+    "height": 1000
+  },
+  "ref/myrak-ennen.jpg": {
+    "width": 1600,
+    "height": 1000
+  },
+  "ref/myrak-jalkeen.jpg": {
+    "width": 1600,
+    "height": 1000
+  },
+  "ref/svkatto.jpg": {
+    "width": 1600,
+    "height": 1000
+  }
+}

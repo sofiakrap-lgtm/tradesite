@@ -1,0 +1,14 @@
+{
+  "name": "tradesite",
+  "private": true,
+  "type": "module",
+  "description": "Tradesite.fi: staattinen myyntisivu. Cloudflare Pages: build command 'npm run build', output 'dist'.",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs && npx --yes serve dist -l 4321",
+    "images": "python3 tools/images.py",
+    "placeholders": "node tools/placeholders/generate.mjs && python3 tools/images.py",
+    "shots": "node tools/screenshots.mjs"
+  },
+  "engines": { "node": ">=18" }
+}

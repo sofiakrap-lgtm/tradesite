@@ -1,0 +1,39 @@
+/* Motion: ui-bahnexpress-fi. Liike on tilaohjattua, ei yleisiä scroll-reveal-efektejä. */
+@keyframes header-band { from { background-color: transparent; } to { background-color: var(--color-overlay); } }
+@keyframes sheet-down { from { transform: translateY(-100%); } to { transform: none; } }
+@keyframes sheet-up { from { transform: none; } to { transform: translateY(-100%); } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes dropdown-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes toast-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes indicator-fill { from { clip-path: inset(0 100% 0 0 round 999px); } to { clip-path: inset(0 0 0 0 round 999px); } }
+@keyframes uc-out { to { opacity: 0; } }
+@keyframes uc-in { from { opacity: 0; } }
+@keyframes panel-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* accordion: natiivi details, ::details-content-animaatio missä tuettu */
+.acc::details-content {
+  display: grid; grid-template-rows: 0fr; opacity: 0; overflow: hidden;
+  transition: grid-template-rows .32s var(--ease-in-out), opacity .32s var(--ease-in-out), content-visibility .32s allow-discrete;
+}
+.acc[open]::details-content { grid-template-rows: 1fr; opacity: 1; transition: grid-template-rows .32s var(--ease-emphasis), opacity .2s, content-visibility .32s allow-discrete; }
+.acc > .acc__a { min-height: 0; }
+
+/* rullaavat numerot */
+.roll { font-variant-numeric: tabular-nums; }
+.roll__digit { position: relative; display: inline-block; overflow: hidden; vertical-align: bottom; }
+.roll__ghost { visibility: hidden; }
+.roll__strip { position: absolute; inset: 0 0 auto 0; display: flex; flex-direction: column; transition: transform var(--duration-reveal) var(--ease-reveal); }
+
+/* View Transitions: demokortin morph */
+html[data-uc-vt]::view-transition-old(root), html[data-uc-vt]::view-transition-new(root) { animation: none; }
+html[data-uc-vt]::view-transition-group(*) { animation-duration: var(--duration-page); animation-timing-function: var(--ease-in-out); }
+::view-transition-image-pair(*.use-case) { border-radius: var(--radius-card); overflow: clip; }
+html[data-uc-vt]::view-transition-old(*.use-case), html[data-uc-vt]::view-transition-new(*.use-case) { object-fit: none; object-position: left top; width: auto; height: auto; inset: 0 auto auto 0; }
+html[data-uc-vt]::view-transition-old(*.use-case) { animation: .18s var(--ease-exit) both uc-out; }
+html[data-uc-vt]::view-transition-new(*.use-case) { animation: .3s var(--ease-out) .14s both uc-in; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; animation-delay: 0s !important; transition-duration: 0s !important; transition-delay: 0s !important; }
+  .hero__video { display: none !important; }
+}

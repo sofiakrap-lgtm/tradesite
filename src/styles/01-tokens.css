@@ -1,0 +1,218 @@
+/* Pohja: ui-bahnexpress-fi. Väripaletti: Tradesite.
+   Moduulit 03-07 ui-bahnexpress-fi:stä (Archivo wdth 125 + Figtree). Moduuli 02-color ja [data-theme]-teemat kirjoitettu uudelleen Tradesiten paletilla.
+   Brändivärit: White Chocolate #EBE5DC, Morning Blue #919C9D, Shadow #868365, Raisin Black #24221E.
+   Kontrastit tarkistettu WCAG AA:ta vasten (docs/TARKISTA.md, kohta Kontrastit). */
+
+:root {
+/* @module 02-color:start */
+  /* brändi */
+  --palette-white-chocolate: #ebe5dc;
+  --palette-morning-blue: #919c9d;
+  --palette-shadow: #868365;
+  --palette-raisin: #24221e;
+
+  /* johdetut sävyaskeleet (lämmin harmaa, ei sininen) */
+  --palette-cream-50: #f6f3ee;   /* kortit ja kentät vaaleissa teemoissa */
+  --palette-cream-100: #ebe5dc;  /* = White Chocolate */
+  --palette-cream-200: #e1dacf;  /* light-grey-teema, n. 4 % tummempi */
+  --palette-cream-300: #d3cbbe;  /* sand: divider, pressed */
+  --palette-cream-400: #b9b0a1;
+  --palette-warm-500: #8c8475;
+  --palette-warm-600: #5f584c;   /* muted-teksti vaaleilla (5,1 ... 6,4:1) */
+  --palette-warm-700: #4a453c;
+  --palette-warm-800: #38342e;
+  --palette-warm-900: #2e2b26;   /* leipäteksti vaaleilla */
+  --palette-raisin-deep: #11100d; /* teksti Shadow-taustalla (Raisin olisi 4,1:1) */
+  --palette-blue-300: #b4bcbd;
+  --palette-blue-700: #66706f;
+  --palette-shadow-300: #a3a086;
+  --palette-shadow-700: #5c5a43; /* signaaliväri tekstinä vaaleilla (5,6:1) */
+  --palette-shadow-800: #49473a;
+  --palette-danger: #a3322b;
+  --palette-success: #3f6b3a;
+
+  /* semanttiset: oletus = birch-teema */
+  --color-bg: var(--palette-cream-100);
+  --color-bg-alt: var(--palette-cream-200);
+  --color-surface: var(--palette-cream-50);
+  --color-surface-raised: var(--palette-cream-100);
+  --color-surface-sunken: var(--palette-cream-200);
+  --color-overlay: rgb(246 243 238 / 0.95);
+  --color-text: var(--palette-warm-900);
+  --color-text-muted: var(--palette-warm-600);
+  --color-text-subtle: var(--palette-cream-400);
+  --color-text-inverse: var(--palette-cream-100);
+  --color-heading: var(--palette-raisin);
+  --color-link: inherit;
+  --color-link-hover: var(--palette-warm-600);
+  --color-accent: var(--palette-raisin);
+  --color-accent-hover: var(--palette-warm-800);
+  --color-accent-contrast: var(--palette-cream-100);
+  --color-tertiary: var(--palette-cream-200);
+  --color-tertiary-hover: var(--palette-cream-300);
+  --color-tertiary-text: var(--palette-raisin);
+  --color-highlight: var(--palette-shadow);         /* signaali: aktiivinen pinni, slider-kahva, pienet merkit */
+  --color-highlight-text: var(--palette-shadow-700);
+  --color-border: var(--palette-cream-300);
+  --color-border-strong: var(--palette-cream-400);
+  --color-focus: var(--palette-warm-600);
+  --color-selection-bg: var(--palette-raisin);
+  --color-selection-text: var(--palette-cream-100);
+  --color-success: var(--palette-success);
+  --color-warning: var(--palette-shadow-700);
+  --color-danger: var(--palette-danger);
+  --color-input-surface: var(--palette-cream-50);
+  --color-input-text: var(--palette-raisin);
+  --color-scrim: rgb(36 34 30 / 0.5);
+  --color-dialog-scrim: rgb(36 34 30 / 0.7);
+  --color-hero-wash: rgb(235 229 220 / 0.55);
+  --color-device: var(--palette-raisin);          /* laitekehykset */
+  --color-device-detail: var(--palette-warm-800);
+  --gradient-1: linear-gradient(to bottom, transparent 65%, var(--color-bg));
+/* @module 02-color:end */
+
+/* @module 03-typography:start */
+  --font-display: "Archivo", system-ui, sans-serif;   /* font-stretch: 125% */
+  --font-heading: "Archivo", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --font-accent: "Archivo", system-ui, sans-serif;
+  --stretch-display: 125%;
+
+  --text-display: 96px;  --leading-display: 96px;  --tracking-display: -0.3px; --weight-display: 900;
+  --text-h1: 72px;       --leading-h1: 72px;       --tracking-h1: -0.3px;      --weight-h1: 900;
+  --text-h2: 48px;       --leading-h2: 56px;       --tracking-h2: 0.3px;       --weight-h2: 500;
+  --text-h3: 32px;       --leading-h3: 36px;       --tracking-h3: 0.3px;       --weight-h3: 500;
+  --text-h4: 28px;       --leading-h4: 32px;       --tracking-h4: 0.3px;       --weight-h4: 500;
+  --text-h5: 24px;       --leading-h5: 28px;       --tracking-h5: 0.3px;       --weight-h5: 500;
+  --text-h6: 20px;       --leading-h6: 24px;       --tracking-h6: 0.3px;       --weight-h6: 500;
+  --text-lead: 24px;     --leading-lead: 32px;     --tracking-lead: 0px;       --weight-lead: 600;
+  --text-body: 20px;     --leading-body: 28px;     --tracking-body: 0px;       --weight-body: 300;
+  --text-small: 16px;    --leading-small: 22px;    --tracking-small: 0px;      --weight-small: 400;
+  --text-caption: 18px;  --leading-caption: 22px;  --tracking-caption: 0px;    --weight-caption: 600;
+  --text-label: 16px;    --leading-label: 22px;    --tracking-label: 0px;      --weight-label: 400;
+  --text-button: 20px;   --leading-button: 20px;   --tracking-button: 0px;     --weight-button: 600;
+  --text-nav: 18px;      --leading-nav: 18px;      --tracking-nav: 0px;        --weight-nav: 600;
+  --text-stat: 64px;     --leading-stat: 64px;     --tracking-stat: 1.8px;     --weight-stat: 700;
+  --text-quote: 32px;    --leading-quote: 36px;    --tracking-quote: -0.3px;   --weight-quote: 700;
+  --case-display: uppercase;
+  --measure-body: 888px;
+  --numeric-stat: tabular-nums;
+/* @module 03-typography:end */
+
+/* @module 04-layout:start */
+  --space-0: 0; --space-1: 4px; --space-2: 6px; --space-3: 8px; --space-4: 12px; --space-5: 16px; --space-6: 24px;
+  --space-7: 32px; --space-8: 36px; --space-9: 48px; --space-10: 64px; --space-11: 96px; --space-12: 144px;
+  --section-py: 144px;
+  --section-gap: 64px;
+  --sub-section-gap: 32px;
+  --container-max: 1440px;
+  --container-narrow: 888px;
+  --container-pad: 48px;
+  --header-h: 64px;
+  --mobile-bar-h: 0px;
+/* @module 04-layout:end */
+
+/* @module 05-surfaces:start */
+  --radius-none: 0; --radius-xs: 6px; --radius-sm: 12px; --radius-md: 20px; --radius-lg: 24px; --radius-xl: 48px; --radius-pill: 999px;
+  --radius-button: 999px; --radius-card: 24px; --radius-input: 20px; --radius-media: 24px;
+  --radius-tile-sm: 12px; --radius-tile-md: 16px; --radius-tile-lg: 20px;
+  --shadow-0: none; --shadow-card: none; --shadow-button: none; --shadow-modal: none;
+  --opacity-overlay: 0.95;
+  --border-width: 1px; --border-width-strong: 2px;
+  --screenshot-bezel: 8px;
+  --z-sticky: 10; --z-overlay: 30; --z-header: 40; --z-dropdown: 50; --z-modal: 60;
+/* @module 05-surfaces:end */
+
+/* @module 06-components:start */
+  --button-h: 56px; --button-px: 24px; --button-gap: 12px;
+  --input-h: 72px; --input-px: 16px;
+  --card-pad: 24px;
+  --icon-20: 20px; --icon-24: 24px; --icon-32: 32px; --icon-48: 48px;
+  --icon-size: 24px; --icon-stroke: 2px;
+  --segmented-pad: 4px;
+  --hero-item-pad: 48px;
+/* @module 06-components:end */
+
+/* @module 07-motion:start */
+  --duration-instant: 90ms; --duration-fast: 150ms; --duration-base: 240ms; --duration-slow: 320ms; --duration-reveal: 1000ms; --duration-page: 460ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasis: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-reveal: cubic-bezier(0, 0, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --stagger-base: 90ms;
+  --reveal-distance: 8px;
+  --autoplay-duration: 6s;
+  --timeline-beat: 0.62s;
+/* @module 07-motion:end */
+}
+
+@media (max-width: 1024px) {
+  :root { --section-py: 128px; --section-gap: 56px; --sub-section-gap: 28px; --container-pad: 36px; --text-h1: 56px; --leading-h1: 56px; --text-stat: 56px; --leading-stat: 56px; --hero-item-pad: 36px; }
+}
+@media (max-width: 767px) {
+  :root { --section-py: 96px; --section-gap: 48px; --sub-section-gap: 24px; --container-pad: 24px; --text-h1: 44px; --leading-h1: 44px; --text-stat: 44px; --leading-stat: 44px;
+    --text-body: 18px; --leading-body: 26px; --text-lead: 20px; --leading-lead: 28px; --text-h3: 24px; --leading-h3: 28px; --mobile-bar-h: 72px; --screenshot-bezel: 6px; }
+}
+
+/* Osioteemat: jokainen [data-theme] vaihtaa koko token-setin.
+   Keskisävyt (Morning Blue, Shadow) käyttävät tummaa tekstiä. */
+[data-theme="birch"] { color-scheme: light; }
+[data-theme="light-grey"] {
+  color-scheme: light;
+  --color-bg: var(--palette-cream-200); --color-surface: var(--palette-cream-50); --color-surface-raised: var(--palette-cream-100);
+  --color-surface-sunken: var(--palette-cream-300); --color-tertiary: var(--palette-cream-100); --color-tertiary-hover: var(--palette-cream-300);
+  --color-overlay: rgb(225 218 207 / 0.95); --gradient-1: linear-gradient(to bottom, transparent 65%, var(--palette-cream-200));
+}
+[data-theme="teal"] {
+  color-scheme: light;
+  --color-bg: var(--palette-morning-blue); --color-surface: var(--palette-cream-50); --color-surface-raised: var(--palette-cream-100);
+  --color-surface-sunken: var(--palette-blue-300);
+  --color-overlay: rgb(180 188 189 / 0.95);
+  --color-text: var(--palette-raisin); --color-text-muted: #33312b; --color-heading: var(--palette-raisin);
+  --color-border: var(--palette-blue-700); --color-focus: var(--palette-raisin); --color-link-hover: #33312b;
+  --color-tertiary: var(--palette-blue-300); --color-tertiary-hover: var(--palette-cream-200);
+}
+[data-theme="green"] {
+  color-scheme: light;
+  --color-bg: var(--palette-shadow); --color-surface: var(--palette-shadow-300); --color-surface-raised: var(--palette-cream-50);
+  --color-surface-sunken: var(--palette-shadow-300);
+  --color-overlay: rgb(163 160 134 / 0.95);
+  --color-text: var(--palette-raisin-deep); --color-text-muted: #1a1916; --color-heading: var(--palette-raisin-deep);
+  --color-border: var(--palette-shadow-800); --color-focus: var(--palette-raisin-deep); --color-link-hover: var(--palette-warm-800);
+  --color-highlight: var(--palette-raisin);
+  --color-tertiary: var(--palette-shadow-300); --color-tertiary-hover: var(--palette-cream-300);
+}
+[data-theme="asphalt"] {
+  color-scheme: dark;
+  --color-bg: var(--palette-raisin); --color-surface: var(--palette-warm-900); --color-surface-raised: var(--palette-warm-800);
+  --color-surface-sunken: var(--palette-warm-900);
+  --color-overlay: rgb(36 34 30 / 0.95);
+  --color-text: #d9d2c6; --color-text-muted: #b0a89a; --color-heading: var(--palette-cream-100);
+  --color-accent: var(--palette-cream-100); --color-accent-hover: #d9d2c6; --color-accent-contrast: var(--palette-raisin);
+  --color-tertiary: var(--palette-warm-800); --color-tertiary-hover: var(--palette-warm-700); --color-tertiary-text: var(--palette-cream-100);
+  --color-border: var(--palette-warm-700); --color-focus: #b0a89a; --color-link-hover: #b0a89a;
+  --color-highlight: var(--palette-shadow-300); --color-highlight-text: var(--palette-shadow-300);
+  --color-input-surface: var(--palette-warm-800); --color-input-text: var(--palette-cream-100);
+  --color-device: #0d0c0a; --color-device-detail: var(--palette-warm-700);
+}
+[data-theme] { color: var(--color-text); }
+
+/* Vaaleat pinnat tummien teemojen sisällä */
+.on-light {
+  --color-heading: var(--palette-raisin); --color-text: var(--palette-warm-900); --color-text-muted: var(--palette-warm-600);
+  --color-accent: var(--palette-raisin); --color-accent-hover: var(--palette-warm-800); --color-accent-contrast: var(--palette-cream-100);
+  --color-border: var(--palette-cream-300); --color-focus: var(--palette-warm-600);
+  --color-tertiary: var(--palette-cream-200); --color-tertiary-hover: var(--palette-cream-300); --color-tertiary-text: var(--palette-raisin);
+  --color-surface-raised: var(--palette-cream-100); --color-highlight-text: var(--palette-shadow-700);
+  --color-input-surface: var(--palette-cream-100); --color-input-text: var(--palette-raisin);
+  color: var(--color-text);
+}
+
+::selection { background: var(--color-selection-bg); color: var(--color-selection-text); }
+:focus-visible { outline: 4px solid var(--color-focus); outline-offset: 0; }
+@media (prefers-reduced-motion: reduce) {
+  :root { --duration-fast: 1ms; --duration-base: 1ms; --duration-slow: 1ms; --duration-reveal: 1ms; --duration-page: 1ms; --reveal-distance: 0px; }
+}
