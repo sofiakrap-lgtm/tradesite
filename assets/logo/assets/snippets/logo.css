@@ -1,0 +1,17 @@
+/* Tradesite-logo. Käytä semanttisia tokeneita, ei raaka-arvoja. */
+:root{
+  --logo-h: 32px;          /* header desktop */
+  --logo-h-mobile: 26px;   /* header mobiili */
+  --logo-h-footer: 28px;
+}
+.ts-logo{display:inline-flex;align-items:center;color:var(--color-text, #24221E);text-decoration:none;line-height:0}
+.ts-logo__svg{height:var(--logo-h);width:auto;display:block}
+@media (max-width:767px){.ts-logo__svg{height:var(--logo-h-mobile)}}
+footer .ts-logo__svg{height:var(--logo-h-footer)}
+/* Tummat osiot: logo White Chocolate */
+[data-theme="asphalt"] .ts-logo{color:#EBE5DC}
+/* Fokus näkyviin, ei varjoja */
+.ts-logo:focus-visible{outline:2px solid currentColor;outline-offset:6px;border-radius:4px}
+/* Vain merkki, esim. kapea kiinteä alapalkki */
+.ts-logo--mark .ts-logo__word{display:none}
+.ts-logo--mark .ts-logo__svg{aspect-ratio:1;width:var(--logo-h);height:auto}
