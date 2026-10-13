@@ -55,9 +55,7 @@ for (const w of widths) {
     await (await page.$('#demo-sahko')).screenshot({ path: path.join(OUT, `desktop-demo-avattu.png`) });
     await hide.evaluate(e => e.remove());
     await page.evaluate(() => scrollTo(0, 0));
-    await page.click('[data-dropdown]');
-    await page.waitForTimeout(300);
-    await page.screenshot({ path: path.join(OUT, `desktop-yhteysvalikko.png`), clip: { x: 0, y: 0, width: 1440, height: 420 } });
+    await page.screenshot({ path: path.join(OUT, `desktop-00-ensimmainen-ruutu.png`) });
   } else {
     await hide.evaluate(e => e.remove());
     await page.evaluate(() => scrollTo(0, 0));

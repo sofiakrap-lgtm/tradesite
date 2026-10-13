@@ -168,6 +168,60 @@
     setPlayIcon(); mark();
   });
 
+
+  /* 7b. Ominaisuuskaruselli (Holske): nuolet siirtävät yhden kortin, silmukka päistä */
+  document.querySelectorAll('[data-rail]').forEach(rail => {
+    const list = rail.querySelector('[data-rail-track]');
+    const move = dir => {
+      const card = list.querySelector('li');
+      const w = card ? card.getBoundingClientRect().width + 24 : 400;
+      const end = list.scrollLeft + list.clientWidth >= list.scrollWidth - 4;
+      const start = list.scrollLeft <= 4;
+      const behavior = reduce ? 'auto' : 'smooth';
+      if (dir > 0 && end) list.scrollTo({ left: 0, behavior });
+      else if (dir < 0 && start) list.scrollTo({ left: list.scrollWidth, behavior });
+      else list.scrollBy({ left: dir * w, behavior });
+    };
+    rail.querySelector('[data-rail-prev]')?.addEventListener('click', () => move(-1));
+    rail.querySelector('[data-rail-next]')?.addEventListener('click', () => move(1));
+  });
+
+  /* 7c. Puhelinnauha: kiertää itsestään loputtomasti. Kun käyttäjä koskee, vierittää tai vie hiiren päälle,
+     liike pysähtyy ja käyttäjä ohjaa. Jatkuu 2,5 s kuluttua. Reduced motion: ei automaattista liikettä. */
+  document.querySelectorAll('[data-loop]').forEach(loop => {
+    const track = loop.querySelector('[data-loop-track]');
+    const half = () => track.scrollWidth / 2;
+    const wrap = () => {
+      const h = half();
+      if (loop.scrollLeft >= h) loop.scrollLeft -= h;
+      else if (loop.scrollLeft <= 0) loop.scrollLeft += h;
+    };
+    loop.addEventListener('scroll', wrap, { passive: true });
+    let paused = reduce, visible = false, resumeT, last = 0, acc = 0;
+    const speed = 30; // px sekunnissa
+    const hold = () => { paused = true; clearTimeout(resumeT); };
+    const release = () => { clearTimeout(resumeT); if (!reduce) resumeT = setTimeout(() => { paused = false; }, 2500); };
+    ['pointerdown', 'touchstart', 'wheel', 'focusin', 'mouseenter'].forEach(ev => loop.addEventListener(ev, hold, { passive: true }));
+    ['pointerup', 'touchend', 'mouseleave', 'focusout'].forEach(ev => loop.addEventListener(ev, release, { passive: true }));
+    loop.addEventListener('wheel', release, { passive: true });
+    // hiirellä vetäminen
+    let drag = null;
+    loop.addEventListener('pointerdown', e => { if (e.pointerType === 'mouse') drag = { x: e.clientX, left: loop.scrollLeft }; });
+    addEventListener('pointermove', e => { if (drag) loop.scrollLeft = drag.left - (e.clientX - drag.x); });
+    addEventListener('pointerup', () => { drag = null; });
+    const tick = t => {
+      const dt = last ? Math.min(64, t - last) : 16; last = t;
+      if (!paused && visible) {
+        acc += speed * dt / 1000;
+        const step = Math.floor(acc);
+        if (step) { loop.scrollLeft += step; acc -= step; }
+      }
+      requestAnimationFrame(tick);
+    };
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; }, { threshold: 0.2 }).observe(loop);
+    requestAnimationFrame(() => { loop.scrollLeft = 1; requestAnimationFrame(tick); });
+  });
+
   /* 8. Demokortit: avautuvat täysleveiksi View Transitions -morphilla */
   document.querySelectorAll('[data-demos]').forEach(grid => {
     const cards = [...grid.querySelectorAll('.demo-card')];

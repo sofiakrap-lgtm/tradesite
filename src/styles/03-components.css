@@ -2,6 +2,7 @@
 
 /* ---------- napit ---------- */
 .btn {
+  --button-h: 44px; --button-px: 22px; --text-button: 17px;
   display: inline-flex; align-items: center; justify-content: center; gap: var(--button-gap);
   height: var(--button-h); padding: 0 var(--button-px); border: 0; border-radius: var(--radius-button);
   font: var(--weight-button) var(--text-button)/var(--text-button) var(--font-body); white-space: nowrap; cursor: pointer; text-decoration: none;
@@ -16,11 +17,13 @@
 .btn--tertiary:hover { background: var(--color-tertiary-hover); }
 .btn--ghost { color: var(--color-heading); padding-inline: calc(var(--button-px) - 2px); }
 .btn--ghost:hover { color: var(--color-link-hover); }
-.btn--xs { --button-h: 40px; --button-px: 20px; --text-button: 16px; --button-gap: 8px; }
-.btn--sm { --button-h: 48px; --button-px: 22px; --text-button: 18px; --button-gap: 10px; }
-.btn--md { --button-h: 56px; --button-px: 24px; --text-button: 20px; }
-.btn--lg { --button-h: 64px; --button-px: 28px; --text-button: 22px; }
-.btn--xl { --button-h: 72px; --button-px: 32px; --text-button: 24px; }
+/* Koot Holsken mukaan: matalammat napit (36 / 44 / 50 / 56) */
+.btn--xs { --button-h: 36px; --button-px: 18px; --text-button: 15px; --button-gap: 8px; }
+.btn--sm { --button-h: 44px; --button-px: 22px; --text-button: 17px; --button-gap: 10px; }
+.btn--md { --button-h: 50px; --button-px: 24px; --text-button: 18px; }
+.btn--lg { --button-h: 50px; --button-px: 24px; --text-button: 18px; }
+.btn--xl { --button-h: 56px; --button-px: 28px; --text-button: 19px; }
+@media (min-width: 1025px) { .btn--lg { --button-h: 56px; --button-px: 28px; --text-button: 19px; } }
 .btn--icon { width: var(--button-h); padding: 0; }
 .btn--block { width: 100%; }
 .btn:disabled, .btn[aria-disabled="true"] { background: var(--color-bg-alt); color: var(--color-text-muted); cursor: not-allowed; }
@@ -77,7 +80,7 @@
 .site-header__inner { position: relative; z-index: 2; max-width: var(--container-max); height: 100%; margin: 0 auto; padding-inline: 24px 12px; display: flex; align-items: center; column-gap: 8px; }
 .nav { margin-inline-start: 16px; }
 .segmented { position: relative; display: inline-grid; grid-auto-flow: column; grid-auto-columns: max-content; padding: var(--segmented-pad); border-radius: var(--radius-pill); }
-.segmented__label { position: relative; z-index: 1; height: 48px; padding: 0 22px; display: flex; align-items: center; gap: 10px; border-radius: var(--radius-pill); font: var(--weight-nav) var(--text-nav)/var(--text-nav) var(--font-body); color: var(--color-text); text-decoration: none; white-space: nowrap; transition: color var(--duration-fast); background: none; border: 0; cursor: pointer; }
+.segmented__label { position: relative; z-index: 1; height: 48px; padding: 0 22px; --seg-dummy: 0; display: flex; align-items: center; gap: 10px; border-radius: var(--radius-pill); font: var(--weight-nav) var(--text-nav)/var(--text-nav) var(--font-body); color: var(--color-text); text-decoration: none; white-space: nowrap; transition: color var(--duration-fast); background: none; border: 0; cursor: pointer; }
 .segmented__label:not([aria-current]):not([aria-selected="true"]):hover { color: var(--color-link-hover); }
 .segmented::before { content: ""; position: absolute; top: 4px; bottom: 4px; left: var(--chip-left, 4px); width: var(--chip-width, 0px); background: var(--color-surface); border-radius: var(--radius-pill); transition: left .26s var(--ease-standard), width .26s var(--ease-standard); }
 .site-header__accessories { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 6px; }
@@ -87,30 +90,30 @@
 @media (min-width: 768px) { .site-header__inner { padding-inline: 36px 24px; } .nav { margin-inline-start: 20px; } .site-header__accessories { gap: 8px; } }
 @media (min-width: 1025px) { .site-header__inner { padding-inline: 36px; } .nav { margin-inline-start: 24px; } .site-header__accessories { gap: 12px; } }
 @media (max-width: 819px) { .nav { display: none; } }
+
+/* yläpalkki Holsken mallin mukaan: kevyt navigaatio, yksi pieni toimintanappi */
+.nav .segmented__label { height: 38px; padding: 0 18px; font-size: 16px; color: var(--palette-warm-900); }
+.nav .segmented__label:hover, .nav .segmented__label[aria-current] { color: var(--color-heading); }
+.nav .segmented::before { background: var(--palette-cream-200); }
+/* Holsken tapaan pieni toimintanappi (tumma) */
+.btn--action { --button-h: 36px; --button-px: 16px; --text-button: 15px; }
+@media (min-width: 768px) { .btn--action { --button-h: 38px; --button-px: 18px; --text-button: 16px; } }
+.menu-toggle { width: 48px; height: 48px; border: 0; border-radius: 999px; background: transparent; color: var(--color-heading); cursor: pointer; display: grid; place-items: center; }
 @media (min-width: 820px) { .menu-toggle { display: none; } }
-@media (max-width: 767px) { .contact-menu .btn { --button-h: 40px; --button-px: 18px; --text-button: 16px; } }
-@media (max-width: 767px) { .contact-menu__chevron { display: none; } }
+.menu-icon { position: relative; display: block; width: 22px; height: 12px; }
+.menu-icon span { position: absolute; left: 0; right: 0; height: 2px; background: currentColor; transition: transform var(--duration-base) var(--ease-standard), top var(--duration-base) var(--ease-standard); }
+.menu-icon span:first-child { top: 0; } .menu-icon span:last-child { top: 10px; }
+.is-menu-open .menu-icon span:first-child { top: 5px; transform: rotate(45deg); }
+.is-menu-open .menu-icon span:last-child { top: 5px; transform: rotate(-45deg); }
 
-/* dropdown */
-.dropdown { position: relative; }
-.dropdown__sheet { position: absolute; top: calc(100% + 8px); right: 0; min-width: 300px; background: var(--color-input-surface); border-radius: 20px; padding: 4px; list-style: none; margin: 0; z-index: var(--z-dropdown); animation: dropdown-in .14s var(--ease-standard) both; }
-.dropdown__item { display: flex; align-items: center; gap: 16px; padding: 10px 16px 10px 10px; border-radius: 16px; text-decoration: none; color: var(--color-heading); }
-.dropdown__item:hover, .dropdown__item:focus-visible { background: var(--color-bg-alt); }
-.dropdown__item .tile { width: 44px; height: 44px; border-radius: 12px; background: var(--color-bg); }
-.dropdown__item .tile .icon { --icon-size: 22px; }
-.dropdown__text { display: flex; flex-direction: column; gap: 2px; font: 600 18px/24px var(--font-body); }
-.dropdown__text small { font: 400 16px/22px var(--font-body); color: var(--color-text-muted); }
-
-/* mobiilivalikko */
-.nav-mobile { position: absolute; z-index: 1; top: 0; left: 0; right: 0; padding: calc(var(--header-h) + 12px) 24px 24px; background: var(--color-overlay); display: grid; gap: 24px; animation: sheet-down .24s var(--ease-standard) both; }
+/* mobiilivalikko: arkki laskeutuu yläpalkin alta */
+.nav-mobile { position: absolute; z-index: 1; top: 0; left: 0; right: 0; padding: calc(var(--header-h) + 12px) 24px 24px; background: var(--color-overlay); border-radius: 0 0 24px 24px; animation: sheet-down .24s var(--ease-standard) both; }
 .nav-mobile[data-state="closed"] { animation: sheet-up .18s var(--ease-standard) both; }
-.nav-mobile__group { display: flex; flex-direction: column; gap: 6px; }
-.nav-mobile__label { font: 600 16px/22px var(--font-body); color: var(--color-text-muted); padding: 0 22px; }
-.nav-mobile__links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; }
-.nav-mobile__links a { display: flex; align-items: center; height: 48px; padding: 0 22px; border-radius: var(--radius-pill); font: 600 18px/18px var(--font-body); color: var(--color-heading); text-decoration: none; }
-.nav-mobile__links a:hover { background: var(--color-surface); }
+.nav-mobile__label { font: 600 16px/22px var(--font-body); color: var(--color-text-muted); padding: 0 18px; margin-bottom: 8px; }
+.nav-mobile__links { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+.nav-mobile__links a { display: flex; align-items: center; height: 44px; padding: 0 18px; border-radius: var(--radius-pill); font: 600 16px/1 var(--font-body); color: var(--color-heading); text-decoration: none; }
+.nav-mobile__links a:hover { background: var(--palette-cream-200); }
 .menu-scrim { position: fixed; inset: 0; background: var(--color-scrim); z-index: -1; animation: fade-in .24s both; }
-@media (min-width: 768px) { .nav-mobile { grid-template-columns: repeat(3, 1fr); border-radius: 0 0 24px 24px; padding: calc(var(--header-h) + 18px) 36px 36px; } }
 
 /* ---------- lomakkeet ---------- */
 .field { position: relative; display: flex; align-items: center; gap: 12px; width: 100%; min-height: var(--input-h); padding: 12px var(--input-px); background: var(--color-input-surface); border-radius: var(--radius-input); cursor: text; color: var(--color-input-text); }
@@ -141,7 +144,7 @@ select.input:invalid { color: var(--color-text-muted); }
 .quote-bar__group .notch--row { display: none; }
 .quote-bar__group .notch--col { align-self: center; width: 32px; height: 16px; }
 .quote-bar__group .notch--row { width: 16px; height: 32px; }
-.quote-bar .btn { --button-h: 64px; --button-px: 28px; --text-button: 22px; }
+.quote-bar .btn { --button-h: 56px; --button-px: 28px; --text-button: 19px; }
 @media (min-width: 768px) and (max-width: 1024px) { .quote-bar { max-width: 480px; } }
 @media (min-width: 1025px) {
   .quote-bar, .quote-bar__group { flex-direction: row; align-items: center; }
@@ -149,7 +152,7 @@ select.input:invalid { color: var(--color-text-muted); }
   .quote-bar__group .field { flex: 1; }
   .quote-bar__group .notch--row { display: block; }
   .quote-bar__group .notch--col { display: none; }
-  .quote-bar .btn { --button-h: 72px; --button-px: 32px; --text-button: 24px; }
+  .quote-bar .btn { --button-h: 64px; --button-px: 30px; --text-button: 20px; }
 }
 .form-status { display: flex; align-items: center; gap: 12px; font: 600 18px/24px var(--font-body); color: var(--color-heading); }
 .form-status[data-kind="error"] { color: var(--color-danger); }
