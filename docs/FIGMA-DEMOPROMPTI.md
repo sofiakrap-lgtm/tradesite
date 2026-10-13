@@ -11,6 +11,14 @@ DEMOT (6 kpl, jokaiselle oma kuvitteellinen yritys, oma logo-teksti ja oma väri
 5. katot       Kattoremontit, pellitykset. Näytä: Kartta, Ennen ja jälkeen, Asiakasarviot
 6. maalaus     Sisä- ja ulkomaalaus. Näytä: Galleria, Lomake, Soita nyt
 
+YRITYSNIMET
+saneeraus   Runkopuu Saneeraus
+sahko       Kipinä Sähkö
+putki-lvi   Virtaus LVI
+remontti    Nurkka Remontit
+katot       Lape Katot
+maalaus     Tonal Maalaus
+
 JOKAISEN DEMON RAKENNE (sama runko, eri ilme)
 Etusivu: yläpalkki (logo, 3-4 linkkiä, Soita-nappi), hero (iso kuva, otsikko, yksi lause, 2 nappia: Pyydä tarjous / Soita), palvelut 3-6 korttina, kuvagalleria tai ennen ja jälkeen, meistä lyhyesti, asiakasarviot 2-3 kpl, kartta ja palvelualue, kotitalousvähennys-laatikko (jos alalle sopii), yhteydenottolomake, footer.
 Mahdollisimman vähän tekstiä. Isot kuvat. Selkeät napit. Näyttää oikealta pienyrityksen sivulta, ei mallipohjalta.
