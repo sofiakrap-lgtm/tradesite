@@ -99,23 +99,23 @@
     "width": 780,
     "height": 1688
   },
-  "og-image.jpg": {
-    "width": 1200,
-    "height": 630
-  },
-  "ref/holske.jpg": {
+  "ref/holske-ennen.jpg": {
     "width": 1600,
     "height": 1000
+  },
+  "ref/holske-jalkeen.jpg": {
+    "width": 1600,
+    "height": 1000
+  },
+  "ref/holske-puhelin.jpg": {
+    "width": 780,
+    "height": 1688
   },
   "ref/myrak-ennen.jpg": {
     "width": 1600,
     "height": 1000
   },
   "ref/myrak-jalkeen.jpg": {
-    "width": 1600,
-    "height": 1000
-  },
-  "ref/svkatto.jpg": {
     "width": 1600,
     "height": 1000
   }

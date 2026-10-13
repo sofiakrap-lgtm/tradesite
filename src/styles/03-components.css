@@ -95,9 +95,8 @@
 .nav .segmented__label { height: 38px; padding: 0 18px; font-size: 16px; color: var(--palette-warm-900); }
 .nav .segmented__label:hover, .nav .segmented__label[aria-current] { color: var(--color-heading); }
 .nav .segmented::before { background: var(--palette-cream-200); }
-/* Holsken tapaan toimintanappi brändivärillä (oliivi, vaalea teksti 5,6:1) */
-.btn--action { --button-h: 36px; --button-px: 16px; --text-button: 15px; background: var(--palette-shadow-700); color: var(--palette-cream-100); }
-.btn--action:hover { background: var(--palette-shadow-800); }
+/* Holsken tapaan pieni toimintanappi (tumma) */
+.btn--action { --button-h: 36px; --button-px: 16px; --text-button: 15px; }
 @media (min-width: 768px) { .btn--action { --button-h: 38px; --button-px: 18px; --text-button: 16px; } }
 .menu-toggle { width: 48px; height: 48px; border: 0; border-radius: 999px; background: transparent; color: var(--color-heading); cursor: pointer; display: grid; place-items: center; }
 @media (min-width: 820px) { .menu-toggle { display: none; } }

@@ -32,7 +32,9 @@ function findSource(base) {
   for (const ext of ['jpg', 'jpeg', 'png']) if (exists(`${base}.${ext}`)) return `${base}.${ext}`;
   return null;
 }
-export function pic(base, alt, { eager = false, sizes = '100vw', cls = '', mobileMedia = '(max-width: 767px)' } = {}) {
+export function pic(base, alt, { eager = false, sizes = '100vw', cls = '', mobileMedia = '(max-width: 767px)', fallback } = {}) {
+  // Varakuva, jos varsinaista kuvaa ei vielä ole
+  if (!findSource(base) && fallback && findSource(fallback)) base = fallback;
   const src = findSource(base);
   if (!src) {
     return `<div class="ph ${cls}" role="img" aria-label="${esc(alt)}"><span>assets/${esc(base)}.jpg</span></div>`;
