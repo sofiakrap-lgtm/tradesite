@@ -38,5 +38,5 @@ export default {
   DEMO_URL: '#demo-{slug}',           // [TARKISTA] esim. 'https://demo.tradesite.fi/{slug}/'
 
   // Hero-video: vaihda true, kun assets/hero.mp4 ja assets/hero.webm on lisätty.
-  HERO_VIDEO: false,
+  HERO_VIDEO: true,
 };

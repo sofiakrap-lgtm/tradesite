@@ -285,3 +285,14 @@
 .legal { min-height: 70vh; }
 .prose { max-width: 760px; display: flex; flex-direction: column; gap: 16px; }
 .prose h2 { margin-top: 24px; }
+
+/* Hero median päällä (video/kuva): vaalea teksti kevyen tumman liukuvärin päällä, kuten Holskessa */
+.hero--media .hero__wash { background: linear-gradient(to bottom, rgb(36 34 30 / 0.55) 0%, rgb(36 34 30 / 0.42) 45%, rgb(36 34 30 / 0.5) 75%); }
+.hero--media .hero__fade { background: linear-gradient(to bottom, transparent 82%, var(--palette-cream-200) 100%); }
+.hero--media .hero-title, .hero--media .hero__sub, .hero--media .hero__note, .hero--media .facts__value { color: var(--palette-cream-50); }
+.hero--media .facts__label { color: var(--palette-cream-300); }
+.hero--media .facts li + li { border-left-color: rgb(246 243 238 / 0.3); }
+.hero--media .quote-bar .btn--primary { background: var(--palette-cream-50); color: var(--palette-raisin); }
+.hero--media .quote-bar .btn--primary:hover { background: var(--palette-cream-200); }
+.hero--media .form-status { color: var(--palette-cream-50); }
+.hero--media .hero__video { object-position: center 40%; }

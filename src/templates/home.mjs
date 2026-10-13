@@ -58,12 +58,12 @@ const field = (name, label, type, auto, required = true, extra = '') =>
 function hero(c, v) {
   const h = c.hero;
   const video = v.HERO_VIDEO
-    ? `<video class="hero__video" muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" data-hero-video aria-hidden="true"><source src="assets/hero.webm" type="video/webm"><source src="assets/hero.mp4" type="video/mp4"></video>`
+    ? `<video class="hero__video" muted playsinline preload="metadata" poster="assets/hero-poster.jpg" data-hero-video aria-hidden="true"><source src="assets/hero.webm" type="video/webm"><source src="assets/hero.mp4" type="video/mp4"></video>`
     : '';
   const pause = v.HERO_VIDEO
     ? `<button class="btn btn--tertiary btn--sm btn--icon hero__pause" type="button" data-video-toggle aria-label="${esc(h.videoPause)}" data-label-pause="${esc(h.videoPause)}" data-label-play="${esc(h.videoPlay)}">${icon('pause')}</button>`
     : '';
-  return `<section class="section section--lead hero" data-theme="birch" id="top" aria-labelledby="hero-title">
+  return `<section class="section section--lead hero hero--media" data-theme="birch" id="top" aria-labelledby="hero-title">
   <div class="hero__backdrop" aria-hidden="true">
     ${pic('hero-poster', '', { eager: true, cls: 'hero__poster' })}
     ${video}

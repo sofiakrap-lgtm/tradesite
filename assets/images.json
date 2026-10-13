@@ -48,28 +48,40 @@
     "height": 1000
   },
   "features/arviot.jpg": {
-    "width": 780,
-    "height": 1688
+    "width": 1200,
+    "height": 900
   },
   "features/galleria.jpg": {
-    "width": 1600,
-    "height": 1000
+    "width": 1200,
+    "height": 900
   },
   "features/kartta.jpg": {
-    "width": 1600,
-    "height": 1000
+    "width": 1200,
+    "height": 900
+  },
+  "features/kielet.jpg": {
+    "width": 1200,
+    "height": 900
   },
   "features/kotitalousvahennys.jpg": {
-    "width": 780,
-    "height": 1688
+    "width": 1200,
+    "height": 900
   },
   "features/lomake.jpg": {
-    "width": 1600,
-    "height": 1000
+    "width": 1200,
+    "height": 900
+  },
+  "features/meista.jpg": {
+    "width": 1200,
+    "height": 900
+  },
+  "features/seo.jpg": {
+    "width": 1200,
+    "height": 900
   },
   "features/soita-nyt.jpg": {
-    "width": 780,
-    "height": 1688
+    "width": 1200,
+    "height": 900
   },
   "hero-poster-mobile.jpg": {
     "width": 900,
@@ -118,5 +130,9 @@
   "ref/myrak-jalkeen.jpg": {
     "width": 1600,
     "height": 1000
+  },
+  "why.jpg": {
+    "width": 1200,
+    "height": 1400
   }
 }

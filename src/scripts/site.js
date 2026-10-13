@@ -301,7 +301,7 @@
   const vbtn = document.querySelector('[data-video-toggle]');
   if (video) {
     const save = navigator.connection && (navigator.connection.saveData || /2g/.test(navigator.connection.effectiveType || ''));
-    if (reduce || save) { video.remove(); vbtn?.remove(); }
+    if (reduce || save || innerWidth < 768) { video.remove(); vbtn?.remove(); }
     else {
       video.play().catch(() => {});
       vbtn?.addEventListener('click', () => {
