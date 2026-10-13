@@ -26,12 +26,9 @@ export default {
   AGENCY_DELIVERY: '[TARKISTA] 1-3 kk',
   AGENCY_TEXTS: '[TARKISTA] usein asiakas kirjoittaa itse',
   AGENCY_DEMO: '[TARKISTA] harvoin ennen tilausta',
-  AGENCY_MAINTENANCE: '[TARKISTA] erikseen sovittava',
-  AGENCY_FIRST_YEAR: '[TARKISTA] 2 000-6 000 € + ylläpito',
 
   // Referenssit
   MYRAK_URL: 'https://myrak.fi/',
-  SVKATTO_URL: '#',
   HOLSKE_URL: '#',
 
   // Demo-sivujen osoitteet. {slug} = saneeraus, sahko, putki-lvi, remontti, katot, maalaus.

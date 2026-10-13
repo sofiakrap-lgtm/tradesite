@@ -121,59 +121,6 @@
     "laptopAlt": "{name}: demosivu läppärillä",
     "phoneAlt": "{name}: demosivu puhelimella"
   },
-  "beforeAfter": {
-    "caption": "Referenssi",
-    "title": "Ennen ja jälkeen",
-    "sub": "Myrak Oy:n uusi sivusto: uusi ilme, kolme kieltä ja kaikki kohteet kartalla.",
-    "before": "Ennen",
-    "after": "Jälkeen",
-    "sliderLabel": "Vertaa vanhaa ja uutta sivua",
-    "beforeAlt": "Myrak Oy:n vanha nettisivu",
-    "afterAlt": "Myrak Oy:n uusi nettisivu",
-    "stat": "3 kieltä",
-    "statLabel": "FI, SV, EN",
-    "figcaption": "Myrak Oy, julkisivuremontit, Helsinki",
-    "quote": "Heti freesattu ulkonäkö ja ajassa mukana, lisätyt kielet saivat myös **ulkomaalaiset sijoittajat kiinnostumaan meistä**. Kaikki referenssit näkyvät kartalla, mutta niitä voi vielä erikseen katsoa luettelosta, todella hyvä ominaisuus. Myös aktiivinen tiedotteiden päivittäminen nettisivuille mahdollistaa joustavan yhteydenpidon asukkaiden kanssa.",
-    "quoteAuthor": "Myrak Oy",
-    "quoteRole": "Julkisivuremontit, Helsinki",
-    "pills": [
-      {
-        "icon": "sparkles",
-        "label": "Uusi ilme"
-      },
-      {
-        "icon": "languages",
-        "label": "3 kieltä"
-      },
-      {
-        "icon": "map-pinned",
-        "label": "Referenssit kartalla"
-      },
-      {
-        "icon": "newspaper",
-        "label": "Tiedotteet asukkaille"
-      }
-    ],
-    "visit": "Katso myrak.fi",
-    "moreTitle": "Muita töitä",
-    "refs": [
-      {
-        "name": "SVkatto Oy",
-        "field": "Kattoala",
-        "img": "ref/svkatto",
-        "href": "{SVKATTO_URL}",
-        "icon": "house"
-      },
-      {
-        "name": "Holske Oy",
-        "field": "[TARKISTA] Toimiala",
-        "img": "ref/holske",
-        "href": "{HOLSKE_URL}",
-        "icon": "hard-hat"
-      }
-    ],
-    "refLink": "Katso sivu"
-  },
   "features": {
     "title": "Tätä sivuillesi tulee",
     "sub": "Kaikki tämä sisältyy {PRICE} €:n pakettiin.",
@@ -448,7 +395,7 @@
     "cells": [
       {
         "title": "Tunnemme yrittäjän arjen",
-        "body": "Olemme itse tehneet töitä työmaalla. Tiedämme, miten asiakas valitsee tekijän."
+        "body": "Tunnemme pienyrittäjän arjen. Tiedämme, miten asiakas valitsee tekijän."
       },
       {
         "title": "Kiinteä hinta",
