@@ -160,6 +160,38 @@
 @media (max-width: 1024px) { .pack { grid-template-columns: minmax(0, 1fr); max-width: 640px; margin-inline: auto; width: 100%; gap: 36px; } }
 @media (max-width: 767px) { .pack { padding: 24px; } .groups { grid-template-columns: 1fr; gap: 24px; } }
 
+/* ---------- 7b. lisäpalvelut ---------- */
+.addons__grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px; align-items: stretch; }
+.addons__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 24px; }
+.addons__list--dark { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.addon { display: flex; flex-direction: column; gap: 10px; padding: 32px; border-radius: var(--radius-card); background: var(--palette-cream-50); color: var(--palette-warm-600); font-size: 17px; line-height: 24px; }
+.addon__title { font: 500 22px/1.2 var(--font-heading); font-stretch: 125%; letter-spacing: .3px; color: var(--palette-raisin); }
+.addons__list--dark .addon { background: var(--palette-raisin); color: #b0a89a; }
+.addons__list--dark .addon__title { color: var(--palette-cream-100); }
+.addons__subtitle { font: 500 clamp(22px, 1rem + 0.6vw, 28px)/1.2 var(--font-heading); font-stretch: 125%; color: var(--color-heading); text-align: center; margin-top: 16px; }
+.addon--calc { justify-content: space-between; gap: 24px; }
+.addon--calc__text { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.addon__how { font-size: 15px; line-height: 22px; }
+.addon--calc .btn { margin-top: 8px; }
+.calc { display: grid; gap: 16px; padding: 24px; border-radius: 16px; background: var(--palette-cream-100); color: var(--palette-raisin); }
+.calc__heading { font-weight: 600; font-size: 15px; color: var(--palette-warm-600); }
+.calc__fields { display: grid; gap: 16px; }
+.calc__seg { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.calc__seg legend { width: 100%; margin-bottom: 8px; font-size: 15px; font-weight: 600; }
+.calc__seg label { position: relative; }
+.calc__seg input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.calc__seg span { display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 999px; background: var(--palette-cream-50); font-size: 15px; font-weight: 600; }
+.calc__seg input:checked + span { background: var(--palette-raisin); color: var(--palette-cream-100); }
+.calc__seg input:focus-visible + span { outline: 3px solid var(--palette-warm-600); outline-offset: 2px; }
+.calc__range { display: grid; gap: 8px; font-size: 15px; font-weight: 600; }
+.calc__range input { width: 100%; accent-color: var(--palette-raisin); }
+.calc__result { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-top: 14px; border-top: 1px solid var(--palette-cream-300); font-weight: 600; }
+.calc__result strong { font: 700 26px/1 var(--font-accent); font-stretch: 125%; }
+.calc__note { font-size: 13px; color: var(--palette-warm-600); }
+.addons .btn-row { margin-top: 8px; }
+@media (max-width: 1024px) { .addons__grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 767px) { .addons__list--dark { grid-template-columns: minmax(0, 1fr); } .addon { padding: 24px; } }
+
 /* ---------- 8. vertailu ---------- */
 .compare__wrap { max-width: 1000px; width: 100%; margin-inline: auto; }
 .compare__table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 18px; line-height: 24px; }

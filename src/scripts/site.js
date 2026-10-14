@@ -237,6 +237,30 @@
     requestAnimationFrame(tick);
   });
 
+  /* 7c. Hintalaskurin demo: avautuu napista, laskee esimerkkihinnoilla haarukan */
+  document.querySelectorAll('[data-calc]').forEach(box => {
+    const btn = box.querySelector('[data-calc-toggle]');
+    const panel = box.querySelector('.calc');
+    const out = box.querySelector('[data-calc-out]');
+    const areaOut = box.querySelector('[data-calc-area]');
+    const fmt = n => Math.round(n / 10) * 10;
+    const calc = () => {
+      const rate = +box.querySelector('[name="calc-work"]:checked').value;
+      const area = +box.querySelector('[name="calc-area"]').value;
+      const coats = +box.querySelector('[name="calc-coats"]:checked').value;
+      const base = rate * area * (coats === 2 ? 1.6 : 1);
+      areaOut.textContent = area;
+      out.textContent = `${fmt(base * 0.9).toLocaleString('fi-FI')}-${fmt(base * 1.15).toLocaleString('fi-FI')} €`;
+    };
+    panel.addEventListener('input', calc); calc();
+    btn.addEventListener('click', () => {
+      const open = panel.hidden;
+      panel.hidden = !open;
+      btn.setAttribute('aria-expanded', String(open));
+      btn.textContent = open ? btn.dataset.labelClose : btn.dataset.labelOpen;
+    });
+  });
+
   /* 8. Demokortit: avautuvat täysleveiksi View Transitions -morphilla */
   document.querySelectorAll('[data-demos]').forEach(grid => {
     const cards = [...grid.querySelectorAll('.demo-card')];

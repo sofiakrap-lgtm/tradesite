@@ -29,6 +29,7 @@ ${cases(c, v)}
 ${features(c)}
 ${processSection(c)}
 ${pkg(c)}
+${addons(c)}
 ${compare(c)}
 ${demos(c, v)}
 ${mobile(c)}
@@ -200,6 +201,40 @@ function pkg(c) {
       </div>
     </div>
     <div class="pack__fine"><p>${esc(p.extras)}</p><p>${esc(p.excluded)}</p></div>
+  </div>` });
+}
+
+/* 7b. Lisäpalvelut: hintalaskuri demolla, muut lisäosat ja näkyvyys erikseen */
+function addons(c) {
+  const a = c.addons, k = a.calc, d = k.demo;
+  const card = it => `<li class="addon"><h3 class="addon__title">${esc(it.title)}</h3><p>${esc(it.body)}</p></li>`;
+  const calc = `<div class="calc" id="laskuri-demo" hidden>
+        <p class="calc__heading">${esc(d.heading)}</p>
+        <div class="calc__fields">
+          <fieldset class="calc__seg"><legend>${esc(d.work)}</legend>${d.works.map((w, i) => `<label><input type="radio" name="calc-work" value="${w.rate}"${i === 0 ? ' checked' : ''}><span>${esc(w.label)}</span></label>`).join('')}</fieldset>
+          <label class="calc__range"><span>${esc(d.area)}: <strong data-calc-area>80</strong> ${esc(d.unit)}</span><input type="range" name="calc-area" min="10" max="300" step="5" value="80"></label>
+          <fieldset class="calc__seg"><legend>${esc(d.coats)}</legend>${d.coatOptions.map((o, i) => `<label><input type="radio" name="calc-coats" value="${i + 1}"${i === 1 ? ' checked' : ''}><span>${esc(o)}</span></label>`).join('')}</fieldset>
+        </div>
+        <p class="calc__result">${esc(d.result)} <strong data-calc-out aria-live="polite"></strong></p>
+        <p class="calc__note">${esc(d.note)}</p>
+      </div>`;
+  return section({ id: 'lisapalvelut', theme: 'light-grey', cls: 'addons', label: 'addons-title', body: `<div class="container">
+    ${title({ id: 'addons-title', text: a.title, sub: a.sub })}
+    <div class="addons__grid">
+      <div class="addon addon--calc on-light" data-calc>
+        <div class="addon--calc__text">
+          <h3 class="addon__title">${esc(k.title)}</h3>
+          <p>${esc(k.body)}</p>
+          <p class="addon__how">${esc(k.how)}</p>
+          <button class="btn btn--primary btn--md" type="button" aria-expanded="false" aria-controls="laskuri-demo" data-calc-toggle data-label-open="${esc(k.open)}" data-label-close="${esc(k.close)}">${esc(k.open)}</button>
+        </div>
+        ${calc}
+      </div>
+      <ul class="addons__list" role="list">${a.items.map(card).join('')}</ul>
+    </div>
+    <h3 class="addons__subtitle">${esc(a.visibilityTitle)}</h3>
+    <ul class="addons__list addons__list--dark" role="list">${a.visibility.map(card).join('')}</ul>
+    <div class="btn-row"><a class="btn btn--secondary btn--md" href="#yhteys" data-event="cta-lisapalvelut">${esc(a.cta)}</a></div>
   </div>` });
 }
 

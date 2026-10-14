@@ -283,8 +283,8 @@
         ]
       }
     ],
-    "extras": "Lisäpalveluna tuntiveloituksella: hintalaskuri, AI- tai kuvapankkikuvat, uudet referenssikuvat, laajemmat muutokset. Hinta-arvio aina etukäteen.",
-    "excluded": "Ei sisälly: logo (oma logo tarvitaan), Google Business -profiili, kävijäseuranta, sähköpostin käyttöönotto.",
+    "extras": "Lisäpalveluna: laajemmat muutokset tuntiveloituksella. Hinta-arvio aina etukäteen.",
+    "excluded": "Ei sisälly: kävijäseuranta, sähköpostin käyttöönotto. Logo ja Google-yritysprofiili saatavilla lisäpalveluna.",
     "more": "Lisätietoja"
   },
   "compare": {
@@ -448,7 +448,7 @@
       },
       {
         "q": "Tarvitsenko logon?",
-        "a": "Kyllä. Oma logo tarvitaan valmiina."
+        "a": "Jos sinulla on logo, käytämme sitä. Jos ei ole, teemme sen lisäpalveluna."
       },
       {
         "q": "Kuinka pitkä sopimus on?",
@@ -673,5 +673,61 @@
     ],
     "prev": "Edellinen",
     "next": "Seuraava"
+  },
+  "addons": {
+    "title": "Lisäpalvelut",
+    "sub": "Kun haluat sivuiltasi enemmän. Hinta-arvio aina etukäteen.",
+    "calc": {
+      "title": "Hintalaskuri",
+      "body": "Asiakas näkee projektinsa hinta-arvion heti sivuillasi, ennen kuin soittaa.",
+      "how": "Näin se tehdään: lähetämme sinulle lyhyen lomakkeen hinnoistasi. Sen pohjalta rakennamme laskurin, joka laskee työn arvioidun kokonaishinnan.",
+      "open": "Avaa demo",
+      "close": "Sulje demo",
+      "demo": {
+        "heading": "Demo: maalaustyön hinta-arvio",
+        "work": "Työ",
+        "works": [
+          {
+            "label": "Sisämaalaus",
+            "rate": 14
+          },
+          {
+            "label": "Ulkomaalaus",
+            "rate": 19
+          }
+        ],
+        "area": "Pinta-ala",
+        "unit": "m²",
+        "coats": "Maalauskerrat",
+        "coatOptions": [
+          "1 kerta",
+          "2 kertaa"
+        ],
+        "result": "Arvioitu hinta",
+        "note": "Esimerkkihinnat. Sinun laskurisi käyttää omia hintojasi."
+      }
+    },
+    "items": [
+      {
+        "title": "Referenssisivu",
+        "body": "Valmiit kohteet omalle sivulleen kuvien ja lyhyiden kuvausten kanssa."
+      },
+      {
+        "title": "Logo ja värimaailma",
+        "body": "Jos logoa ei vielä ole, suunnittelemme sen ja sivuille sopivat värit."
+      }
+    ],
+    "visibilityTitle": "Lisää näkyvyyttä",
+    "visibility": [
+      {
+        "title": "Google-yritysprofiili",
+        "body": "Avaamme profiilin ja annamme selkeän oppaan, jolla saat siitä enemmän irti kartalla ja haussa."
+      },
+      {
+        "title": "Näkyvyys AI-hauissa",
+        "body": "Yhä useampi kysyy tekijää tekoälyltä. Rakennamme sivusi niin, että AI-työkalut ymmärtävät, mitä teet ja missä."
+      }
+    ],
+    "cta": "Kysy lisäpalveluista"
   }
 }
