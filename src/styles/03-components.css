@@ -181,8 +181,7 @@ select.input:invalid { color: var(--color-text-muted); }
 
 .device-phone { width: 100%; max-width: 280px; border-radius: 36px; background: var(--color-device); padding: 10px; }
 .device-phone__screen { aspect-ratio: 390 / 844; border-radius: 27px; overflow: hidden; background: var(--palette-cream-50); position: relative; }
-.device-phone__screen::before { content: ""; position: absolute; z-index: 1; top: 10px; left: 50%; width: 30%; height: 20px; transform: translateX(-50%); background: var(--color-device); border-radius: var(--radius-pill); }
-@media (max-width: 767px) { .device-phone { border-radius: 28px; padding: 7px; } .device-phone__screen { border-radius: 22px; } .device-phone__screen::before { height: 14px; top: 7px; } }
+@media (max-width: 767px) { .device-phone { border-radius: 28px; padding: 7px; } .device-phone__screen { border-radius: 22px; } }
 
 /* ---------- accordion ---------- */
 .accordion { display: flex; flex-direction: column; }

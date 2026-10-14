@@ -2,6 +2,7 @@
 
 /* ---------- osion otsikko (Holsken osio-otsake) ---------- */
 .osio-otsake { display: grid; justify-items: center; gap: var(--sub-section-gap); text-align: center; }
+.osio-otsake > [data-fit] { justify-self: stretch; width: 100%; min-width: 0; }
 .osio-otsake__ala { max-width: 720px; font-weight: 600; font-size: clamp(17px, 1rem + 0.25vw, 20px); line-height: 1.4; color: var(--color-text-muted); text-wrap: balance; }
 .osio-otsake--left { justify-items: start; text-align: left; }
 .osio-otsake .btn-row { margin-top: 4px; }
