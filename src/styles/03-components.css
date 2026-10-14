@@ -88,13 +88,13 @@
 @media (max-width: 819px) { .nav { display: none; } }
 
 /* yläpalkki Holsken mallin mukaan: kevyt navigaatio, yksi pieni toimintanappi */
-.nav .segmented__label { height: 38px; padding: 0 18px; font-size: 16px; color: var(--palette-warm-900); }
+.nav .segmented__label { height: 34px; padding: 0 16px; font-size: 15px; color: var(--palette-warm-900); }
 .nav .segmented__label:hover, .nav .segmented__label[aria-current] { color: var(--color-heading); }
 .nav .segmented::before { background: var(--palette-cream-200); }
 /* Holsken tapaan pieni toimintanappi (tumma) */
-.btn--action { --button-h: 36px; --button-px: 16px; --text-button: 15px; }
-@media (min-width: 768px) { .btn--action { --button-h: 38px; --button-px: 18px; --text-button: 16px; } }
-.menu-toggle { width: 48px; height: 48px; border: 0; border-radius: 999px; background: transparent; color: var(--color-heading); cursor: pointer; display: grid; place-items: center; }
+.btn--action { --button-h: 32px; --button-px: 14px; --text-button: 14px; }
+@media (min-width: 768px) { .btn--action { --button-h: 34px; --button-px: 16px; --text-button: 15px; } }
+.menu-toggle { width: 40px; height: 40px; border: 0; border-radius: 999px; background: transparent; color: var(--color-heading); cursor: pointer; display: grid; place-items: center; }
 @media (min-width: 820px) { .menu-toggle { display: none; } }
 .menu-icon { position: relative; display: block; width: 22px; height: 12px; }
 .menu-icon span { position: absolute; left: 0; right: 0; height: 2px; background: currentColor; transition: transform var(--duration-base) var(--ease-standard), top var(--duration-base) var(--ease-standard); }

@@ -110,7 +110,7 @@ export function footer(c, v, { home = true } = {}) {
   return `<footer class="footer section" data-theme="birch">
   <div class="container">
     <div class="footer__top">
-      <div class="footer__brand">${logo(c, home ? '#top' : './')}<p class="heading heading--s">${esc(c.footer.tagline)}</p><p class="small muted">${esc(c.footer.body)}</p></div>
+      <div class="footer__brand">${logo(c, home ? '#top' : './')}<p class="footer__tagline">${esc(c.footer.tagline)}</p><p class="small muted">${esc(c.footer.body)}</p></div>
       <nav class="footer__col" aria-label="${esc(c.footer.colService)}"><p class="footer__h">${esc(c.footer.colService)}</p><ul role="list">${c.footer.links.map(l => `<li><a href="${base}${l.href}">${esc(l.label)}</a></li>`).join('')}</ul></nav>
       <div class="footer__col"><p class="footer__h">${esc(c.footer.colContact)}</p><ul role="list">
         <li><a href="tel:${v.PHONE_TEL}" data-event="cta-soita">${esc(v.PHONE)}</a></li>

@@ -68,7 +68,10 @@
       "Nettisivut",
       "alansa ammattilaisille"
     ],
-    "sub": "Me hoidamme näkyvyytesi. Sinä keskityt siihen, missä olet paras.",
+    "sub": [
+      "Me hoidamme näkyvyytesi.",
+      "Sinä keskityt siihen, missä olet paras."
+    ],
     "form": {
       "company": "Yrityksen nimi",
       "phone": "Puhelin",
@@ -115,7 +118,8 @@
     "title": "Tältä se näyttää",
     "tablistLabel": "Valitse demo",
     "laptopAlt": "{name}: demosivu läppärillä",
-    "phoneAlt": "{name}: demosivu puhelimella"
+    "phoneAlt": "{name}: demosivu puhelimella",
+    "scrollHint": "Vieritä sivua"
   },
   "features": {
     "title": "Tätä sivuillesi tulee",
@@ -245,7 +249,7 @@
     "priceLabel": "kertamaksu",
     "vat": "{VAT_NOTE}",
     "monthly": "+ {MONTHLY} €/kk",
-    "monthlyLabel": "Ylläpito: hosting, SSL, domain ja pienet tekstimuutokset.",
+    "monthlyLabel": "Ylläpito sisältää hostingin, SSL:n, domainin ja pienet tekstimuutokset.",
     "specs": "1-3 muutoskierrosta · Sopimus {COMMITMENT_MONTHS} kk · Valmis 1-3 viikossa",
     "cta": "Pyydä demo",
     "promise": "Jos et tykkää demosta, et maksa mitään.",
@@ -280,7 +284,8 @@
       }
     ],
     "extras": "Lisäpalveluna tuntiveloituksella: hintalaskuri, AI- tai kuvapankkikuvat, uudet referenssikuvat, laajemmat muutokset. Hinta-arvio aina etukäteen.",
-    "excluded": "Ei sisälly: logo (oma logo tarvitaan), Google Business -profiili, kävijäseuranta, sähköpostin käyttöönotto."
+    "excluded": "Ei sisälly: logo (oma logo tarvitaan), Google Business -profiili, kävijäseuranta, sähköpostin käyttöönotto.",
+    "more": "Lisätietoja"
   },
   "compare": {
     "title": "Tradesite vai toimisto?",

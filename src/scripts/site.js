@@ -100,7 +100,7 @@
         const on = t === tab;
         t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1;
         const panel = document.getElementById(t.getAttribute('aria-controls'));
-        if (panel) panel.hidden = !on;
+        if (panel) { panel.hidden = !on; if (on) panel.querySelectorAll('[data-autoscroll]').forEach(b => { b.scrollTop = 0; }); }
       });
       list._place?.();
       if (focus) tab.focus();
@@ -168,6 +168,29 @@
     setPlayIcon(); mark();
   });
 
+
+  /* 7a. Tältä se näyttää: demon koko sivu vierii hitaasti selainikkunassa. Käyttäjä voi vierittää itse;
+     hiiri päällä tai kosketus pysäyttää. Lopussa pieni tauko ja takaisin alkuun. Reduced motion: ei liikettä. */
+  document.querySelectorAll('[data-autoscroll]').forEach(box => {
+    if (reduce) return;
+    let held = false, visible = false, last = 0, wait = 1200, acc = 0, resumeT;
+    const hold = () => { held = true; clearTimeout(resumeT); };
+    const release = () => { clearTimeout(resumeT); resumeT = setTimeout(() => { held = false; }, 2000); };
+    ['mouseenter', 'touchstart', 'focusin', 'wheel'].forEach(ev => box.addEventListener(ev, hold, { passive: true }));
+    ['mouseleave', 'touchend', 'focusout'].forEach(ev => box.addEventListener(ev, release, { passive: true }));
+    box.addEventListener('wheel', release, { passive: true });
+    const tick = t => {
+      const dt = last ? Math.min(64, t - last) : 16; last = t;
+      if (!held && visible && box.offsetParent && !document.hidden) {
+        if (wait > 0) wait -= dt;
+        else if (box.scrollTop + box.clientHeight >= box.scrollHeight - 2) { box.scrollTo({ top: 0, behavior: 'smooth' }); wait = 1800; }
+        else { acc += 45 * dt / 1000; const st = Math.floor(acc); if (st) { box.scrollTop += st; acc -= st; } }
+      }
+      requestAnimationFrame(tick);
+    };
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; }, { threshold: 0.4 }).observe(box);
+    requestAnimationFrame(tick);
+  });
 
   /* 7b. Karusellit (ominaisuudet, puhelimet): siirtyvät askeleittain yhden kortin verran.
      Napit ja niiden välissä aikapalkki: kun palkki täyttyy, karuselli siirtyy eteenpäin ja palkki alkaa alusta.

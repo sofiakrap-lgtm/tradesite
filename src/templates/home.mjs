@@ -71,7 +71,7 @@ function hero(c, v) {
       <span class="hero-title__line l-xwide" data-fit>${esc(h.lines[0])}</span>
       <span class="hero-title__line l-wide" data-fit>${esc(h.lines[1])}</span>
     </h1>
-    <p class="hero__sub">${esc(h.sub)}</p>
+    <p class="hero__sub">${h.sub.map(l => `<span>${esc(l)}</span>`).join('')}</p>
     <form class="quote-bar" data-form="hero" novalidate>
       <input type="hidden" name="form" value="hero-demo">
       <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
@@ -106,14 +106,14 @@ function problem(c) {
 function showcase(c) {
   const s = c.showcase;
   const items = c.demos.items;
-  const tabs = items.map((d, i) => `<button class="segmented__label" role="tab" type="button" id="sc-tab-${d.slug}" aria-controls="sc-panel-${d.slug}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}">${esc(d.name)}</button>`).join('');
+  const tabs = items.map((d, i) => `<button class="ala-tab" role="tab" type="button" id="sc-tab-${d.slug}" aria-controls="sc-panel-${d.slug}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}">${esc(d.name)}</button>`).join('');
   const panels = items.map((d, i) => `<div class="showcase__panel" role="tabpanel" id="sc-panel-${d.slug}" aria-labelledby="sc-tab-${d.slug}"${i === 0 ? '' : ' hidden'}>
-      <div class="showcase__laptop">${laptop(pic(`demo/${d.slug}`, fill(s.laptopAlt, { name: d.name }), { sizes: '(min-width: 1025px) 900px, 90vw' }))}</div>
+      <div class="showcase__browser">${browser(`<div class="showcase__scroll" data-autoscroll tabindex="0" role="region" aria-label="${esc(fill(s.laptopAlt, { name: d.name }))}">${pic(`demo/${d.slug}-koko`, fill(s.laptopAlt, { name: d.name }), { sizes: '(min-width: 1025px) 980px, 92vw' })}</div>`, `${d.slug.replace('-', '')}.tradesite.fi`)}</div>
       <div class="showcase__phone">${phone(pic(`demo/${d.slug}-puhelin`, fill(s.phoneAlt, { name: d.name }), { sizes: '(min-width: 1025px) 260px, 34vw' }))}</div>
     </div>`).join('');
   return section({ id: 'tyot', theme: 'asphalt', cls: 'showcase', label: 'showcase-title', body: `<div class="container">
     ${title({ id: 'showcase-title', text: s.title })}
-    <div class="showcase__tabs-wrap"><div class="segmented showcase__tabs" role="tablist" aria-label="${esc(s.tablistLabel)}" data-segmented data-tabs>${tabs}</div></div>
+    <div class="ala-tabs" role="tablist" aria-label="${esc(s.tablistLabel)}" data-tabs>${tabs}</div>
     <div class="showcase__stage">${panels}</div>
   </div>` });
 }
@@ -145,9 +145,9 @@ function cases(c, v) {
 
 /* Karusellin ohjain: edellinen, aikapalkki, seuraava */
 const railCtrl = (prev, next) => `<div class="container rail-ctrl">
-      <button type="button" class="round" data-rail-prev aria-label="${esc(prev)}">${icon('arrow-right', 'flip')}</button>
+      <button type="button" class="rail-dot rail-dot--prev" data-rail-prev aria-label="${esc(prev)}"><span></span></button>
       <span class="rail-ctrl__bar" aria-hidden="true"><span data-rail-progress></span></span>
-      <button type="button" class="round" data-rail-next aria-label="${esc(next)}">${icon('arrow-right')}</button>
+      <button type="button" class="rail-dot rail-dot--next" data-rail-next aria-label="${esc(next)}"><span></span></button>
     </div>`;
 
 /* 5. Tätä sivuillesi tulee: Holsken palvelukaruselli */
@@ -189,9 +189,9 @@ function pkg(c) {
     ${title({ id: 'package-title', text: p.title })}
     <div class="pack on-light">
       <div class="pack__price">
-        <p class="price__main"><span class="stat">${esc(p.price)}</span><span class="price__label">${esc(p.priceLabel)}, ${esc(p.vat)}</span></p>
-        <p class="price__monthly"><strong>${esc(p.monthly)}</strong> <span class="muted">${esc(p.monthlyLabel)}</span></p>
-        <p class="price__specs">${esc(p.specs)}</p>
+        <p class="price__main"><span class="stat">${esc(p.price)}</span><span class="price__label">${esc(p.vat)}</span></p>
+        <p class="price__monthly"><strong>${esc(p.monthly)}</strong></p>
+        <details class="pack__more"><summary>${esc(p.more)}${icon('chevron-down', 'icon--20')}</summary><p>${esc(p.monthlyLabel)}</p><p>${esc(p.specs)}</p></details>
         <a class="btn btn--primary btn--lg btn--block" href="#yhteys-demo" data-event="cta-demo">${esc(p.cta)}</a>
         <p class="price__promise">${esc(p.promise)}</p>
       </div>
@@ -314,7 +314,7 @@ function contact(c, v) {
   const status = `<p class="form-status" role="status" aria-live="polite"></p>`;
   const cb = k.callback, dm = k.demo;
   return section({ id: 'yhteys', theme: 'paper', cls: 'contact', label: 'contact-title', body: `<div class="container">
-    ${title({ id: 'contact-title', text: k.title, extra: `<p class="contact__direct"><a class="contact__number" href="tel:${v.PHONE_TEL}" data-event="cta-soita">${esc(v.PHONE)}</a><a class="link" href="mailto:${esc(v.EMAIL)}">${esc(v.EMAIL)}</a></p>` })}
+    ${title({ id: 'contact-title', text: k.title })}
     <div class="contact__cards">
       <form class="contact-card card" data-theme="asphalt" id="yhteys-demo" data-form="demo" novalidate>
         <input type="hidden" name="form" value="demo">

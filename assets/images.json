@@ -1,4 +1,8 @@
 {
+  "demo/katot-koko.jpg": {
+    "width": 1600,
+    "height": 6098
+  },
   "demo/katot-puhelin.jpg": {
     "width": 780,
     "height": 1688
@@ -6,6 +10,10 @@
   "demo/katot.jpg": {
     "width": 1600,
     "height": 1000
+  },
+  "demo/maalaus-koko.jpg": {
+    "width": 1600,
+    "height": 7166
   },
   "demo/maalaus-puhelin.jpg": {
     "width": 780,
@@ -15,6 +23,10 @@
     "width": 1600,
     "height": 1000
   },
+  "demo/putki-lvi-koko.jpg": {
+    "width": 1600,
+    "height": 5405
+  },
   "demo/putki-lvi-puhelin.jpg": {
     "width": 780,
     "height": 1688
@@ -22,6 +34,10 @@
   "demo/putki-lvi.jpg": {
     "width": 1600,
     "height": 1000
+  },
+  "demo/remontti-koko.jpg": {
+    "width": 1600,
+    "height": 6180
   },
   "demo/remontti-puhelin.jpg": {
     "width": 780,
@@ -31,6 +47,10 @@
     "width": 1600,
     "height": 1000
   },
+  "demo/sahko-koko.jpg": {
+    "width": 1600,
+    "height": 5477
+  },
   "demo/sahko-puhelin.jpg": {
     "width": 780,
     "height": 1688
@@ -38,6 +58,10 @@
   "demo/sahko.jpg": {
     "width": 1600,
     "height": 1000
+  },
+  "demo/saneeraus-koko.jpg": {
+    "width": 1600,
+    "height": 6548
   },
   "demo/saneeraus-puhelin.jpg": {
     "width": 780,
