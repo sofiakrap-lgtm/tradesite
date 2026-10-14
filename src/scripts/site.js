@@ -100,7 +100,7 @@
         const on = t === tab;
         t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1;
         const panel = document.getElementById(t.getAttribute('aria-controls'));
-        if (panel) panel.hidden = !on;
+        if (panel) { panel.hidden = !on; if (on) panel.querySelectorAll('[data-autoscroll]').forEach(b => { b.scrollTop = 0; }); }
       });
       list._place?.();
       if (focus) tab.focus();
@@ -169,6 +169,29 @@
   });
 
 
+  /* 7a. Tältä se näyttää: demon koko sivu vierii hitaasti selainikkunassa. Käyttäjä voi vierittää itse;
+     hiiri päällä tai kosketus pysäyttää. Lopussa pieni tauko ja takaisin alkuun. Reduced motion: ei liikettä. */
+  document.querySelectorAll('[data-autoscroll]').forEach(box => {
+    if (reduce) return;
+    let held = false, visible = false, last = 0, wait = 1200, acc = 0, resumeT;
+    const hold = () => { held = true; clearTimeout(resumeT); };
+    const release = () => { clearTimeout(resumeT); resumeT = setTimeout(() => { held = false; }, 2000); };
+    ['mouseenter', 'touchstart', 'focusin', 'wheel'].forEach(ev => box.addEventListener(ev, hold, { passive: true }));
+    ['mouseleave', 'touchend', 'focusout'].forEach(ev => box.addEventListener(ev, release, { passive: true }));
+    box.addEventListener('wheel', release, { passive: true });
+    const tick = t => {
+      const dt = last ? Math.min(64, t - last) : 16; last = t;
+      if (!held && visible && box.offsetParent && !document.hidden) {
+        if (wait > 0) wait -= dt;
+        else if (box.scrollTop + box.clientHeight >= box.scrollHeight - 2) { box.scrollTo({ top: 0, behavior: 'smooth' }); wait = 1800; }
+        else { acc += 45 * dt / 1000; const st = Math.floor(acc); if (st) { box.scrollTop += st; acc -= st; } }
+      }
+      requestAnimationFrame(tick);
+    };
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; }, { threshold: 0.4 }).observe(box);
+    requestAnimationFrame(tick);
+  });
+
   /* 7b. Karusellit (ominaisuudet, puhelimet): siirtyvät askeleittain yhden kortin verran.
      Napit ja niiden välissä aikapalkki: kun palkki täyttyy, karuselli siirtyy eteenpäin ja palkki alkaa alusta.
      Pysähtyy, kun käyttäjä vie hiiren päälle, koskee tai kohdistaa. Reduced motion: ei automaattista siirtoa. */
@@ -212,6 +235,30 @@
     if ('IntersectionObserver' in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; }, { threshold: 0.3 }).observe(list);
     else visible = true;
     requestAnimationFrame(tick);
+  });
+
+  /* 7c. Hintalaskurin demo: avautuu napista, laskee esimerkkihinnoilla haarukan */
+  document.querySelectorAll('[data-calc]').forEach(box => {
+    const btn = box.querySelector('[data-calc-toggle]');
+    const panel = box.querySelector('.calc');
+    const out = box.querySelector('[data-calc-out]');
+    const areaOut = box.querySelector('[data-calc-area]');
+    const fmt = n => Math.round(n / 10) * 10;
+    const calc = () => {
+      const rate = +box.querySelector('[name="calc-work"]:checked').value;
+      const area = +box.querySelector('[name="calc-area"]').value;
+      const coats = +box.querySelector('[name="calc-coats"]:checked').value;
+      const base = rate * area * (coats === 2 ? 1.6 : 1);
+      areaOut.textContent = area;
+      out.textContent = `${fmt(base * 0.9).toLocaleString('fi-FI')}-${fmt(base * 1.15).toLocaleString('fi-FI')} €`;
+    };
+    panel.addEventListener('input', calc); calc();
+    btn.addEventListener('click', () => {
+      const open = panel.hidden;
+      panel.hidden = !open;
+      btn.setAttribute('aria-expanded', String(open));
+      btn.textContent = open ? btn.dataset.labelClose : btn.dataset.labelOpen;
+    });
   });
 
   /* 8. Demokortit: avautuvat täysleveiksi View Transitions -morphilla */
