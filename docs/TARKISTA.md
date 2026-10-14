@@ -9,28 +9,17 @@
 | `EMAIL` | `info@tradesite.fi` | Varmista, että osoite toimii |
 | `Y_TUNNUS` | `[TARKISTA] 0000000-0` | Holske Oy:n Y-tunnus |
 | `FORM_ENDPOINT` | tyhjä (lähetys simuloidaan) | Formspree tai Cloudflare Worker -osoite |
-| `VAT_NOTE` | `[TARKISTA] alv-käsittely` | Esim. "alv 0 %" tai "sis. alv 25,5 %" |
-| `AGENCY_PRICE_RANGE` | `[TARKISTA] 2 000-6 000 €` | Tarkistettu toimistohinta |
-| `AGENCY_DELIVERY` | `[TARKISTA] 1-3 kk` | Tarkistettu toimitusaika |
-| `AGENCY_TEXTS` | `[TARKISTA] usein asiakas kirjoittaa itse` | Lisätty: vertailun rivi "Tekstien kirjoitus" |
-| `AGENCY_DEMO` | `[TARKISTA] harvoin ennen tilausta` | Lisätty: rivi "Demo ennen ostoa" |
-| `AGENCY_MAINTENANCE` | `[TARKISTA] erikseen sovittava` | Lisätty: rivi "Ylläpito" |
-| `AGENCY_FIRST_YEAR` | `[TARKISTA] 2 000-6 000 € + ylläpito` | Lisätty: rivi "Ensimmäinen vuosi" |
-| `SVKATTO_URL`, `HOLSKE_URL` | `#` | Oikeat osoitteet |
+| `HOLSKE_URL` | `#` | Oikeat osoitteet |
 | `DEMO_URL` | `#demo-{slug}` (avaa kortin) | Demosivujen osoitteet, esim. `https://demo.tradesite.fi/{slug}/` |
-| `HERO_VIDEO` | `false` | `true`, kun video on lisätty |
 
 ### content/fi.json
-- `beforeAfter.refs[1].field`: Holske Oy:n toimiala `[TARKISTA] Toimiala`.
 - `pages.privacy`: tietosuojaseloste on pohja. Kaikki `[TARKISTA]`-kappaleet täytettävä.
 - `pages.cookies`: evästesivu on pohja. Google Fonts mainittu kolmantena osapuolena.
-- `contact.sub`: "Vastaamme arkipäivisin". Varmista, että pitää paikkansa.
 
 ### Kuvat ja logo
-- Kaikki kuvat ovat placeholdereita. Lista ja koot: `docs/KUVAPROMPTI.md`.
-- Myrakin ennen ja jälkeen -kuvissa lukee "Placeholder". SVkatto ja Holske: "Kuvakaappaus tulossa".
-- Logo, faviconit ja jakokuva: valmiit (logopaketti).
-- Hero-video puuttuu (`assets/hero.mp4`, `assets/hero.webm`).
+- Hero-kuva, hero-video, featuret ja why-kuva: oikeat.
+- Puuttuu: Myrak ennen ja jälkeen (`assets/ref/myrak-ennen.jpg`, `myrak-jalkeen.jpg`) ja Holske ennen (`assets/ref/holske-ennen.jpg`). Kuvissa lukee nyt "Placeholder".
+- Lista ja koot: `docs/KUVAPROMPTI.md`.
 
 ## 2. Kontrastit, jotka korjattiin (WCAG AA)
 | Pari | Ennen | Korjaus | Nyt |
@@ -45,11 +34,8 @@
 
 Shadow (`#868365`) on signaaliväri vain pinnoissa (slider-kahva, ikonilaatat, merkit), ei tekstinä. Tekstinä vaaleilla käytetään `#5C5A43` (5,6:1).
 
-## 3. H1-valinta
-Valittu: **1. NETTISIVUT / REMPPAREILLE / valmiina 1-3 viikossa.**
-Syy: kertoo heti mitä, kenelle ja kuinka nopeasti. "Remppareille" on alan omaa kieltä ja kohderyhmä tunnistaa itsensä sekunnissa. Hinta ja "jos et tykkää, et maksa" ovat heti alla hero stripissä, joten kaikki kolme kysymystä (hinta, aika, vaiva) vastataan ensimmäisellä ruudulla. Vaihtoehdot 2 ja 3 ovat HTML-kommenttina `src/templates/home.mjs`:ssä; vaihto `content/fi.json` -> `hero.lines`.
-
-Huomio: "remppari" voi tuntua sähkö- ja LVI-yrittäjästä vieraalta. Jos haluat kattaa koko rakennusalan, vaihtoehto 2 toimii paremmin.
+## 3. H1
+Nyt: **Nettisivut / alansa ammattilaisille / valmiina 1-3 viikossa.** Vaihto: `content/fi.json` -> `hero.lines`.
 
 ## 4. Lighthouse (mobiili, paikallisesti, placeholder-kuvilla)
 Performance 95-100 · Accessibility 100 · Best practices 100 · SEO 100.

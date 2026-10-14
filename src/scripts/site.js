@@ -169,12 +169,17 @@
   });
 
 
-  /* 7b. Ominaisuuskaruselli (Holske): nuolet siirtävät yhden kortin, silmukka päistä */
+  /* 7b. Karusellit (ominaisuudet, puhelimet): siirtyvät askeleittain yhden kortin verran.
+     Napit ja niiden välissä aikapalkki: kun palkki täyttyy, karuselli siirtyy eteenpäin ja palkki alkaa alusta.
+     Pysähtyy, kun käyttäjä vie hiiren päälle, koskee tai kohdistaa. Reduced motion: ei automaattista siirtoa. */
+  const AUTO_MS = 4500;
   document.querySelectorAll('[data-rail]').forEach(rail => {
     const list = rail.querySelector('[data-rail-track]');
+    const bar = rail.querySelector('[data-rail-progress]');
     const move = dir => {
       const card = list.querySelector('li');
-      const w = card ? card.getBoundingClientRect().width + 24 : 400;
+      const gap = parseFloat(getComputedStyle(list).columnGap) || 24;
+      const w = card ? card.getBoundingClientRect().width + gap : 400;
       const end = list.scrollLeft + list.clientWidth >= list.scrollWidth - 4;
       const start = list.scrollLeft <= 4;
       const behavior = reduce ? 'auto' : 'smooth';
@@ -182,44 +187,31 @@
       else if (dir < 0 && start) list.scrollTo({ left: list.scrollWidth, behavior });
       else list.scrollBy({ left: dir * w, behavior });
     };
-    rail.querySelector('[data-rail-prev]')?.addEventListener('click', () => move(-1));
-    rail.querySelector('[data-rail-next]')?.addEventListener('click', () => move(1));
-  });
-
-  /* 7c. Puhelinnauha: kiertää itsestään loputtomasti. Kun käyttäjä koskee, vierittää tai vie hiiren päälle,
-     liike pysähtyy ja käyttäjä ohjaa. Jatkuu 2,5 s kuluttua. Reduced motion: ei automaattista liikettä. */
-  document.querySelectorAll('[data-loop]').forEach(loop => {
-    const track = loop.querySelector('[data-loop-track]');
-    const half = () => track.scrollWidth / 2;
-    const wrap = () => {
-      const h = half();
-      if (loop.scrollLeft >= h) loop.scrollLeft -= h;
-      else if (loop.scrollLeft <= 0) loop.scrollLeft += h;
-    };
-    loop.addEventListener('scroll', wrap, { passive: true });
-    let paused = reduce, visible = false, resumeT, last = 0, acc = 0;
-    const speed = 30; // px sekunnissa
-    const hold = () => { paused = true; clearTimeout(resumeT); };
-    const release = () => { clearTimeout(resumeT); if (!reduce) resumeT = setTimeout(() => { paused = false; }, 2500); };
-    ['pointerdown', 'touchstart', 'wheel', 'focusin', 'mouseenter'].forEach(ev => loop.addEventListener(ev, hold, { passive: true }));
-    ['pointerup', 'touchend', 'mouseleave', 'focusout'].forEach(ev => loop.addEventListener(ev, release, { passive: true }));
-    loop.addEventListener('wheel', release, { passive: true });
-    // hiirellä vetäminen
-    let drag = null;
-    loop.addEventListener('pointerdown', e => { if (e.pointerType === 'mouse') drag = { x: e.clientX, left: loop.scrollLeft }; });
-    addEventListener('pointermove', e => { if (drag) loop.scrollLeft = drag.left - (e.clientX - drag.x); });
-    addEventListener('pointerup', () => { drag = null; });
+    let elapsed = 0, held = false, visible = false, last = 0, resumeT;
+    // Jos kaikki kortit mahtuvat näkyviin, ohjainta ei tarvita
+    const ctrl = rail.querySelector('.rail-ctrl');
+    let fits = false;
+    const check = () => { fits = list.scrollWidth <= list.clientWidth + 4; ctrl?.toggleAttribute('hidden', fits); };
+    check(); addEventListener('resize', check); addEventListener('load', check);
+    rail.querySelector('[data-rail-prev]')?.addEventListener('click', () => { move(-1); elapsed = 0; });
+    rail.querySelector('[data-rail-next]')?.addEventListener('click', () => { move(1); elapsed = 0; });
+    if (reduce || !bar) return;
+    const hold = () => { held = true; clearTimeout(resumeT); };
+    const release = () => { clearTimeout(resumeT); resumeT = setTimeout(() => { held = false; }, 1500); };
+    ['mouseenter', 'focusin', 'touchstart'].forEach(ev => list.addEventListener(ev, hold, { passive: true }));
+    ['mouseleave', 'focusout', 'touchend'].forEach(ev => list.addEventListener(ev, release, { passive: true }));
     const tick = t => {
       const dt = last ? Math.min(64, t - last) : 16; last = t;
-      if (!paused && visible) {
-        acc += speed * dt / 1000;
-        const step = Math.floor(acc);
-        if (step) { loop.scrollLeft += step; acc -= step; }
+      if (!held && visible && !fits && !document.hidden) {
+        elapsed += dt;
+        if (elapsed >= AUTO_MS) { move(1); elapsed = 0; }
       }
+      bar.style.transform = `scaleX(${Math.min(1, elapsed / AUTO_MS)})`;
       requestAnimationFrame(tick);
     };
-    if ('IntersectionObserver' in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; }, { threshold: 0.2 }).observe(loop);
-    requestAnimationFrame(() => { loop.scrollLeft = 1; requestAnimationFrame(tick); });
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; }, { threshold: 0.3 }).observe(list);
+    else visible = true;
+    requestAnimationFrame(tick);
   });
 
   /* 8. Demokortit: avautuvat täysleveiksi View Transitions -morphilla */
@@ -298,21 +290,10 @@
 
   /* 12. Hero-video: autoplay vain jos ei reduced motionia eikä säästötilaa */
   const video = document.querySelector('[data-hero-video]');
-  const vbtn = document.querySelector('[data-video-toggle]');
   if (video) {
     const save = navigator.connection && (navigator.connection.saveData || /2g/.test(navigator.connection.effectiveType || ''));
-    if (reduce || save) { video.remove(); vbtn?.remove(); }
-    else {
-      video.play().catch(() => {});
-      vbtn?.addEventListener('click', () => {
-        const playing = !video.paused;
-        playing ? video.pause() : video.play();
-        vbtn.setAttribute('aria-label', playing ? vbtn.dataset.labelPlay : vbtn.dataset.labelPause);
-        vbtn.innerHTML = playing
-          ? '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>'
-          : '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="14" y="4" width="4" height="16"/><rect x="6" y="4" width="4" height="16"/></svg>';
-      });
-    }
+    if (reduce || save || innerWidth < 768) video.remove();
+    else video.play().catch(() => {});
   }
 
   /* 13. Lomakkeet: FORM_ENDPOINT, inline-kiitos, ei sivunvaihtoa */
