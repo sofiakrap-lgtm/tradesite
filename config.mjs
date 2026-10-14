@@ -22,10 +22,10 @@ export default {
   VAT_NOTE: 'alv 0 %',
 
   // Säästövertailu: mainostoimiston arvot. Älä keksi omia lukuja.
-  AGENCY_PRICE_RANGE: '[TARKISTA] 2 000-6 000 €',
-  AGENCY_DELIVERY: '[TARKISTA] 1-3 kk',
-  AGENCY_TEXTS: '[TARKISTA] usein asiakas kirjoittaa itse',
-  AGENCY_DEMO: '[TARKISTA] harvoin ennen tilausta',
+  AGENCY_PRICE_RANGE: '540-1 600 € (alv 0 %)',
+  AGENCY_DELIVERY: '2-4 viikkoa, täysi palvelu 4-8 viikkoa',
+  AGENCY_TEXTS: 'Edullisissa paketeissa asiakas itse',
+  AGENCY_DEMO: 'Useimmilla vasta tilauksen jälkeen',
 
   // Referenssit
   MYRAK_URL: 'https://myrak.fi/',

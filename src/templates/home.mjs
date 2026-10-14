@@ -216,6 +216,7 @@ function compare(c) {
         <tbody>${rows}</tbody>
       </table>
     </div>
+    ${k.note ? `<p class="compare__note">${esc(k.note)}</p>` : ''}
     <div class="btn-row"><a class="btn btn--primary btn--md" href="#yhteys-demo" data-event="cta-demo">${esc(k.cta)}</a></div>
   </div>` });
 }

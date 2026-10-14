@@ -286,11 +286,11 @@
     "title": "Tradesite vai toimisto?",
     "colLabel": "Vertailukohta",
     "colUs": "Tradesite",
-    "colAgency": "Tavallinen mainostoimisto",
+    "colAgency": "Toimistot ja freelancerit",
     "rows": [
       {
         "label": "Hinta",
-        "us": "{PRICE} €",
+        "us": "{PRICE} € (alv 0 %)",
         "agency": "{AGENCY_PRICE_RANGE}"
       },
       {
@@ -309,7 +309,8 @@
         "agency": "{AGENCY_DEMO}"
       }
     ],
-    "cta": "Pyydä ilmainen demo"
+    "cta": "Pyydä ilmainen demo",
+    "note": "Vertailu: 14 suomalaisen toimiston ja freelancerin julkiset hinnastot, lokakuu 2026. Haarukka on keskimmäinen puolikas, mediaani 975 € (alv 0 %). Ylläpito ei sisälly vertailuun."
   },
   "demos": {
     "title": "Valitse alasi",

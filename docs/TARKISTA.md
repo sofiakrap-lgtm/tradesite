@@ -9,11 +9,6 @@
 | `EMAIL` | `info@tradesite.fi` | Varmista, että osoite toimii |
 | `Y_TUNNUS` | `[TARKISTA] 0000000-0` | Holske Oy:n Y-tunnus |
 | `FORM_ENDPOINT` | tyhjä (lähetys simuloidaan) | Formspree tai Cloudflare Worker -osoite |
-| `VAT_NOTE` | `[TARKISTA] alv-käsittely` | Esim. "alv 0 %" tai "sis. alv 25,5 %" |
-| `AGENCY_PRICE_RANGE` | `[TARKISTA] 2 000-6 000 €` | Tarkistettu toimistohinta |
-| `AGENCY_DELIVERY` | `[TARKISTA] 1-3 kk` | Tarkistettu toimitusaika |
-| `AGENCY_TEXTS` | `[TARKISTA] usein asiakas kirjoittaa itse` | Lisätty: vertailun rivi "Tekstien kirjoitus" |
-| `AGENCY_DEMO` | `[TARKISTA] harvoin ennen tilausta` | Lisätty: rivi "Demo ennen ostoa" |
 | `HOLSKE_URL` | `#` | Oikeat osoitteet |
 | `DEMO_URL` | `#demo-{slug}` (avaa kortin) | Demosivujen osoitteet, esim. `https://demo.tradesite.fi/{slug}/` |
 

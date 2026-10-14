@@ -159,6 +159,7 @@
 .compare__table tbody tr:last-child .is-us { border-radius: 0 0 20px 20px; }
 .compare__table tbody tr:last-child th, .compare__table tbody tr:last-child td { border-bottom: 0; }
 .compare__brand { font: 900 18px/22px var(--font-display); font-stretch: 125%; text-transform: uppercase; color: var(--color-heading); }
+.compare__note { max-width: 720px; margin: 0 auto; text-align: center; font-size: 14px; line-height: 20px; color: var(--color-text-muted); }
 .compare__check { color: var(--color-highlight-text); margin-right: 8px; display: inline-block; vertical-align: -4px; }
 @media (max-width: 767px) {
   .compare__table, .compare__table tbody, .compare__table thead { display: block; }
