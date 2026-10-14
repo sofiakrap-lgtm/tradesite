@@ -19,7 +19,7 @@ export default {
   PRICE: 500,
   MONTHLY: 36,
   COMMITMENT_MONTHS: 12,
-  VAT_NOTE: '[TARKISTA] alv-käsittely',
+  VAT_NOTE: 'alv 0 %',
 
   // Säästövertailu: mainostoimiston arvot. Älä keksi omia lukuja.
   AGENCY_PRICE_RANGE: '[TARKISTA] 2 000-6 000 €',

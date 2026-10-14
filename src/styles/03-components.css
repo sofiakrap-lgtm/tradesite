@@ -64,8 +64,8 @@
 .logo__text { font: 900 22px/24px var(--font-display); font-stretch: 125%; text-transform: uppercase; letter-spacing: -0.3px; }
 .logo__mark { width: 28px; height: 28px; border-radius: 8px; background: currentColor; display: grid; place-items: center; }
 .logo__mark::after { content: ""; width: 12px; height: 12px; background: var(--color-bg); clip-path: polygon(0 0, 100% 0, 100% 30%, 65% 30%, 65% 100%, 35% 100%, 35% 30%, 0 30%); }
-.logo__svg { height: 30px; width: auto; display: block; }
-@media (max-width: 767px) { .logo__svg { height: 24px; } }
+.logo__svg { height: 21px; width: auto; display: block; }
+@media (max-width: 767px) { .logo__svg { height: 18px; } }
 .footer .logo__svg { height: 28px; }
 @media (max-width: 767px) { .logo__text { font-size: 18px; } }
 @media (max-width: 379px) { .logo__text { font-size: 16px; } }
@@ -73,10 +73,6 @@
 /* ---------- header ---------- */
 .site-header { position: fixed; inset: 0 0 auto 0; z-index: var(--z-header); height: var(--header-h); background: transparent; transition: background-color var(--duration-base); }
 .site-header.is-scrolled, .site-header.is-menu-open { background: var(--color-overlay); }
-@supports (animation-timeline: scroll()) {
-  .site-header { animation: header-band linear both; animation-timeline: scroll(); animation-range: 0 96px; }
-  .site-header.is-menu-open { animation: none; }
-}
 .site-header__inner { position: relative; z-index: 2; max-width: var(--container-max); height: 100%; margin: 0 auto; padding-inline: 24px 12px; display: flex; align-items: center; column-gap: 8px; }
 .nav { margin-inline-start: 16px; }
 .segmented { position: relative; display: inline-grid; grid-auto-flow: column; grid-auto-columns: max-content; padding: var(--segmented-pad); border-radius: var(--radius-pill); }
@@ -259,8 +255,9 @@ select.input:invalid { color: var(--color-text-muted); }
 @media (min-width: 768px) { .mobile-bar { display: none; } }
 
 /* Yläpalkki tumman heron päällä: vaalea kunnes vieritetään */
+body:has(.hero--media) .site-header:not(.is-scrolled):not(.is-menu-open) .nav .segmented::before { background: rgb(246 243 238 / 0.18); }
+body:has(.hero--media) .site-header:not(.is-scrolled):not(.is-menu-open) .btn--action { background: transparent; color: #fff; border: 1.5px solid rgb(255 255 255 / 0.85); }
+body:has(.hero--media) .site-header:not(.is-scrolled):not(.is-menu-open) .btn--action:hover { background: rgb(255 255 255 / 0.12); }
 body:has(.hero--media) .site-header:not(.is-scrolled):not(.is-menu-open) .logo,
 body:has(.hero--media) .site-header:not(.is-scrolled):not(.is-menu-open) .nav .segmented__label,
-body:has(.hero--media) .site-header:not(.is-scrolled):not(.is-menu-open) .menu-toggle { color: var(--palette-cream-50); }
-body:has(.hero--media) .site-header:not(.is-scrolled):not(.is-menu-open) .nav .segmented::before { background: rgb(246 243 238 / 0.18); }
-body:has(.hero--media) .site-header:not(.is-scrolled):not(.is-menu-open) .btn--action { background: var(--palette-cream-50); color: var(--palette-raisin); }
+body:has(.hero--media) .site-header:not(.is-scrolled):not(.is-menu-open) .menu-toggle { color: #fff; }

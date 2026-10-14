@@ -166,6 +166,12 @@
   --color-surface-sunken: var(--palette-cream-300); --color-tertiary: var(--palette-cream-100); --color-tertiary-hover: var(--palette-cream-300);
   --color-overlay: rgb(225 218 207 / 0.95); --gradient-1: linear-gradient(to bottom, transparent 65%, var(--palette-cream-200));
 }
+[data-theme="paper"] {
+  color-scheme: light;
+  --color-bg: var(--palette-cream-50); --color-surface: var(--palette-cream-100); --color-surface-raised: var(--palette-cream-200);
+  --color-surface-sunken: var(--palette-cream-200); --color-tertiary: var(--palette-cream-200); --color-tertiary-hover: var(--palette-cream-300);
+  --color-overlay: rgb(246 243 238 / 0.95); --gradient-1: linear-gradient(to bottom, transparent 65%, var(--palette-cream-50));
+}
 [data-theme="teal"] {
   color-scheme: light;
   --color-bg: var(--palette-morning-blue); --color-surface: var(--palette-cream-50); --color-surface-raised: var(--palette-cream-100);

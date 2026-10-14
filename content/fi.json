@@ -66,8 +66,7 @@
   "hero": {
     "lines": [
       "Nettisivut",
-      "alansa ammattilaisille",
-      "valmiina 1-3 viikossa"
+      "alansa ammattilaisille"
     ],
     "sub": "Me hoidamme näkyvyytesi. Sinä keskityt siihen, missä olet paras.",
     "form": {
@@ -93,9 +92,7 @@
         "value": "0 €",
         "label": "demo"
       }
-    ],
-    "videoPause": "Pysäytä taustavideo",
-    "videoPlay": "Toista taustavideo"
+    ]
   },
   "problem": {
     "title": "Löytääkö asiakas sinut?",
@@ -116,7 +113,6 @@
   },
   "showcase": {
     "title": "Tältä se näyttää",
-    "sub": "Jokainen sivu tehdään yrityksen omalla ilmeellä.",
     "tablistLabel": "Valitse demo",
     "laptopAlt": "{name}: demosivu läppärillä",
     "phoneAlt": "{name}: demosivu puhelimella"
@@ -127,6 +123,26 @@
     "prev": "Edellinen",
     "next": "Seuraava",
     "items": [
+      {
+        "img": "features/kartta",
+        "title": "Kartta ja palvelualue",
+        "body": "Asiakas näkee heti, toimitko hänen alueellaan.",
+        "points": [
+          "Palvelualue kartalla",
+          "Kohteet karttapisteinä",
+          "Reittiohjeet yhdellä napilla"
+        ]
+      },
+      {
+        "img": "features/galleria",
+        "title": "Omat työt kuvina",
+        "body": "Ennen ja jälkeen -galleria näyttää työn jäljen.",
+        "points": [
+          "Vertailuslideri",
+          "Toimii sormella",
+          "Lisää kuvia myöhemmin"
+        ]
+      },
       {
         "img": "features/soita-nyt",
         "title": "Mobiiliversio ja soittonappi",
@@ -145,26 +161,6 @@
           "Vain tarpeelliset kentät",
           "Viesti sähköpostiisi",
           "Roskapostisuojaus"
-        ]
-      },
-      {
-        "img": "features/galleria",
-        "title": "Omat työt kuvina",
-        "body": "Ennen ja jälkeen -galleria näyttää työn jäljen.",
-        "points": [
-          "Vertailuslideri",
-          "Toimii sormella",
-          "Lisää kuvia myöhemmin"
-        ]
-      },
-      {
-        "img": "features/kartta",
-        "title": "Kartta ja palvelualue",
-        "body": "Asiakas näkee heti, toimitko hänen alueellaan.",
-        "points": [
-          "Palvelualue kartalla",
-          "Kohteet karttapisteinä",
-          "Reittiohjeet yhdellä napilla"
         ]
       },
       {
@@ -668,6 +664,8 @@
         "img": "mobile/yhteys",
         "title": "Yhteystiedot"
       }
-    ]
+    ],
+    "prev": "Edellinen",
+    "next": "Seuraava"
   }
 }
