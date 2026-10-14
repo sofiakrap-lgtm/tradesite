@@ -134,7 +134,7 @@ function cases(c, v) {
       <div class="case__text">
         <h3 class="case__name">${esc(it.name)}</h3>
         <p class="case__field">${esc(it.field)}</p>
-        <p class="case__body">${esc(it.body)}</p>
+        ${it.body ? `<p class="case__body">${esc(it.body)}</p>` : ''}
         ${it.quote ? `<figure class="case__quote"><blockquote>${rich(it.quote)}</blockquote><figcaption>${esc(it.quoteBy)}</figcaption></figure>` : ''}
       </div>
     </article>`).join('');

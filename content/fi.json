@@ -397,7 +397,7 @@
     "cells": [
       {
         "title": "Tunnemme yrittäjän arjen",
-        "body": "Tunnemme pienyrittäjän arjen. Tiedämme, miten asiakas valitsee tekijän."
+        "body": "Tiedämme, miten asiakas valitsee tekijän."
       },
       {
         "title": "Kiinteä hinta",
@@ -633,7 +633,7 @@
         "field": "Julkisivuremontit, Helsinki",
         "img": "ref/myrak",
         "url": "{MYRAK_URL}",
-        "body": "Uusi ilme, kolme kieltä ja kaikki referenssikohteet kartalla. Projektitiedotteet asukkaille päivittyvät suoraan sivuille.",
+        "body": "",
         "quote": "Heti freesattu ulkonäkö ja ajassa mukana, lisätyt kielet saivat myös **ulkomaalaiset sijoittajat kiinnostumaan meistä**. Kaikki referenssit näkyvät kartalla, mutta niitä voi vielä erikseen katsoa luettelosta, todella hyvä ominaisuus. Myös aktiivinen tiedotteiden päivittäminen nettisivuille mahdollistaa joustavan yhteydenpidon asukkaiden kanssa.",
         "quoteBy": "Myrak Oy"
       },

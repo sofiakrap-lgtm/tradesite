@@ -63,6 +63,9 @@ for (const lang of langs) {
   fs.mkdirSync(outDir, { recursive: true });
   const write = (file, html) => {
     if (lang !== DEFAULT_LANG) html = html.replace(/(href|src|srcset)="(?!https?:|#|tel:|mailto:|\/)/g, '$1="../');
+    // Lukuvälit (1-3, 540-1 600) eivät katkea rivin vaihdossa väliviivan kohdalta
+    html = html.replace(/(<(script|style|title)[\s\S]*?<\/\2>)|>([^<]+)(?=<)/g, (m, skip, _t, txt) =>
+      skip ? m : '>' + txt.replace(/\d[\d ]*-\d[\d ]*(?:[^\s<]*)/g, r => `<span class="nw">${r}</span>`));
     fs.writeFileSync(path.join(outDir, file), html);
   };
   write('index.html', home(c, vars));
