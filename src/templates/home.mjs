@@ -31,6 +31,7 @@ ${processSection(c)}
 ${pkg(c)}
 ${addons(c)}
 ${compare(c)}
+${aiCompare(c)}
 ${demos(c, v)}
 ${mobile(c)}
 ${why(c)}
@@ -253,6 +254,34 @@ function compare(c) {
     </div>
     ${k.note ? `<p class="compare__note">${esc(k.note)}</p>` : ''}
     <div class="btn-row"><a class="btn btn--primary btn--md" href="#yhteys-demo" data-event="cta-demo">${esc(k.cta)}</a></div>
+  </div>` });
+}
+
+/* 8b. Tekoäly vai suunnittelija: liukuvertailu, ominaisuudet ja kokemus */
+function aiCompare(c) {
+  const k = c.aiCompare;
+  const rows = k.rows.map(r => `<tr><th scope="row">${esc(r.label)}</th><td>${esc(r.ai)}</td><td class="is-us">${icon('check', 'icon--20 compare__check')}${esc(r.us)}</td></tr>`).join('');
+  return section({ id: 'ai-vertailu', theme: 'asphalt', cls: 'ai-compare', label: 'ai-title', body: `<div class="container">
+    ${title({ id: 'ai-title', text: k.title, sub: k.sub })}
+    <div class="ai-compare__slider">
+      <before-after start="50" nudge label="${esc(k.sliderLabel)}">
+        <div class="ba__layer ba__after">${pic('demo/saneeraus', k.afterAlt, { sizes: '(min-width: 1025px) 1000px, 100vw' })}</div>
+        <div class="ba__layer ba__before">${pic('ai/ai-sivu', k.beforeAlt, { sizes: '(min-width: 1025px) 1000px, 100vw' })}</div>
+        <span class="ba__pill ba__pill--before">${esc(k.before)}</span><span class="ba__pill ba__pill--after">${esc(k.after)}</span>
+      </before-after>
+      <p class="ai-compare__note">${esc(k.note)}</p>
+    </div>
+    <div class="ai-compare__grid">
+      <table class="compare__table ai-compare__table on-light">
+        <caption class="sr-only">${esc(k.title)}</caption>
+        <thead><tr><th scope="col"><span class="sr-only">${esc(k.colLabel)}</span></th><th scope="col">${esc(k.colAi)}</th><th scope="col" class="is-us"><span class="compare__brand">${esc(k.colUs)}</span></th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+      <div class="ai-compare__exp">
+        <p class="ai-compare__exp-title">${esc(k.expTitle)}</p>
+        <p>${esc(k.expBody)}</p>
+      </div>
+    </div>
   </div>` });
 }
 

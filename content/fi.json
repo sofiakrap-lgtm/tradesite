@@ -729,5 +729,52 @@
       }
     ],
     "cta": "Kysy lisäpalveluista"
+  },
+  "aiCompare": {
+    "title": "Tekoäly vai suunnittelija?",
+    "sub": "Tekoäly tekee sivun nopeasti, mutta harvoin näyttävästi. Me käytämme AI:ta apuna, mutta jokainen sivu suunnitellaan erikseen sinun toiveidesi mukaan.",
+    "sliderLabel": "Vertaa tekoälyn pohjaa ja suunniteltua sivua",
+    "before": "AI-pohja",
+    "after": "Tradesite",
+    "beforeAlt": "Tyypillinen tekoälyllä generoitu nettisivupohja: violetti liukuväri, emojit ja yleiset lauseet",
+    "afterAlt": "Tradesiten suunnittelema demosivu samalle yritykselle",
+    "note": "Sama yritys, kaksi sivua. Vasen on tyypillinen tekoälyn tuottama pohja, oikea suunniteltu demo.",
+    "colLabel": "Vertailukohta",
+    "colAi": "Pelkkä tekoäly",
+    "colUs": "Tradesite",
+    "rows": [
+      {
+        "label": "Ulkoasu",
+        "ai": "Yleinen pohja, näyttää samalta kuin muut",
+        "us": "Suunniteltu yrityksesi ilmeen mukaan"
+      },
+      {
+        "label": "Tekstit",
+        "ai": "Yleisiä lauseita, jotka sopivat kenelle tahansa",
+        "us": "Kirjoitettu haastattelusi pohjalta"
+      },
+      {
+        "label": "Kuvat",
+        "ai": "Kuvapankki tai generoidut kuvat",
+        "us": "Omat työsi ja kohteesi"
+      },
+      {
+        "label": "Puhelin",
+        "ai": "Usein tarkistamatta",
+        "us": "Tehty ja testattu ensin puhelimelle"
+      },
+      {
+        "label": "Paikallinen näkyvyys",
+        "ai": "Harvoin mietitty",
+        "us": "Kartta, palvelualue ja perus-SEO"
+      },
+      {
+        "label": "Ylläpito",
+        "ai": "Hoidat itse",
+        "us": "Me hoidamme"
+      }
+    ],
+    "expTitle": "3 vuotta nettisivu­suunnittelua",
+    "expBody": "Suunnittelemme sivut ihmisinä ja käytämme tekoälyä työkaluna, emme suunnittelijana. Siksi jokainen sivu näyttää omalta, ei pohjalta."
   }
 }

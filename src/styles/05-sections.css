@@ -216,6 +216,20 @@
   .compare__table .is-us, .compare__table thead .is-us, .compare__table tbody tr:last-child .is-us { border-radius: 14px 0 0 14px; }
 }
 
+/* ---------- 8b. tekoäly vai suunnittelija ---------- */
+.ai-compare__slider { max-width: 1040px; width: 100%; margin-inline: auto; display: grid; gap: 14px; }
+.ai-compare__slider before-after { border-radius: var(--radius-card); overflow: hidden; }
+.ai-compare__note { text-align: center; font-size: 15px; color: var(--color-text-muted); }
+.ai-compare__grid { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 24px; align-items: stretch; max-width: 1180px; width: 100%; margin-inline: auto; }
+.ai-compare__table { background: var(--palette-cream-50); border-radius: var(--radius-card); overflow: hidden; }
+.ai-compare__table th, .ai-compare__table td { padding: 16px 20px; font-size: 16px; line-height: 22px; }
+.ai-compare__table .is-us { background: var(--palette-cream-100); }
+.ai-compare__table thead .is-us, .ai-compare__table tbody tr:last-child .is-us { border-radius: 0; }
+.ai-compare__exp { display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; padding: 32px; border-radius: var(--radius-card); background: var(--palette-shadow); color: var(--palette-raisin-deep); font-size: 17px; line-height: 25px; }
+.ai-compare__exp-title { font: 500 clamp(24px, 1vw + 1rem, 30px)/1.15 var(--font-heading); font-stretch: 125%; letter-spacing: .3px; hyphens: manual; }
+@media (max-width: 1024px) { .ai-compare__grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 767px) { .ai-compare__table th, .ai-compare__table td { padding: 12px 14px; font-size: 15px; } .ai-compare__table tbody th { padding: 18px 14px 8px; } .ai-compare__exp { padding: 24px; } }
+
 /* ---------- 9. demot ---------- */
 .demo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sub-section-gap); list-style: none; padding: 0; margin: 0; }
 .demo-card { position: relative; background: var(--color-surface); border-radius: var(--radius-card); overflow: clip; scroll-margin-top: calc(var(--header-h) + 16px); }
