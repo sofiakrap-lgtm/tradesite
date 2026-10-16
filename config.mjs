@@ -29,7 +29,7 @@ export default {
 
   // Referenssit
   MYRAK_URL: 'https://myrak.fi/',
-  HOLSKE_URL: '#',
+  HOLSKE_URL: 'https://holske-uusi.sofia-krap.workers.dev/',
 
   // Demo-sivujen osoitteet. {slug} = saneeraus, sahko, putki-lvi, remontti, katot, maalaus.
   DEMO_URL: '#demo-{slug}',           // [TARKISTA] esim. 'https://demo.tradesite.fi/{slug}/'
