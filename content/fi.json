@@ -397,7 +397,7 @@
     "cells": [
       {
         "title": "Tunnemme yrittäjän arjen",
-        "body": "Tunnemme pienyrittäjän arjen. Tiedämme, miten asiakas valitsee tekijän."
+        "body": "Tiedämme, miten asiakas valitsee tekijän."
       },
       {
         "title": "Kiinteä hinta",
@@ -419,7 +419,8 @@
         "title": "Pyydä ilmainen demo",
         "href": "#yhteys-demo"
       }
-    ]
+    ],
+    "lead": "Brändätty ja ammattimainen nettisivu ei ole vain isojen firmojen etuoikeus."
   },
   "faq": {
     "title": "Kysymyksiä",
@@ -633,7 +634,7 @@
         "field": "Julkisivuremontit, Helsinki",
         "img": "ref/myrak",
         "url": "{MYRAK_URL}",
-        "body": "Uusi ilme, kolme kieltä ja kaikki referenssikohteet kartalla. Projektitiedotteet asukkaille päivittyvät suoraan sivuille.",
+        "body": "",
         "quote": "Heti freesattu ulkonäkö ja ajassa mukana, lisätyt kielet saivat myös **ulkomaalaiset sijoittajat kiinnostumaan meistä**. Kaikki referenssit näkyvät kartalla, mutta niitä voi vielä erikseen katsoa luettelosta, todella hyvä ominaisuus. Myös aktiivinen tiedotteiden päivittäminen nettisivuille mahdollistaa joustavan yhteydenpidon asukkaiden kanssa.",
         "quoteBy": "Myrak Oy"
       },
@@ -709,25 +710,117 @@
     },
     "items": [
       {
+        "id": "ref",
         "title": "Referenssisivu",
         "body": "Valmiit kohteet omalle sivulleen kuvien ja lyhyiden kuvausten kanssa."
       },
       {
+        "id": "logo",
         "title": "Logo ja värimaailma",
         "body": "Jos logoa ei vielä ole, suunnittelemme sen ja sivuille sopivat värit."
       }
     ],
-    "visibilityTitle": "Lisää näkyvyyttä",
-    "visibility": [
+    "cta": "Kysy lisäpalveluista",
+    "brands": [
+      {
+        "name": "Runkopuu Saneeraus",
+        "colors": [
+          "#c84b1e",
+          "#efe8dc",
+          "#2a2622"
+        ]
+      },
+      {
+        "name": "Kipinä Sähkö",
+        "colors": [
+          "#f5c400",
+          "#141414",
+          "#f2f2f2"
+        ]
+      },
+      {
+        "name": "Virtaus LVI",
+        "colors": [
+          "#1d3557",
+          "#f3efe6",
+          "#8fb3d9"
+        ]
+      },
+      {
+        "name": "Tonal Maalaus",
+        "colors": [
+          "#a3241c",
+          "#f6f2ee",
+          "#1f1d1b"
+        ]
+      }
+    ]
+  },
+  "aiCompare": {
+    "title": "Tekoäly vai suunnittelija?",
+    "sub": "Tekoäly tekee sivun nopeasti, mutta harvoin näyttävästi. Me käytämme AI:ta apuna, mutta jokainen sivu suunnitellaan erikseen sinun toiveidesi mukaan.",
+    "sliderLabel": "Vertaa tekoälyn pohjaa ja suunniteltua sivua",
+    "before": "AI-pohja",
+    "after": "Tradesite",
+    "beforeAlt": "Tyypillinen tekoälyllä generoitu nettisivupohja: violetti liukuväri, emojit ja yleiset lauseet",
+    "afterAlt": "Tradesiten suunnittelema demosivu samalle yritykselle",
+    "note": "Sama yritys, kaksi sivua. Vasen on tyypillinen tekoälyn tuottama pohja, oikea suunniteltu demo.",
+    "colLabel": "Vertailukohta",
+    "colAi": "Pelkkä tekoäly",
+    "colUs": "Tradesite",
+    "rows": [
+      {
+        "label": "Ulkoasu",
+        "ai": "Yleinen pohja, näyttää samalta kuin muut",
+        "us": "Suunniteltu yrityksesi ilmeen mukaan"
+      },
+      {
+        "label": "Tekstit",
+        "ai": "Yleisiä lauseita, jotka sopivat kenelle tahansa",
+        "us": "Kirjoitettu haastattelusi pohjalta"
+      },
+      {
+        "label": "Kuvat",
+        "ai": "Kuvapankki tai generoidut kuvat",
+        "us": "Omat työsi ja kohteesi"
+      },
+      {
+        "label": "Puhelin",
+        "ai": "Usein tarkistamatta",
+        "us": "Tehty ja testattu ensin puhelimelle"
+      },
+      {
+        "label": "Paikallinen näkyvyys",
+        "ai": "Harvoin mietitty",
+        "us": "Kartta, palvelualue ja perus-SEO"
+      },
+      {
+        "label": "Ylläpito",
+        "ai": "Hoidat itse",
+        "us": "Me hoidamme"
+      }
+    ],
+    "expTitle": "3 vuotta nettisivu­suunnittelua",
+    "expBody": "Suunnittelemme sivut ihmisinä ja käytämme tekoälyä työkaluna, emme suunnittelijana. Siksi jokainen sivu näyttää omalta, ei pohjalta."
+  },
+  "aiVisibility": {
+    "title": "Löytääkö ChatGPT yrityksesi?",
+    "stat": "45 %",
+    "statText": "kuluttajista käyttää jo tekoälyä paikallisten yritysten etsimiseen.",
+    "source": "Lähde: BrightLocal 2026, Yhdysvallat.",
+    "chatLabel": "Esimerkki",
+    "q": "Kuka tekee kattoremontteja Jyväskylässä?",
+    "a": "Jyväskylän seudulla toimii esimerkiksi Lape Katot. Sivuilta löytyvät palvelut, palvelualue ja yhteystiedot.",
+    "items": [
       {
         "title": "Google-yritysprofiili",
         "body": "Avaamme profiilin ja annamme selkeän oppaan, jolla saat siitä enemmän irti kartalla ja haussa."
       },
       {
         "title": "Näkyvyys AI-hauissa",
-        "body": "Yhä useampi kysyy tekijää tekoälyltä. Rakennamme sivusi niin, että AI-työkalut ymmärtävät, mitä teet ja missä."
+        "body": "Rakennamme sivusi niin, että ChatGPT, Claude ja muut AI-työkalut ymmärtävät, mitä teet ja missä."
       }
     ],
-    "cta": "Kysy lisäpalveluista"
+    "cta": "Kysy näkyvyydestä"
   }
 }

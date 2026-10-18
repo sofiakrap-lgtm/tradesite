@@ -65,3 +65,4 @@ strong { font-weight: 600; }
 .section-header--left .section-header__sub { margin-inline: 0; }
 .section-note { display: flex; align-items: center; justify-content: center; gap: 12px; text-align: center; color: var(--color-text-muted); font-size: var(--text-small); line-height: var(--leading-small); }
 [data-fit] { align-self: stretch; width: 100%; }
+.nw { white-space: nowrap; }

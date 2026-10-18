@@ -30,7 +30,9 @@ ${features(c)}
 ${processSection(c)}
 ${pkg(c)}
 ${addons(c)}
+${aiVisibility(c)}
 ${compare(c)}
+${aiCompare(c)}
 ${demos(c, v)}
 ${mobile(c)}
 ${why(c)}
@@ -109,7 +111,7 @@ function showcase(c) {
   const items = c.demos.items;
   const tabs = items.map((d, i) => `<button class="ala-tab" role="tab" type="button" id="sc-tab-${d.slug}" aria-controls="sc-panel-${d.slug}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}">${esc(d.name)}</button>`).join('');
   const panels = items.map((d, i) => `<div class="showcase__panel" role="tabpanel" id="sc-panel-${d.slug}" aria-labelledby="sc-tab-${d.slug}"${i === 0 ? '' : ' hidden'}>
-      <div class="showcase__browser">${browser(`<div class="showcase__scroll" data-autoscroll tabindex="0" role="region" aria-label="${esc(fill(s.laptopAlt, { name: d.name }))}">${pic(`demo/${d.slug}-koko`, fill(s.laptopAlt, { name: d.name }), { sizes: '(min-width: 1025px) 980px, 92vw' })}</div>`, `${d.slug.replace('-', '')}.tradesite.fi`)}</div>
+      <div class="showcase__browser">${browser(pic(`demo/${d.slug}`, fill(s.laptopAlt, { name: d.name }), { sizes: '(min-width: 1025px) 820px, 92vw' }), `${d.slug.replace('-', '')}.tradesite.fi`)}</div>
       <div class="showcase__phone">${phone(pic(`demo/${d.slug}-puhelin`, fill(s.phoneAlt, { name: d.name }), { sizes: '(min-width: 1025px) 260px, 34vw' }))}</div>
     </div>`).join('');
   return section({ id: 'tyot', theme: 'asphalt', cls: 'showcase', label: 'showcase-title', body: `<div class="container">
@@ -134,7 +136,7 @@ function cases(c, v) {
       <div class="case__text">
         <h3 class="case__name">${esc(it.name)}</h3>
         <p class="case__field">${esc(it.field)}</p>
-        <p class="case__body">${esc(it.body)}</p>
+        ${it.body ? `<p class="case__body">${esc(it.body)}</p>` : ''}
         ${it.quote ? `<figure class="case__quote"><blockquote>${rich(it.quote)}</blockquote><figcaption>${esc(it.quoteBy)}</figcaption></figure>` : ''}
       </div>
     </article>`).join('');
@@ -165,7 +167,7 @@ function features(c) {
   return section({ id: 'sisalto', theme: 'teal', cls: 'features', label: 'features-title', body: `<div class="container">
     ${title({ id: 'features-title', text: f.title, sub: f.sub })}
   </div>
-  <div class="frail" data-rail>
+  <div class="frail frail--center" data-rail data-rail-align="center" data-rail-start="1">
     <ul class="frail__track" role="list" data-rail-track>${cards}</ul>
     ${railCtrl(f.prev, f.next)}
   </div>` });
@@ -208,7 +210,7 @@ function pkg(c) {
 function addons(c) {
   const a = c.addons, k = a.calc, d = k.demo;
   const card = it => `<li class="addon"><h3 class="addon__title">${esc(it.title)}</h3><p>${esc(it.body)}</p></li>`;
-  const calc = `<div class="calc" id="laskuri-demo" hidden>
+  const calc = `<div class="calc" id="laskuri-demo">
         <p class="calc__heading">${esc(d.heading)}</p>
         <div class="calc__fields">
           <fieldset class="calc__seg"><legend>${esc(d.work)}</legend>${d.works.map((w, i) => `<label><input type="radio" name="calc-work" value="${w.rate}"${i === 0 ? ' checked' : ''}><span>${esc(w.label)}</span></label>`).join('')}</fieldset>
@@ -226,15 +228,36 @@ function addons(c) {
           <h3 class="addon__title">${esc(k.title)}</h3>
           <p>${esc(k.body)}</p>
           <p class="addon__how">${esc(k.how)}</p>
-          <button class="btn btn--primary btn--md" type="button" aria-expanded="false" aria-controls="laskuri-demo" data-calc-toggle data-label-open="${esc(k.open)}" data-label-close="${esc(k.close)}">${esc(k.open)}</button>
+          <button class="btn btn--primary btn--md" type="button" aria-expanded="true" aria-controls="laskuri-demo" data-calc-toggle data-label-open="${esc(k.open)}" data-label-close="${esc(k.close)}">${esc(k.close)}</button>
         </div>
         ${calc}
       </div>
-      <ul class="addons__list" role="list">${a.items.map(card).join('')}</ul>
+      <ul class="addons__list" role="list">
+        <li class="addon addon--visual"><div class="addon__vis addon__vis--ref">${['demo/katot', 'demo/remontti', 'demo/maalaus'].map(im => `<span>${pic(im, '', { sizes: '160px' })}</span>`).join('')}</div><h3 class="addon__title">${esc(a.items[0].title)}</h3><p>${esc(a.items[0].body)}</p></li>
+        <li class="addon addon--visual"><div class="addon__vis addon__vis--logo">${a.brands.map(b => `<span class="brand"><span class="brand__name" style="color:${b.colors[0]}">${esc(b.name)}</span><span class="brand__sw">${b.colors.map(col => `<i style="background:${col}"></i>`).join('')}</span></span>`).join('')}</div><h3 class="addon__title">${esc(a.items[1].title)}</h3><p>${esc(a.items[1].body)}</p></li>
+      </ul>
     </div>
-    <h3 class="addons__subtitle">${esc(a.visibilityTitle)}</h3>
-    <ul class="addons__list addons__list--dark" role="list">${a.visibility.map(card).join('')}</ul>
-    <div class="btn-row"><a class="btn btn--secondary btn--md" href="#yhteys" data-event="cta-lisapalvelut">${esc(a.cta)}</a></div>
+    <div class="btn-row"><a class="btn btn--primary btn--md" href="#yhteys" data-event="cta-lisapalvelut">${esc(a.cta)}</a></div>
+  </div>` });
+}
+
+/* 7c. Näkyvyys tekoälyssä ja Googlessa */
+function aiVisibility(c) {
+  const v = c.aiVisibility;
+  return section({ id: 'ai-nakyvyys', theme: 'green', cls: 'aivis', label: 'aivis-title', body: `<div class="container aivis__grid">
+    <div class="aivis__text">
+      <h2 class="display aivis__title" id="aivis-title" data-fit>${esc(v.title)}</h2>
+      <p class="aivis__stat"><strong>${esc(v.stat)}</strong> <span>${esc(v.statText)}</span></p>
+      <p class="aivis__source">${esc(v.source)}</p>
+      <ul class="aivis__list" role="list">${v.items.map(it => `<li><h3>${esc(it.title)}</h3><p>${esc(it.body)}</p></li>`).join('')}</ul>
+      <a class="btn btn--primary btn--md" href="#yhteys" data-event="cta-nakyvyys">${esc(v.cta)}</a>
+    </div>
+    <figure class="aivis__chat on-light" aria-label="${esc(v.chatLabel)}">
+      <span class="aivis__label">${esc(v.chatLabel)}</span>
+      <p class="aivis__q">${esc(v.q)}</p>
+      <p class="aivis__a">${esc(v.a)}</p>
+      <span class="aivis__typing" aria-hidden="true"><i></i><i></i><i></i></span>
+    </figure>
   </div>` });
 }
 
@@ -256,16 +279,46 @@ function compare(c) {
   </div>` });
 }
 
+/* 8b. Tekoäly vai suunnittelija: liukuvertailu, ominaisuudet ja kokemus */
+function aiCompare(c) {
+  const k = c.aiCompare;
+  const rows = k.rows.map(r => `<tr><th scope="row">${esc(r.label)}</th><td>${esc(r.ai)}</td><td class="is-us">${icon('check', 'icon--20 compare__check')}${esc(r.us)}</td></tr>`).join('');
+  return section({ id: 'ai-vertailu', theme: 'asphalt', cls: 'ai-compare', label: 'ai-title', body: `<div class="container">
+    ${title({ id: 'ai-title', text: k.title, sub: k.sub })}
+    <div class="ai-compare__slider">
+      <before-after start="50" nudge label="${esc(k.sliderLabel)}">
+        <div class="ba__layer ba__after">${pic('demo/saneeraus', k.afterAlt, { sizes: '(min-width: 1025px) 1000px, 100vw' })}</div>
+        <div class="ba__layer ba__before">${pic('ai/ai-sivu', k.beforeAlt, { sizes: '(min-width: 1025px) 1000px, 100vw' })}</div>
+        <span class="ba__pill ba__pill--before">${esc(k.before)}</span><span class="ba__pill ba__pill--after">${esc(k.after)}</span>
+      </before-after>
+      <p class="ai-compare__note">${esc(k.note)}</p>
+    </div>
+    <div class="ai-compare__grid">
+      <table class="compare__table ai-compare__table on-light">
+        <caption class="sr-only">${esc(k.title)}</caption>
+        <thead><tr><th scope="col"><span class="sr-only">${esc(k.colLabel)}</span></th><th scope="col">${esc(k.colAi)}</th><th scope="col" class="is-us"><span class="compare__brand">${esc(k.colUs)}</span></th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+      <div class="ai-compare__exp">
+        <p class="ai-compare__exp-title">${esc(k.expTitle)}</p>
+        <p>${esc(k.expBody)}</p>
+      </div>
+    </div>
+  </div>` });
+}
+
 /* 9. Demot: kortit avautuvat (morph) + "Muu ala?" -kortti */
 function demos(c, v) {
   const d = c.demos;
-  const cards = d.items.map(it => `<li class="demo-card" id="demo-${it.slug}" data-demo="${it.slug}">
+  const first = 'maalaus';
+  const items = [...d.items].sort((x, y) => (y.slug === first) - (x.slug === first));
+  const cards = items.map(it => `<li class="demo-card" id="demo-${it.slug}" data-demo="${it.slug}"${it.slug === first ? ' data-open' : ''}>
       <div class="demo-card__closed">
         <div class="demo-card__media">${browser(pic(`demo/${it.slug}`, it.name, { sizes: '(min-width: 1025px) 440px, 90vw' }), `${it.slug.replace('-', '')}.tradesite.fi`)}</div>
         <div class="demo-card__body"><h3 class="heading heading--s">${esc(it.name)}</h3></div>
-        <button class="demo-card__open" type="button" aria-expanded="false" aria-controls="demo-more-${it.slug}"><span class="sr-only">${esc(d.open)}: ${esc(it.name)}</span><span class="demo-card__plus" aria-hidden="true">${icon('plus')}</span></button>
+        <button class="demo-card__open" type="button" aria-expanded="${it.slug === first}" aria-controls="demo-more-${it.slug}"><span class="sr-only">${esc(d.open)}: ${esc(it.name)}</span><span class="demo-card__plus" aria-hidden="true">${icon('plus')}</span></button>
       </div>
-      <div class="demo-card__more" id="demo-more-${it.slug}" hidden>
+      <div class="demo-card__more" id="demo-more-${it.slug}"${it.slug === first ? '' : ' hidden'}>
         <div class="demo-card__devices">
           <div class="demo-card__laptop">${laptop(pic(`demo/${it.slug}`, it.name, { sizes: '(min-width: 1025px) 760px, 90vw' }))}</div>
           <div class="demo-card__phone">${phone(pic(`demo/${it.slug}-puhelin`, it.name, { sizes: '220px' }))}</div>
@@ -293,33 +346,27 @@ function demos(c, v) {
 function mobile(c) {
   const m = c.mobile;
   const items = m.slides.map(s => `<li class="pcard">${phone(pic(s.img, s.title, { sizes: '260px' }))}<p class="pcard__title">${esc(s.title)}</p></li>`).join('');
-  return section({ id: 'mobiili', theme: 'light-grey', cls: 'mobile', label: 'mobile-title', body: `<div class="container">
+  return section({ id: 'mobiili', theme: 'teal', cls: 'mobile', label: 'mobile-title', body: `<div class="container">
     ${title({ id: 'mobile-title', text: m.title })}
-  </div>
-  <div class="frail frail--phones" data-rail>
-    <ul class="frail__track" role="list" data-rail-track>${items}</ul>
-    ${railCtrl(m.prev, m.next)}
+    <div class="frail frail--phones" data-rail data-rail-align="start">
+      <ul class="frail__track" role="list" data-rail-track>${items}</ul>
+      ${railCtrl(m.prev, m.next).replace('class="container rail-ctrl"', 'class="rail-ctrl"')}
+    </div>
   </div>` });
 }
 
-/* 11. Miksi Tradesite: Holsken Bento, kuva keskellä */
+/* 11. Näkyvyys kuuluu kaikille: iso kuva, väripalat ja demo-linkki */
 function why(c) {
   const w = c.why;
-  const half = Math.ceil(w.cells.length / 2);
-  const cells = w.cells.map((cell, i) => {
-    const side = i < half ? 'l' : 'r';
-    const row = (i < half ? i : i - half) + 1;
-    const cls = `bento__cell bento__cell--${side}${i % 2 ? ' bento__cell--sand' : ''}${cell.href ? ' bento__cell--link' : ''}`;
-    const inner = `<h3>${esc(cell.title)}</h3>${cell.body ? `<p>${esc(cell.body)}</p>` : ''}`;
-    return cell.href
-      ? `<a class="${cls}" style="--row:${row}" href="${cell.href}" data-event="cta-demo"><span class="bento__arrow">${icon('arrow-right')}</span>${inner}</a>`
-      : `<div class="${cls}" style="--row:${row}">${inner}</div>`;
-  }).join('');
-  return section({ theme: 'birch', cls: 'why', label: 'why-title', body: `<div class="container">
-    ${title({ id: 'why-title', text: w.title })}
-    <div class="bento" style="--rows:${half}">
-      <div class="bento__img">${pic(w.img, '', { sizes: '(min-width: 1025px) 560px, 100vw', fallback: 'hero-poster' })}</div>
-      ${cells}
+  const tones = ['cream', 'olive', 'blue', 'cream', 'olive'];
+  const cells = w.cells.map((cell, i) => cell.href
+    ? `<a class="why__cell why__cell--cta" href="${cell.href}" data-event="cta-demo"><span class="why__t">${esc(cell.title)}</span><span class="why__arrow">${icon('arrow-right')}</span></a>`
+    : `<div class="why__cell why__cell--${tones[i % tones.length]}"><span class="why__t">${esc(cell.title)}</span>${cell.body ? `<span class="why__b">${esc(cell.body)}</span>` : ''}</div>`).join('');
+  return section({ theme: 'asphalt', cls: 'why', label: 'why-title', body: `<div class="container">
+    ${title({ id: 'why-title', text: w.title, sub: w.lead })}
+    <div class="why__grid">
+      <div class="why__img">${pic(w.img, '', { sizes: '(min-width: 1025px) 520px, 100vw', fallback: 'hero-poster' })}</div>
+      <div class="why__cells">${cells}</div>
     </div>
   </div>` });
 }
