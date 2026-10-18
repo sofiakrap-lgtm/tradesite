@@ -420,7 +420,15 @@
         "href": "#yhteys-demo"
       }
     ],
-    "lead": "Brändätty ja ammattimainen nettisivu ei ole vain isojen firmojen etuoikeus."
+    "lead": "Brändätty ja ammattimainen nettisivu ei ole vain isojen firmojen etuoikeus.",
+    "points": [
+      "Tunnemme yrittäjän arjen",
+      "Kiinteä hinta",
+      "Teksti sinun sanoillasi",
+      "Me hoidamme ylläpidon",
+      "Tulossa: videot ja some"
+    ],
+    "cta": "Pyydä ilmainen demo"
   },
   "faq": {
     "title": "Kysymyksiä",
@@ -643,7 +651,7 @@
         "name": "Holske Oy",
         "field": "Kattoremontit ja maalaus, pääkaupunkiseutu",
         "img": "ref/holske",
-        "url": "{HOLSKE_URL}",
+        "url": "",
         "body": "Oma sivu jokaiselle palvelulle, kuvagalleria valmiista kohteista ja selkeä yhteydenotto. Toimii yhtä hyvin puhelimella kuin koneella."
       }
     ]
@@ -712,7 +720,7 @@
       {
         "id": "ref",
         "title": "Referenssisivu",
-        "body": "Valmiit kohteet omalle sivulleen kuvien ja lyhyiden kuvausten kanssa."
+        "body": "Kohteesi kartalla. Asiakas näkee, missä olet tehnyt töitä ja millaisia."
       },
       {
         "id": "logo",
@@ -721,50 +729,54 @@
       }
     ],
     "cta": "Kysy lisäpalveluista",
-    "brands": [
-      {
-        "name": "Runkopuu Saneeraus",
-        "colors": [
-          "#c84b1e",
-          "#efe8dc",
-          "#2a2622"
-        ]
-      },
-      {
-        "name": "Kipinä Sähkö",
-        "colors": [
-          "#f5c400",
-          "#141414",
-          "#f2f2f2"
-        ]
-      },
-      {
-        "name": "Virtaus LVI",
-        "colors": [
-          "#1d3557",
-          "#f3efe6",
-          "#8fb3d9"
-        ]
-      },
-      {
-        "name": "Tonal Maalaus",
-        "colors": [
-          "#a3241c",
-          "#f6f2ee",
-          "#1f1d1b"
-        ]
-      }
-    ]
+    "map": {
+      "label": "Esimerkki: Tonal Maalauksen kohteet",
+      "hint": "Vie hiiri pisteen päälle",
+      "pins": [
+        {
+          "x": 28,
+          "y": 34,
+          "img": "kartta/k1",
+          "title": "Omakotitalon ulkomaalaus",
+          "place": "Haukipudas",
+          "text": "Vanhan maalin poisto, pohjamaalaus ja kaksi kerrosta pintamaalia."
+        },
+        {
+          "x": 55,
+          "y": 52,
+          "img": "kartta/k2",
+          "title": "Ikkunanpuitteiden kunnostus",
+          "place": "Oulu, Myllytulli",
+          "text": "Puitteet hiottiin, kitattiin ja maalattiin uudelleen."
+        },
+        {
+          "x": 70,
+          "y": 28,
+          "img": "kartta/k3",
+          "title": "Paritalon julkisivu",
+          "place": "Kiiminki",
+          "text": "Julkisivu pestiin ja maalattiin uuteen sävyyn."
+        },
+        {
+          "x": 40,
+          "y": 70,
+          "img": "kartta/k4",
+          "title": "Aitan katto ja seinät",
+          "place": "Kempele",
+          "text": "Peltikatto huoltomaalattiin ja seinät käsiteltiin punamullalla."
+        }
+      ]
+    }
   },
   "aiCompare": {
     "title": "Tekoäly vai suunnittelija?",
     "sub": "Tekoäly tekee sivun nopeasti, mutta harvoin näyttävästi. Me käytämme AI:ta apuna, mutta jokainen sivu suunnitellaan erikseen sinun toiveidesi mukaan.",
     "sliderLabel": "Vertaa tekoälyn pohjaa ja suunniteltua sivua",
-    "before": "AI-pohja",
-    "after": "Tradesite",
+    "before": "Tradesite",
+    "after": "AI-pohja",
     "beforeAlt": "Tyypillinen tekoälyllä generoitu nettisivupohja: violetti liukuväri, emojit ja yleiset lauseet",
     "afterAlt": "Tradesiten suunnittelema demosivu samalle yritykselle",
-    "note": "Sama yritys, kaksi sivua. Vasen on tyypillinen tekoälyn tuottama pohja, oikea suunniteltu demo.",
+    "note": "Sama yritys, kaksi sivua. Vasemmalla suunniteltu demo, oikealla tyypillinen tekoälyn tuottama pohja.",
     "colLabel": "Vertailukohta",
     "colAi": "Pelkkä tekoäly",
     "colUs": "Tradesite",
@@ -809,8 +821,6 @@
     "statText": "kuluttajista käyttää jo tekoälyä paikallisten yritysten etsimiseen.",
     "source": "Lähde: BrightLocal 2026, Yhdysvallat.",
     "chatLabel": "Esimerkki",
-    "q": "Kuka tekee kattoremontteja Jyväskylässä?",
-    "a": "Jyväskylän seudulla toimii esimerkiksi Lape Katot. Sivuilta löytyvät palvelut, palvelualue ja yhteystiedot.",
     "items": [
       {
         "title": "Google-yritysprofiili",
@@ -821,6 +831,29 @@
         "body": "Rakennamme sivusi niin, että ChatGPT, Claude ja muut AI-työkalut ymmärtävät, mitä teet ja missä."
       }
     ],
-    "cta": "Kysy näkyvyydestä"
+    "cta": "Kysy näkyvyydestä",
+    "chat": [
+      {
+        "who": "user",
+        "text": "Kuka tekee kattoremontteja Jyväskylässä?"
+      },
+      {
+        "who": "ai",
+        "text": "Jyväskylän seudulla toimii esimerkiksi Lape Katot. Sivuilta löytyvät palvelut, palvelualue ja yhteystiedot."
+      },
+      {
+        "who": "ai",
+        "text": "Haluatko, että vien sinut heidän sivuilleen?"
+      },
+      {
+        "who": "user",
+        "text": "Joo"
+      },
+      {
+        "who": "link",
+        "text": "Avaa Lape Katot",
+        "href": "#demo-katot"
+      }
+    ]
   }
 }

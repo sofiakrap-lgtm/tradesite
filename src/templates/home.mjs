@@ -131,7 +131,7 @@ function cases(c, v) {
           <div class="ba__layer ba__before">${pic(`${it.img}-ennen`, `${it.name}: vanha sivu`, { sizes: '(min-width: 1025px) 820px, 100vw' })}</div>
           <span class="ba__pill ba__pill--before">${esc(k.before)}</span><span class="ba__pill ba__pill--after">${esc(k.after)}</span>
         </before-after>
-        <a class="btn btn--primary btn--md case__visit" href="${esc(it.url)}"${it.url.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${esc(k.visit)}${icon('arrow-right', 'icon--20')}<span class="sr-only"> ${esc(it.name)}${it.url.startsWith('http') ? ` (${esc(c.a11y.external)})` : ''}</span></a>
+        ${it.url ? `<a class="btn btn--primary btn--md case__visit" href="${esc(it.url)}"${it.url.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${esc(k.visit)}${icon('arrow-right', 'icon--20')}<span class="sr-only"> ${esc(it.name)}${it.url.startsWith('http') ? ` (${esc(c.a11y.external)})` : ''}</span></a>` : ''}
       </div>
       <div class="case__text">
         <h3 class="case__name">${esc(it.name)}</h3>
@@ -233,8 +233,14 @@ function addons(c) {
         ${calc}
       </div>
       <ul class="addons__list" role="list">
-        <li class="addon addon--visual"><div class="addon__vis addon__vis--ref">${['demo/katot', 'demo/remontti', 'demo/maalaus'].map(im => `<span>${pic(im, '', { sizes: '160px' })}</span>`).join('')}</div><h3 class="addon__title">${esc(a.items[0].title)}</h3><p>${esc(a.items[0].body)}</p></li>
-        <li class="addon addon--visual"><div class="addon__vis addon__vis--logo">${a.brands.map(b => `<span class="brand"><span class="brand__name" style="color:${b.colors[0]}">${esc(b.name)}</span><span class="brand__sw">${b.colors.map(col => `<i style="background:${col}"></i>`).join('')}</span></span>`).join('')}</div><h3 class="addon__title">${esc(a.items[1].title)}</h3><p>${esc(a.items[1].body)}</p></li>
+        <li class="addon addon--visual"><div class="refmap" data-refmap>
+          <span class="refmap__label">${esc(a.map.label)}</span>
+          ${a.map.pins.map((pin, n) => `<div class="refmap__pin${pin.y < 50 ? ' refmap__pin--below' : ''}" style="left:${pin.x}%;top:${pin.y}%">
+            <button type="button" class="refmap__dot" aria-expanded="false" aria-controls="refmap-${n}"><span class="sr-only">${esc(pin.title)}, ${esc(pin.place)}</span></button>
+            <div class="refmap__card" id="refmap-${n}" role="tooltip">${pic(pin.img, '', { sizes: '220px' })}<p class="refmap__t">${esc(pin.title)}</p><p class="refmap__p">${esc(pin.place)}</p><p class="refmap__x">${esc(pin.text)}</p></div>
+          </div>`).join('')}
+        </div><h3 class="addon__title">${esc(a.items[0].title)}</h3><p>${esc(a.items[0].body)}</p><p class="refmap__hint">${esc(a.map.hint)}</p></li>
+        <li class="addon"><h3 class="addon__title">${esc(a.items[1].title)}</h3><p>${esc(a.items[1].body)}</p></li>
       </ul>
     </div>
     <div class="btn-row"><a class="btn btn--primary btn--md" href="#yhteys" data-event="cta-lisapalvelut">${esc(a.cta)}</a></div>
@@ -252,11 +258,11 @@ function aiVisibility(c) {
       <ul class="aivis__list" role="list">${v.items.map(it => `<li><h3>${esc(it.title)}</h3><p>${esc(it.body)}</p></li>`).join('')}</ul>
       <a class="btn btn--primary btn--md" href="#yhteys" data-event="cta-nakyvyys">${esc(v.cta)}</a>
     </div>
-    <figure class="aivis__chat on-light" aria-label="${esc(v.chatLabel)}">
+    <figure class="aivis__chat on-light" aria-label="${esc(v.chatLabel)}" data-chat>
       <span class="aivis__label">${esc(v.chatLabel)}</span>
-      <p class="aivis__q">${esc(v.q)}</p>
-      <p class="aivis__a">${esc(v.a)}</p>
-      <span class="aivis__typing" aria-hidden="true"><i></i><i></i><i></i></span>
+      ${v.chat.map((m, n) => m.who === 'link'
+        ? `<a class="aivis__link" style="--i:${n}" href="${m.href}" data-event="cta-ai-demo">${esc(m.text)} ${icon('arrow-right', 'icon--20')}</a>`
+        : `<p class="aivis__msg aivis__msg--${m.who}" style="--i:${n}">${esc(m.text)}</p>`).join('')}
     </figure>
   </div>` });
 }
@@ -287,22 +293,22 @@ function aiCompare(c) {
     ${title({ id: 'ai-title', text: k.title, sub: k.sub })}
     <div class="ai-compare__slider">
       <before-after start="50" nudge label="${esc(k.sliderLabel)}">
-        <div class="ba__layer ba__after">${pic('demo/saneeraus', k.afterAlt, { sizes: '(min-width: 1025px) 1000px, 100vw' })}</div>
-        <div class="ba__layer ba__before">${pic('ai/ai-sivu', k.beforeAlt, { sizes: '(min-width: 1025px) 1000px, 100vw' })}</div>
+        <div class="ba__layer ba__after">${pic('ai/ai-sivu', k.beforeAlt, { sizes: '(min-width: 1025px) 1000px, 100vw' })}</div>
+        <div class="ba__layer ba__before">${pic('demo/saneeraus', k.afterAlt, { sizes: '(min-width: 1025px) 1000px, 100vw' })}</div>
         <span class="ba__pill ba__pill--before">${esc(k.before)}</span><span class="ba__pill ba__pill--after">${esc(k.after)}</span>
       </before-after>
       <p class="ai-compare__note">${esc(k.note)}</p>
     </div>
     <div class="ai-compare__grid">
+      <div class="ai-compare__exp">
+        <p class="ai-compare__exp-title">${esc(k.expTitle)}</p>
+        <p>${esc(k.expBody)}</p>
+      </div>
       <table class="compare__table ai-compare__table on-light">
         <caption class="sr-only">${esc(k.title)}</caption>
         <thead><tr><th scope="col"><span class="sr-only">${esc(k.colLabel)}</span></th><th scope="col">${esc(k.colAi)}</th><th scope="col" class="is-us"><span class="compare__brand">${esc(k.colUs)}</span></th></tr></thead>
         <tbody>${rows}</tbody>
       </table>
-      <div class="ai-compare__exp">
-        <p class="ai-compare__exp-title">${esc(k.expTitle)}</p>
-        <p>${esc(k.expBody)}</p>
-      </div>
     </div>
   </div>` });
 }
@@ -349,25 +355,21 @@ function mobile(c) {
   return section({ id: 'mobiili', theme: 'teal', cls: 'mobile', label: 'mobile-title', body: `<div class="container">
     ${title({ id: 'mobile-title', text: m.title })}
     <div class="frail frail--phones" data-rail data-rail-align="start">
+      <button type="button" class="side-arrow side-arrow--prev" data-rail-prev aria-label="${esc(m.prev)}">${icon('arrow-right', 'flip')}</button>
       <ul class="frail__track" role="list" data-rail-track>${items}</ul>
+      <button type="button" class="side-arrow side-arrow--next" data-rail-next aria-label="${esc(m.next)}">${icon('arrow-right')}</button>
       ${railCtrl(m.prev, m.next).replace('class="container rail-ctrl"', 'class="rail-ctrl"')}
     </div>
   </div>` });
 }
 
-/* 11. Näkyvyys kuuluu kaikille: iso kuva, väripalat ja demo-linkki */
+/* 11. Näkyvyys kuuluu kaikille: tiivis ja minimalistinen */
 function why(c) {
   const w = c.why;
-  const tones = ['cream', 'olive', 'blue', 'cream', 'olive'];
-  const cells = w.cells.map((cell, i) => cell.href
-    ? `<a class="why__cell why__cell--cta" href="${cell.href}" data-event="cta-demo"><span class="why__t">${esc(cell.title)}</span><span class="why__arrow">${icon('arrow-right')}</span></a>`
-    : `<div class="why__cell why__cell--${tones[i % tones.length]}"><span class="why__t">${esc(cell.title)}</span>${cell.body ? `<span class="why__b">${esc(cell.body)}</span>` : ''}</div>`).join('');
   return section({ theme: 'asphalt', cls: 'why', label: 'why-title', body: `<div class="container">
     ${title({ id: 'why-title', text: w.title, sub: w.lead })}
-    <div class="why__grid">
-      <div class="why__img">${pic(w.img, '', { sizes: '(min-width: 1025px) 520px, 100vw', fallback: 'hero-poster' })}</div>
-      <div class="why__cells">${cells}</div>
-    </div>
+    <ul class="why__list" role="list">${w.points.map(p => `<li>${esc(p)}</li>`).join('')}</ul>
+    <div class="btn-row"><a class="btn btn--primary btn--md" href="#yhteys-demo" data-event="cta-demo">${esc(w.cta)}</a></div>
   </div>` });
 }
 

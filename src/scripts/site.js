@@ -21,6 +21,14 @@
   if (header) {
     const set = () => header.classList.toggle('is-scrolled', scrollY > 8);
     set(); addEventListener('scroll', set, { passive: true });
+    // Kun käyttäjä pysähtyy, yläpalkki väistyy sekunnin kuluttua. Vieritys tai hiiri yläreunassa tuo sen takaisin.
+    let idleT;
+    const wake = () => {
+      header.classList.remove('is-hidden'); clearTimeout(idleT);
+      if (scrollY > 120) idleT = setTimeout(() => header.classList.add('is-hidden'), 1000);
+    };
+    addEventListener('scroll', wake, { passive: true });
+    addEventListener('mousemove', e => { if (e.clientY < 90) wake(); }, { passive: true });
   }
 
   /* 2. Segmented: liukuva valintapilleri (nav + välilehdet) */
@@ -176,33 +184,29 @@
   document.querySelectorAll('[data-rail]').forEach(rail => {
     const list = rail.querySelector('[data-rail-track]');
     const bar = rail.querySelector('[data-rail-progress]');
-    const ctrl = rail.querySelector('.rail-ctrl');
     const center = rail.dataset.railAlign === 'center';
+    // Päättymätön kierto: kortit kopioidaan molemmille puolille, ja reunalle tultaessa hypätään huomaamatta keskijoukkoon
+    const originals = [...list.children]; const n = originals.length;
+    const clone = el => { const c = el.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.inert = true; c.querySelectorAll('[id]').forEach(x => x.removeAttribute('id')); return c; };
+    [...originals].reverse().forEach(el => list.prepend(clone(el)));
+    originals.forEach(el => list.append(clone(el)));
     const cards = () => [...list.children];
-    // Kortin kohta vierityksessä: keskitetty tai vasen reuna, laskettu layoutista (toimii myös zoomilla)
-    const target = c => center ? c.offsetLeft + c.offsetWidth / 2 - list.clientWidth / 2 : c.offsetLeft - parseFloat(getComputedStyle(list).paddingLeft || 0);
-    const maxLeft = () => list.scrollWidth - list.clientWidth;
-    const current = () => {
-      const x = list.scrollLeft; let best = 0, d = Infinity;
-      cards().forEach((c, i) => { const dd = Math.abs(Math.min(target(c), maxLeft()) - x); if (dd < d) { d = dd; best = i; } });
-      return best;
-    };
-    const go = (i, smooth = true) => {
-      const cs = cards(); const n = cs.length;
-      const last = cs.findIndex(c => target(c) >= maxLeft() - 2);
-      const end = center ? n - 1 : (last === -1 ? n - 1 : last);
-      if (i > end) i = 0; if (i < 0) i = end;
-      list.scrollTo({ left: Math.max(0, Math.min(target(cs[i]), maxLeft())), behavior: smooth && !reduce ? 'smooth' : 'auto' });
-    };
+    const padL = () => parseFloat(getComputedStyle(list).paddingLeft || 0);
+    const target = c => center ? c.offsetLeft + c.offsetWidth / 2 - list.clientWidth / 2 : c.offsetLeft - padL();
+    const current = () => { const x = list.scrollLeft; let best = 0, d = Infinity; cards().forEach((c, i) => { const dd = Math.abs(target(c) - x); if (dd < d) { d = dd; best = i; } }); return best; };
+    const jump = i => { list.style.scrollSnapType = 'none'; list.scrollLeft = target(cards()[i]); void list.offsetWidth; list.style.scrollSnapType = ''; };
+    const normalize = () => { const cur = current(); if (cur < n) jump(cur + n); else if (cur >= 2 * n) jump(cur - n); };
+    const go = i => list.scrollTo({ left: target(cards()[i]), behavior: reduce ? 'auto' : 'smooth' });
     const move = dir => go(current() + dir);
-    let elapsed = 0, held = false, visible = false, last = 0, resumeT, fits = false;
-    const check = () => { fits = list.scrollWidth <= list.clientWidth + 4; ctrl?.toggleAttribute('hidden', fits); };
-    check(); addEventListener('resize', check); addEventListener('load', check);
     const start = +(rail.dataset.railStart || 0);
-    if (start) requestAnimationFrame(() => go(start, false));
-    addEventListener('load', () => { if (start && list.scrollLeft < 2) go(start, false); });
-    rail.querySelector('[data-rail-prev]')?.addEventListener('click', () => { move(-1); elapsed = 0; });
-    rail.querySelector('[data-rail-next]')?.addEventListener('click', () => { move(1); elapsed = 0; });
+    const init = () => jump(n + start);
+    requestAnimationFrame(init); addEventListener('load', init);
+    addEventListener('resize', () => jump(n + ((current() - n) % n + n) % n));
+    let settleT;
+    list.addEventListener('scroll', () => { clearTimeout(settleT); settleT = setTimeout(normalize, 160); }, { passive: true });
+    let elapsed = 0, held = false, visible = false, last = 0, resumeT;
+    rail.querySelectorAll('[data-rail-prev]').forEach(b => b.addEventListener('click', () => { move(-1); elapsed = 0; }));
+    rail.querySelectorAll('[data-rail-next]').forEach(b => b.addEventListener('click', () => { move(1); elapsed = 0; }));
     if (reduce || !bar) return;
     // Pysähtyy vain, kun käyttäjä koskee tai liikkuu näppäimistöllä korttien sisällä
     const hold = () => { held = true; clearTimeout(resumeT); };
@@ -214,7 +218,7 @@
     list.addEventListener('focusout', release);
     const tick = t => {
       const dt = last ? Math.min(64, t - last) : 16; last = t;
-      if (!held && visible && !fits && !document.hidden) {
+      if (!held && visible && !document.hidden) {
         elapsed += dt;
         if (elapsed >= AUTO_MS) { move(1); elapsed = 0; }
       }
@@ -224,6 +228,24 @@
     if ('IntersectionObserver' in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; }, { threshold: 0.25 }).observe(list);
     else visible = true;
     requestAnimationFrame(tick);
+  });
+
+  /* 7d. Referenssikartta: piste avaa kortin (hiiri, näppäimistö tai kosketus) */
+  document.querySelectorAll('[data-refmap]').forEach(map => {
+    const pins = [...map.querySelectorAll('.refmap__pin')];
+    pins.forEach(pin => pin.querySelector('.refmap__dot').addEventListener('click', () => {
+      const open = !pin.classList.contains('is-open');
+      pins.forEach(p => { p.classList.remove('is-open'); p.querySelector('.refmap__dot').setAttribute('aria-expanded', 'false'); });
+      if (open) { pin.classList.add('is-open'); pin.querySelector('.refmap__dot').setAttribute('aria-expanded', 'true'); }
+    }));
+  });
+
+  /* 7e. Esimerkkikeskustelu: viestit tulevat näkyviin yksi kerrallaan, kun osio tulee esiin */
+  document.querySelectorAll('[data-chat]').forEach(chat => {
+    if (reduce || !('IntersectionObserver' in window)) return;
+    chat.classList.add('is-pending');
+    const io = new IntersectionObserver(es => { if (es[0].isIntersecting) { chat.classList.replace('is-pending', 'is-live'); io.disconnect(); } }, { threshold: 0.4 });
+    io.observe(chat);
   });
 
   /* 7c. Hintalaskurin demo: avautuu napista, laskee esimerkkihinnoilla haarukan */

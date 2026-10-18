@@ -73,6 +73,8 @@
 /* ---------- header ---------- */
 .site-header { position: fixed; inset: 0 0 auto 0; z-index: var(--z-header); height: var(--header-h); background: transparent; transition: background-color var(--duration-base); }
 .site-header.is-scrolled, .site-header.is-menu-open { background: var(--color-overlay); }
+.site-header { transition: background-color var(--duration-base), transform .35s var(--ease-out); }
+.site-header.is-hidden:not(.is-menu-open):not(:focus-within) { transform: translateY(-100%); }
 .site-header__inner { position: relative; z-index: 2; max-width: var(--container-max); height: 100%; margin: 0 auto; padding-inline: 24px 12px; display: flex; align-items: center; column-gap: 8px; }
 .nav { margin-inline-start: 16px; }
 .segmented { position: relative; display: inline-grid; grid-auto-flow: column; grid-auto-columns: max-content; padding: var(--segmented-pad); border-radius: var(--radius-pill); }
