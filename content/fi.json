@@ -419,7 +419,8 @@
         "title": "Pyydä ilmainen demo",
         "href": "#yhteys-demo"
       }
-    ]
+    ],
+    "lead": "Brändätty ja ammattimainen nettisivu ei ole vain isojen firmojen etuoikeus."
   },
   "faq": {
     "title": "Kysymyksiä",
@@ -709,26 +710,51 @@
     },
     "items": [
       {
+        "id": "ref",
         "title": "Referenssisivu",
         "body": "Valmiit kohteet omalle sivulleen kuvien ja lyhyiden kuvausten kanssa."
       },
       {
+        "id": "logo",
         "title": "Logo ja värimaailma",
         "body": "Jos logoa ei vielä ole, suunnittelemme sen ja sivuille sopivat värit."
       }
     ],
-    "visibilityTitle": "Lisää näkyvyyttä",
-    "visibility": [
+    "cta": "Kysy lisäpalveluista",
+    "brands": [
       {
-        "title": "Google-yritysprofiili",
-        "body": "Avaamme profiilin ja annamme selkeän oppaan, jolla saat siitä enemmän irti kartalla ja haussa."
+        "name": "Runkopuu Saneeraus",
+        "colors": [
+          "#c84b1e",
+          "#efe8dc",
+          "#2a2622"
+        ]
       },
       {
-        "title": "Näkyvyys AI-hauissa",
-        "body": "Yhä useampi kysyy tekijää tekoälyltä. Rakennamme sivusi niin, että AI-työkalut ymmärtävät, mitä teet ja missä."
+        "name": "Kipinä Sähkö",
+        "colors": [
+          "#f5c400",
+          "#141414",
+          "#f2f2f2"
+        ]
+      },
+      {
+        "name": "Virtaus LVI",
+        "colors": [
+          "#1d3557",
+          "#f3efe6",
+          "#8fb3d9"
+        ]
+      },
+      {
+        "name": "Tonal Maalaus",
+        "colors": [
+          "#a3241c",
+          "#f6f2ee",
+          "#1f1d1b"
+        ]
       }
-    ],
-    "cta": "Kysy lisäpalveluista"
+    ]
   },
   "aiCompare": {
     "title": "Tekoäly vai suunnittelija?",
@@ -776,5 +802,25 @@
     ],
     "expTitle": "3 vuotta nettisivu­suunnittelua",
     "expBody": "Suunnittelemme sivut ihmisinä ja käytämme tekoälyä työkaluna, emme suunnittelijana. Siksi jokainen sivu näyttää omalta, ei pohjalta."
+  },
+  "aiVisibility": {
+    "title": "Löytääkö ChatGPT yrityksesi?",
+    "stat": "45 %",
+    "statText": "kuluttajista käyttää jo tekoälyä paikallisten yritysten etsimiseen.",
+    "source": "Lähde: BrightLocal 2026, Yhdysvallat.",
+    "chatLabel": "Esimerkki",
+    "q": "Kuka tekee kattoremontteja Jyväskylässä?",
+    "a": "Jyväskylän seudulla toimii esimerkiksi Lape Katot. Sivuilta löytyvät palvelut, palvelualue ja yhteystiedot.",
+    "items": [
+      {
+        "title": "Google-yritysprofiili",
+        "body": "Avaamme profiilin ja annamme selkeän oppaan, jolla saat siitä enemmän irti kartalla ja haussa."
+      },
+      {
+        "title": "Näkyvyys AI-hauissa",
+        "body": "Rakennamme sivusi niin, että ChatGPT, Claude ja muut AI-työkalut ymmärtävät, mitä teet ja missä."
+      }
+    ],
+    "cta": "Kysy näkyvyydestä"
   }
 }

@@ -199,30 +199,42 @@
   document.querySelectorAll('[data-rail]').forEach(rail => {
     const list = rail.querySelector('[data-rail-track]');
     const bar = rail.querySelector('[data-rail-progress]');
-    const move = dir => {
-      const card = list.querySelector('li');
-      const gap = parseFloat(getComputedStyle(list).columnGap) || 24;
-      const w = card ? card.getBoundingClientRect().width + gap : 400;
-      const end = list.scrollLeft + list.clientWidth >= list.scrollWidth - 4;
-      const start = list.scrollLeft <= 4;
-      const behavior = reduce ? 'auto' : 'smooth';
-      if (dir > 0 && end) list.scrollTo({ left: 0, behavior });
-      else if (dir < 0 && start) list.scrollTo({ left: list.scrollWidth, behavior });
-      else list.scrollBy({ left: dir * w, behavior });
-    };
-    let elapsed = 0, held = false, visible = false, last = 0, resumeT;
-    // Jos kaikki kortit mahtuvat näkyviin, ohjainta ei tarvita
     const ctrl = rail.querySelector('.rail-ctrl');
-    let fits = false;
+    const center = rail.dataset.railAlign === 'center';
+    const cards = () => [...list.children];
+    // Kortin kohta vierityksessä: keskitetty tai vasen reuna, laskettu layoutista (toimii myös zoomilla)
+    const target = c => center ? c.offsetLeft + c.offsetWidth / 2 - list.clientWidth / 2 : c.offsetLeft - parseFloat(getComputedStyle(list).paddingLeft || 0);
+    const maxLeft = () => list.scrollWidth - list.clientWidth;
+    const current = () => {
+      const x = list.scrollLeft; let best = 0, d = Infinity;
+      cards().forEach((c, i) => { const dd = Math.abs(Math.min(target(c), maxLeft()) - x); if (dd < d) { d = dd; best = i; } });
+      return best;
+    };
+    const go = (i, smooth = true) => {
+      const cs = cards(); const n = cs.length;
+      const last = cs.findIndex(c => target(c) >= maxLeft() - 2);
+      const end = center ? n - 1 : (last === -1 ? n - 1 : last);
+      if (i > end) i = 0; if (i < 0) i = end;
+      list.scrollTo({ left: Math.max(0, Math.min(target(cs[i]), maxLeft())), behavior: smooth && !reduce ? 'smooth' : 'auto' });
+    };
+    const move = dir => go(current() + dir);
+    let elapsed = 0, held = false, visible = false, last = 0, resumeT, fits = false;
     const check = () => { fits = list.scrollWidth <= list.clientWidth + 4; ctrl?.toggleAttribute('hidden', fits); };
     check(); addEventListener('resize', check); addEventListener('load', check);
+    const start = +(rail.dataset.railStart || 0);
+    if (start) requestAnimationFrame(() => go(start, false));
+    addEventListener('load', () => { if (start && list.scrollLeft < 2) go(start, false); });
     rail.querySelector('[data-rail-prev]')?.addEventListener('click', () => { move(-1); elapsed = 0; });
     rail.querySelector('[data-rail-next]')?.addEventListener('click', () => { move(1); elapsed = 0; });
     if (reduce || !bar) return;
+    // Pysähtyy vain, kun käyttäjä koskee tai liikkuu näppäimistöllä korttien sisällä
     const hold = () => { held = true; clearTimeout(resumeT); };
-    const release = () => { clearTimeout(resumeT); resumeT = setTimeout(() => { held = false; }, 1500); };
-    ['mouseenter', 'focusin', 'touchstart'].forEach(ev => list.addEventListener(ev, hold, { passive: true }));
-    ['mouseleave', 'focusout', 'touchend'].forEach(ev => list.addEventListener(ev, release, { passive: true }));
+    const release = () => { clearTimeout(resumeT); resumeT = setTimeout(() => { held = false; }, 2500); };
+    list.addEventListener('pointerdown', hold, { passive: true });
+    list.addEventListener('touchstart', hold, { passive: true });
+    ['pointerup', 'touchend', 'pointercancel'].forEach(ev => list.addEventListener(ev, release, { passive: true }));
+    list.addEventListener('focusin', e => { if (e.target.matches(':focus-visible')) hold(); });
+    list.addEventListener('focusout', release);
     const tick = t => {
       const dt = last ? Math.min(64, t - last) : 16; last = t;
       if (!held && visible && !fits && !document.hidden) {
@@ -232,7 +244,7 @@
       bar.style.transform = `scaleX(${Math.min(1, elapsed / AUTO_MS)})`;
       requestAnimationFrame(tick);
     };
-    if ('IntersectionObserver' in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; }, { threshold: 0.3 }).observe(list);
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; }, { threshold: 0.25 }).observe(list);
     else visible = true;
     requestAnimationFrame(tick);
   });

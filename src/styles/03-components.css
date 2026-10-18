@@ -185,7 +185,7 @@ select.input:invalid { color: var(--color-text-muted); }
 .acc__summary { list-style: none; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 12px 0; cursor: pointer; }
 .acc__summary::-webkit-details-marker { display: none; }
 .acc__summary:focus-visible { outline: 4px solid var(--color-focus); outline-offset: -4px; border-radius: 8px; }
-.acc__q { font: 600 22px/30px var(--font-body); color: var(--color-heading); transition: color .15s; }
+.acc__q { font: 500 clamp(19px, 1rem + 0.35vw, 23px)/1.25 var(--font-heading); font-stretch: 125%; letter-spacing: .3px; color: var(--color-heading); transition: color .15s; }
 .acc__summary:hover .acc__q { color: var(--color-text-muted); }
 .acc__ind { display: flex; color: var(--color-heading); transition: transform .15s; }
 .acc__ind .icon { --icon-size: 28px; }
