@@ -2,6 +2,7 @@
 // Ei riippuvuuksia. Ajo: node build.mjs  (Cloudflare Pages: build command "npm run build", output "dist")
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import config from './config.mjs';
 import home from './src/templates/home.mjs';
 import legal from './src/templates/legal.mjs';
@@ -66,6 +67,11 @@ for (const lang of langs) {
     // Lukuvälit (1-3, 540-1 600) eivät katkea rivin vaihdossa väliviivan kohdalta
     html = html.replace(/(<(script|style|title)[\s\S]*?<\/\2>)|>([^<]+)(?=<)/g, (m, skip, _t, txt) =>
       skip ? m : '>' + txt.replace(/\d[\d ]*-\d[\d ]*(?:[^\s<]*)/g, r => `<span class="nw">${r}</span>`));
+    // Versiotunniste kuviin: uusi kuva samalla nimellä ohittaa selaimen välimuistin
+    html = html.replace(/assets\/[\w\/@.-]+\.(?:jpg|jpeg|png|webp|svg|mp4|webm|ico)(?![\w?])/g, ref => {
+      const f = path.join(ROOT, ref);
+      return fs.existsSync(f) ? `${ref}?v=${crypto.createHash('md5').update(fs.readFileSync(f)).digest('hex').slice(0, 8)}` : ref;
+    });
     fs.writeFileSync(path.join(outDir, file), html);
   };
   write('index.html', home(c, vars));
