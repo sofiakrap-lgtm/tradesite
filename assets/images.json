@@ -119,6 +119,22 @@
     "width": 1920,
     "height": 1080
   },
+  "kartta/k1.jpg": {
+    "width": 480,
+    "height": 320
+  },
+  "kartta/k2.jpg": {
+    "width": 480,
+    "height": 320
+  },
+  "kartta/k3.jpg": {
+    "width": 480,
+    "height": 320
+  },
+  "kartta/k4.jpg": {
+    "width": 480,
+    "height": 320
+  },
   "mobile/arviot.jpg": {
     "width": 780,
     "height": 1688
