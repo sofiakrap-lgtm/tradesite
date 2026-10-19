@@ -197,8 +197,8 @@
 .calc__seg input:focus-visible + span { outline: 3px solid var(--palette-warm-600); outline-offset: 2px; }
 .calc__range { display: grid; gap: 8px; font-size: 15px; font-weight: 600; }
 .calc__range input { width: 100%; accent-color: var(--palette-raisin); }
-.calc__result { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-top: 14px; border-top: 1px solid var(--palette-cream-300); font-weight: 600; }
-.calc__result strong { font: 700 26px/1 var(--font-accent); font-stretch: 125%; }
+.calc__result { display: flex; justify-content: space-between; align-items: baseline; gap: 6px 12px; flex-wrap: wrap; padding-top: 14px; border-top: 1px solid var(--palette-cream-300); font-weight: 600; }
+.calc__result strong { font: 700 26px/1 var(--font-accent); font-stretch: 125%; white-space: nowrap; }
 .calc__note { font-size: 13px; color: var(--palette-warm-600); }
 .addons .btn-row { margin-top: 8px; }
 .addon--visual { gap: 10px; }

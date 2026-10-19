@@ -682,8 +682,6 @@
       "title": "Hintalaskuri",
       "body": "Asiakas näkee projektinsa hinta-arvion heti sivuillasi, ennen kuin soittaa.",
       "how": "Näin se tehdään: lähetämme sinulle lyhyen lomakkeen hinnoistasi. Sen pohjalta rakennamme laskurin, joka laskee työn arvioidun kokonaishinnan.",
-      "open": "Avaa demo",
-      "close": "Sulje demo",
       "demo": {
         "heading": "Demo: maalaustyön hinta-arvio",
         "work": "Työ",

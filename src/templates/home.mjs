@@ -228,7 +228,6 @@ function addons(c) {
           <h3 class="addon__title">${esc(k.title)}</h3>
           <p>${esc(k.body)}</p>
           <p class="addon__how">${esc(k.how)}</p>
-          <button class="btn btn--primary btn--md" type="button" aria-expanded="true" aria-controls="laskuri-demo" data-calc-toggle data-label-open="${esc(k.open)}" data-label-close="${esc(k.close)}">${esc(k.close)}</button>
         </div>
         ${calc}
       </div>
