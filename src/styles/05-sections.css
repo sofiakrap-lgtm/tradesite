@@ -99,7 +99,7 @@
 .frail--center .fcard { scroll-snap-align: center; }
 @media (max-width: 767px) { .frail--center .frail__track { --card: 82%; } }
 /* Puhelimet: kolme keskellä, eivät kosketa reunoja */
-.frail--phones { position: relative; max-width: 620px; margin: var(--section-gap) auto 0; width: 100%; }
+.frail--phones { position: relative; max-width: 620px; margin: calc(var(--section-gap) * 0.5) auto 0; width: 100%; }
 .side-arrow { position: absolute; top: calc(50% - 40px); z-index: 2; display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 0; background: none; color: var(--color-heading); cursor: pointer; opacity: .7; transition: opacity var(--duration-fast), transform var(--duration-fast); }
 .side-arrow:hover { opacity: 1; }
 .side-arrow--prev { left: -64px; } .side-arrow--prev:hover { transform: translateX(-3px); }
@@ -197,8 +197,8 @@
 .calc__seg input:focus-visible + span { outline: 3px solid var(--palette-warm-600); outline-offset: 2px; }
 .calc__range { display: grid; gap: 8px; font-size: 15px; font-weight: 600; }
 .calc__range input { width: 100%; accent-color: var(--palette-raisin); }
-.calc__result { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-top: 14px; border-top: 1px solid var(--palette-cream-300); font-weight: 600; }
-.calc__result strong { font: 700 26px/1 var(--font-accent); font-stretch: 125%; }
+.calc__result { display: flex; justify-content: space-between; align-items: baseline; gap: 6px 12px; flex-wrap: wrap; padding-top: 14px; border-top: 1px solid var(--palette-cream-300); font-weight: 600; }
+.calc__result strong { font: 700 26px/1 var(--font-accent); font-stretch: 125%; white-space: nowrap; }
 .calc__note { font-size: 13px; color: var(--palette-warm-600); }
 .addons .btn-row { margin-top: 8px; }
 .addon--visual { gap: 10px; }
@@ -282,16 +282,31 @@
 .ai-compare__slider { max-width: 1040px; width: 100%; margin-inline: auto; display: grid; gap: 14px; }
 .ai-compare__slider before-after { border-radius: var(--radius-card); overflow: hidden; }
 .ai-compare__note { text-align: center; font-size: 15px; color: var(--color-text-muted); }
-.ai-compare__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; max-width: 980px; width: 100%; margin-inline: auto; }
-.ai-compare__table { background: var(--palette-cream-50); border-radius: var(--radius-card); overflow: hidden; }
-.ai-compare__table th, .ai-compare__table td { padding: 16px 20px; font-size: 16px; line-height: 22px; }
-.ai-compare__table .is-us { background: var(--palette-cream-100); }
-.ai-compare__table thead .is-us, .ai-compare__table tbody tr:last-child .is-us { border-radius: 0; }
-.ai-compare__exp { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); align-items: center; gap: 12px 32px; padding: 8px 4px 20px; border-bottom: 1px solid var(--color-border); color: var(--color-text); font-size: 17px; line-height: 25px; }
-@media (max-width: 767px) { .ai-compare__exp { grid-template-columns: 1fr; } }
-.ai-compare__exp-title { font: 900 clamp(26px, 1.5vw + 1rem, 36px)/1.05 var(--font-display); font-stretch: 125%; text-transform: uppercase; letter-spacing: -0.3px; color: var(--color-heading); hyphens: manual; }
-@media (max-width: 1024px) { .ai-compare__grid { grid-template-columns: minmax(0, 1fr); } }
-@media (max-width: 767px) { .ai-compare__table th, .ai-compare__table td { padding: 12px 14px; font-size: 15px; } .ai-compare__table tbody th { padding: 18px 14px 8px; } .ai-compare__exp { padding: 24px; } }
+.ai-compare__grid { display: grid; gap: 40px; max-width: 1040px; width: 100%; margin-inline: auto; }
+.ai-compare__exp { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); align-items: end; gap: 16px 56px; padding-bottom: 32px; border-bottom: 1px solid var(--color-border); color: var(--color-text-muted); font-size: 18px; line-height: 28px; }
+.ai-compare__exp-title { font: 900 clamp(28px, 1.6vw + 1rem, 40px)/1 var(--font-display); font-stretch: 125%; text-transform: uppercase; letter-spacing: -0.3px; color: var(--color-heading); hyphens: manual; }
+/* Taulukko tummalla: Tradesite-sarake vaaleana korttina, muut rivit kevyinä viivoina */
+.ai-compare__table { table-layout: fixed; }
+.ai-compare__table th, .ai-compare__table td { padding: 20px 28px; font-size: 17px; line-height: 24px; border-bottom-color: var(--color-border); }
+.ai-compare__table tbody th { width: 24%; padding-left: 0; color: var(--color-heading); }
+.ai-compare__table td { width: 36%; color: var(--color-text-muted); font-weight: 400; }
+.ai-compare__table thead th { padding-top: 28px; padding-bottom: 20px; vertical-align: middle; }
+.ai-compare__col { font: 600 14px/20px var(--font-body); text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-muted); }
+.ai-compare__table .is-us { width: 40%; background: var(--palette-cream-50); color: var(--palette-raisin); font-weight: 600; border-bottom-color: var(--palette-cream-300); }
+.ai-compare__table .is-us .compare__brand { color: var(--palette-raisin); }
+.ai-compare__table .is-us .compare__check { color: var(--palette-shadow-700); margin: 2px 0 0; flex: none; width: 20px; height: 20px; }
+.ai-compare__us { display: flex; gap: 12px; align-items: flex-start; }
+.ai-compare__table thead .is-us { border-radius: 20px 20px 0 0; }
+.ai-compare__table tbody tr:last-child .is-us { border-radius: 0 0 20px 20px; }
+@media (max-width: 767px) {
+  .ai-compare__exp { grid-template-columns: 1fr; padding-bottom: 24px; font-size: 16px; line-height: 25px; }
+  .ai-compare__table { table-layout: auto; }
+  .ai-compare__table th, .ai-compare__table td, .ai-compare__table .is-us, .ai-compare__table tbody th { width: auto; }
+  .ai-compare__table th, .ai-compare__table td { padding: 12px 14px; font-size: 15px; line-height: 21px; }
+  .ai-compare__table tbody th { padding: 20px 0 8px; }
+  .ai-compare__table thead .is-us, .ai-compare__table tbody tr:last-child .is-us, .ai-compare__table .is-us { border-radius: 14px; }
+  .ai-compare__table td:not(.is-us) { padding-left: 0; }
+}
 
 /* ---------- 9. demot ---------- */
 .demo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sub-section-gap); list-style: none; padding: 0; margin: 0; }
