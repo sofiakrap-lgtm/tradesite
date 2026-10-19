@@ -221,6 +221,8 @@
 .refmap__pin:hover, .refmap__pin:focus-within, .refmap__pin.is-open { z-index: 4; }
 .refmap__pin--below .refmap__card { bottom: auto; top: calc(100% + 8px); }
 .refmap__hint { font-size: 13px; color: var(--palette-warm-500); }
+.refmap__hint-touch { display: none; }
+@media (hover: none) { .refmap__hint-mouse { display: none; } .refmap__hint-touch { display: inline; } }
 .addon__vis--logo { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 6px; }
 .brand { display: flex; flex-direction: column; justify-content: space-between; gap: 10px; min-height: 66px; padding: 12px; border-radius: 9px; background: var(--palette-cream-50); }
 .brand__name { font: 700 14px/1.1 var(--font-heading); font-stretch: 125%; }
@@ -364,7 +366,7 @@
 .contact__number:hover { color: var(--color-link-hover); }
 .contact__cards { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: var(--sub-section-gap); align-items: start; }
 .contact-card { overflow: visible; position: relative; padding: 40px; gap: 22px; scroll-margin-top: calc(var(--header-h) + 16px); }
-.contact-card.on-light { background: var(--color-surface); }
+.contact-card.on-light { background: var(--color-surface); --color-input-surface: var(--palette-cream-50); }
 .contact-card[data-theme="asphalt"] { background: var(--palette-raisin); }
 .contact-card__head { display: flex; flex-direction: column; gap: 4px; }
 .contact-card .field-group > .field { border-radius: 4px; }
@@ -419,9 +421,9 @@
 /* ---------- Mobiili (alle 768 px): kosketusalueet, fokus alapalkin yllä. Ei vaikuta 768 px:iin tai leveämpään. ---------- */
 @media (max-width: 767px) {
   html { scroll-padding-bottom: calc(var(--mobile-bar-h) + env(safe-area-inset-bottom) + 16px); }
-  /* Alapalkki väistyy, kun lomakekenttä on aktiivinen tai valikko auki, jotta se ei peitä näppäimistöä tai fokusta */
+  /* Alapalkki väistyy, kun lomakekenttä on aktiivinen, jotta se ei peitä näppäimistöä */
   .mobile-bar { transition: transform var(--duration-fast) var(--ease-standard); }
-  body:has(.field :focus, .site-header.is-menu-open) .mobile-bar { transform: translateY(100%); }
+  body:has(.field :focus) .mobile-bar { transform: translateY(100%); }
   /* Kosketusalueet vähintään 44 px: näkyvä koko ennallaan, osuma-alue laajenee */
   .site-header .logo, .btn--action { position: relative; }
   .site-header .logo::before, .btn--action::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: var(--tap-min); transform: translateY(-50%); }
@@ -433,7 +435,8 @@
   .calc__seg span { height: var(--tap-min); }
   .calc__range input { height: var(--tap-min); }
   .cookie .btn--xs { --button-h: var(--tap-min); }
-  .footer__col a, .footer__meta a, .footer__linkbtn { display: inline-flex; align-items: center; min-height: var(--tap-min); }
+  .footer__col a, .footer__meta a, .footer__linkbtn { display: inline-flex; align-items: center; min-height: var(--tap-min); min-width: var(--tap-min); }
+  .nav-mobile__links a { height: 48px; }
   /* Pisin heron sana (NETTISIVUT) mahtuu kapeimpiinkin puhelimiin */
   .l-xwide { font-size: min(40px, 10.2vw); line-height: 1; }
   .l-wide { font-size: min(26px, 6.8vw); }

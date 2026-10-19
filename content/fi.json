@@ -295,7 +295,7 @@
     "rows": [
       {
         "label": "Hinta",
-        "us": "{PRICE} € (alv 0 %)",
+        "us": "{PRICE} € (alv 0 %)",
         "agency": "{AGENCY_PRICE_RANGE}"
       },
       {
@@ -315,7 +315,7 @@
       }
     ],
     "cta": "Pyydä ilmainen demo",
-    "note": "Vertailu: 14 suomalaisen toimiston ja freelancerin julkiset hinnastot, lokakuu 2026. Haarukka on keskimmäinen puolikas, mediaani 975 € (alv 0 %). Ylläpito ei sisälly vertailuun."
+    "note": "Vertailu: 14 suomalaisen toimiston ja freelancerin julkiset hinnastot, lokakuu 2026. Haarukka on keskimmäinen puolikas, mediaani 975 € (alv 0 %). Ylläpito ei sisälly vertailuun."
   },
   "demos": {
     "title": "Valitse alasi",
@@ -722,6 +722,7 @@
     "map": {
       "label": "Esimerkki: Tonal Maalauksen kohteet",
       "hint": "Vie hiiri pisteen päälle",
+      "hintTouch": "Napauta pistettä",
       "pins": [
         {
           "x": 28,

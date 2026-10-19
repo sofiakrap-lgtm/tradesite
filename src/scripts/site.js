@@ -364,6 +364,8 @@
         const bad = !i.value.trim() || (i.type === 'tel' && i.value.replace(/\D/g, '').length < 6) || !i.checkValidity();
         i.closest('.field')?.classList.toggle('is-invalid', bad);
         i.setAttribute('aria-invalid', String(bad));
+        // Virheilmoitus luetaan ruudunlukijalla kentän yhteydessä
+        if (status) { status.id ||= `status-${Math.random().toString(36).slice(2, 8)}`; bad ? i.setAttribute('aria-describedby', status.id) : i.removeAttribute('aria-describedby'); }
         if (bad) ok = false;
       });
       if (!ok) {

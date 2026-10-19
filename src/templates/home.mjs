@@ -240,7 +240,7 @@ function addons(c) {
             <button type="button" class="refmap__dot" aria-expanded="false" aria-controls="refmap-${n}"><span class="sr-only">${esc(pin.title)}, ${esc(pin.place)}</span></button>
             <div class="refmap__card" id="refmap-${n}" role="tooltip">${pic(pin.img, '', { sizes: '220px' })}<p class="refmap__t">${esc(pin.title)}</p><p class="refmap__p">${esc(pin.place)}</p><p class="refmap__x">${esc(pin.text)}</p></div>
           </div>`).join('')}
-        </div><h3 class="addon__title">${esc(a.items[0].title)}</h3><p>${esc(a.items[0].body)}</p><p class="refmap__hint">${esc(a.map.hint)}</p></li>
+        </div><h3 class="addon__title">${esc(a.items[0].title)}</h3><p>${esc(a.items[0].body)}</p><p class="refmap__hint"><span class="refmap__hint-mouse">${esc(a.map.hint)}</span><span class="refmap__hint-touch">${esc(a.map.hintTouch)}</span></p></li>
         <li class="addon"><h3 class="addon__title">${esc(a.items[1].title)}</h3><p>${esc(a.items[1].body)}</p></li>
       </ul>
     </div>
