@@ -415,3 +415,27 @@
 
 /* Työpöydällä koko sivu n. 10 % pienempänä */
 @media (min-width: 1025px) { html { zoom: 0.81; } }
+
+/* ---------- Mobiili (alle 768 px): kosketusalueet, fokus alapalkin yllä. Ei vaikuta 768 px:iin tai leveämpään. ---------- */
+@media (max-width: 767px) {
+  html { scroll-padding-bottom: calc(var(--mobile-bar-h) + env(safe-area-inset-bottom) + 16px); }
+  /* Alapalkki väistyy, kun lomakekenttä on aktiivinen tai valikko auki, jotta se ei peitä näppäimistöä tai fokusta */
+  .mobile-bar { transition: transform var(--duration-fast) var(--ease-standard); }
+  body:has(.field :focus, .site-header.is-menu-open) .mobile-bar { transform: translateY(100%); }
+  /* Kosketusalueet vähintään 44 px: näkyvä koko ennallaan, osuma-alue laajenee */
+  .site-header .logo, .btn--action { position: relative; }
+  .site-header .logo::before, .btn--action::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: var(--tap-min); transform: translateY(-50%); }
+  .menu-toggle, .side-arrow { width: var(--tap-min); height: var(--tap-min); }
+  .rail-dot { width: var(--tap-min); height: var(--tap-min); }
+  .refmap__dot::before { content: ""; position: absolute; inset: -8px; border-radius: 50%; }
+  .ala-tab { padding-block: 14px; }
+  .ala-tabs { column-gap: 20px; row-gap: 0; }
+  .calc__seg span { height: var(--tap-min); }
+  .calc__range input { height: var(--tap-min); }
+  .cookie .btn--xs { --button-h: var(--tap-min); }
+  .footer__col a, .footer__meta a, .footer__linkbtn { display: inline-flex; align-items: center; min-height: var(--tap-min); }
+  /* Pisin heron sana (NETTISIVUT) mahtuu kapeimpiinkin puhelimiin */
+  .l-xwide { font-size: min(40px, 10.2vw); line-height: 1; }
+  .l-wide { font-size: min(26px, 6.8vw); }
+  .calc__seg label { display: inline-flex; }
+}
