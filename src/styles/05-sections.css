@@ -99,7 +99,7 @@
 .frail--center .fcard { scroll-snap-align: center; }
 @media (max-width: 767px) { .frail--center .frail__track { --card: 82%; } }
 /* Puhelimet: kolme keskellä, eivät kosketa reunoja */
-.frail--phones { position: relative; max-width: 620px; margin: var(--section-gap) auto 0; width: 100%; }
+.frail--phones { position: relative; max-width: 620px; margin: calc(var(--section-gap) * 0.5) auto 0; width: 100%; }
 .side-arrow { position: absolute; top: calc(50% - 40px); z-index: 2; display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 0; background: none; color: var(--color-heading); cursor: pointer; opacity: .7; transition: opacity var(--duration-fast), transform var(--duration-fast); }
 .side-arrow:hover { opacity: 1; }
 .side-arrow--prev { left: -64px; } .side-arrow--prev:hover { transform: translateX(-3px); }
