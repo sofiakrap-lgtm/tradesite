@@ -288,7 +288,7 @@ function compare(c) {
 /* 8b. Tekoäly vai suunnittelija: liukuvertailu, ominaisuudet ja kokemus */
 function aiCompare(c) {
   const k = c.aiCompare;
-  const rows = k.rows.map(r => `<tr><th scope="row">${esc(r.label)}</th><td>${esc(r.ai)}</td><td class="is-us">${icon('check', 'icon--20 compare__check')}${esc(r.us)}</td></tr>`).join('');
+  const rows = k.rows.map(r => `<tr><th scope="row">${esc(r.label)}</th><td>${esc(r.ai)}</td><td class="is-us"><span class="ai-compare__us">${icon('check', 'icon--20 compare__check')}<span>${esc(r.us)}</span></span></td></tr>`).join('');
   return section({ id: 'ai-vertailu', theme: 'asphalt', cls: 'ai-compare', label: 'ai-title', body: `<div class="container">
     ${title({ id: 'ai-title', text: k.title, sub: k.sub })}
     <div class="ai-compare__slider">
@@ -304,9 +304,9 @@ function aiCompare(c) {
         <p class="ai-compare__exp-title">${esc(k.expTitle)}</p>
         <p>${esc(k.expBody)}</p>
       </div>
-      <table class="compare__table ai-compare__table on-light">
+      <table class="compare__table ai-compare__table">
         <caption class="sr-only">${esc(k.title)}</caption>
-        <thead><tr><th scope="col"><span class="sr-only">${esc(k.colLabel)}</span></th><th scope="col">${esc(k.colAi)}</th><th scope="col" class="is-us"><span class="compare__brand">${esc(k.colUs)}</span></th></tr></thead>
+        <thead><tr><th scope="col"><span class="sr-only">${esc(k.colLabel)}</span></th><th scope="col"><span class="ai-compare__col">${esc(k.colAi)}</span></th><th scope="col" class="is-us"><span class="compare__brand">${esc(k.colUs)}</span></th></tr></thead>
         <tbody>${rows}</tbody>
       </table>
     </div>
