@@ -209,7 +209,12 @@
     rail.querySelectorAll('[data-rail-next]').forEach(b => b.addEventListener('click', () => { move(1); elapsed = 0; }));
     if (reduce || !bar) return;
     // Pysähtyy vain, kun käyttäjä koskee tai liikkuu näppäimistöllä korttien sisällä
-    const hold = () => { held = true; clearTimeout(resumeT); };
+    // Puhelimessa kosketus tai nuoli pysäyttää automaattikierron pysyvästi (WCAG 2.2.2)
+    const phone = matchMedia('(max-width: 767px)');
+    let stopped = false;
+    const stop = () => { if (phone.matches) { stopped = true; elapsed = 0; } };
+    rail.querySelectorAll('[data-rail-prev], [data-rail-next]').forEach(b => b.addEventListener('click', stop));
+    const hold = () => { held = true; clearTimeout(resumeT); stop(); };
     const release = () => { clearTimeout(resumeT); resumeT = setTimeout(() => { held = false; }, 2500); };
     list.addEventListener('pointerdown', hold, { passive: true });
     list.addEventListener('touchstart', hold, { passive: true });
@@ -218,7 +223,7 @@
     list.addEventListener('focusout', release);
     const tick = t => {
       const dt = last ? Math.min(64, t - last) : 16; last = t;
-      if (!held && visible && !document.hidden) {
+      if (!held && !stopped && visible && !document.hidden) {
         elapsed += dt;
         if (elapsed >= AUTO_MS) { move(1); elapsed = 0; }
       }
@@ -359,6 +364,8 @@
         const bad = !i.value.trim() || (i.type === 'tel' && i.value.replace(/\D/g, '').length < 6) || !i.checkValidity();
         i.closest('.field')?.classList.toggle('is-invalid', bad);
         i.setAttribute('aria-invalid', String(bad));
+        // Virheilmoitus luetaan ruudunlukijalla kentän yhteydessä
+        if (status) { status.id ||= `status-${Math.random().toString(36).slice(2, 8)}`; bad ? i.setAttribute('aria-describedby', status.id) : i.removeAttribute('aria-describedby'); }
         if (bad) ok = false;
       });
       if (!ok) {

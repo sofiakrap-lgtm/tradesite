@@ -54,14 +54,16 @@ ${cookieBanner(c)}
 const title = ({ id, text, sub, align = 'center', extra = '' }) =>
   `<header class="osio-otsake osio-otsake--${align}"><h2 class="display" id="${id}" data-fit>${esc(text)}</h2>${sub ? `<p class="osio-otsake__ala">${rich(sub)}</p>` : ''}${extra}</header>`;
 
+// Mobiilinäppäimistö oikeaksi: numero puhelimeen, @ sähköpostiin
+const inputHints = { tel: ' inputmode="tel"', email: ' inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false"' };
 const field = (name, label, type, auto, required = true, extra = '') =>
-  `<label class="field field--float"><span class="field__body"><span class="field__label">${esc(label)}</span><span class="field__value"><input class="input" name="${name}" type="${type}" autocomplete="${auto}" placeholder=" "${required ? ' required' : ''}${extra}></span></span></label>`;
+  `<label class="field field--float"><span class="field__body"><span class="field__label">${esc(label)}</span><span class="field__value"><input class="input" name="${name}" type="${type}" autocomplete="${auto}"${inputHints[type] || ''} placeholder=" "${required ? ' required' : ''}${extra}></span></span></label>`;
 
 /* 1. Hero */
 function hero(c, v) {
   const h = c.hero;
   const video = v.HERO_VIDEO
-    ? `<video class="hero__video" muted playsinline preload="metadata" poster="assets/hero-poster.jpg" data-hero-video aria-hidden="true"><source src="assets/hero.webm" type="video/webm"><source src="assets/hero.mp4" type="video/mp4"></video>`
+    ? `<video class="hero__video" muted playsinline preload="none" poster="assets/hero-poster.jpg" data-hero-video aria-hidden="true"><source src="assets/hero.webm" type="video/webm"><source src="assets/hero.mp4" type="video/mp4"></video>`
     : '';
   return `<section class="section section--lead hero hero--media" data-theme="birch" id="top" aria-labelledby="hero-title">
   <div class="hero__backdrop" aria-hidden="true">
@@ -238,7 +240,7 @@ function addons(c) {
             <button type="button" class="refmap__dot" aria-expanded="false" aria-controls="refmap-${n}"><span class="sr-only">${esc(pin.title)}, ${esc(pin.place)}</span></button>
             <div class="refmap__card" id="refmap-${n}" role="tooltip">${pic(pin.img, '', { sizes: '220px' })}<p class="refmap__t">${esc(pin.title)}</p><p class="refmap__p">${esc(pin.place)}</p><p class="refmap__x">${esc(pin.text)}</p></div>
           </div>`).join('')}
-        </div><h3 class="addon__title">${esc(a.items[0].title)}</h3><p>${esc(a.items[0].body)}</p><p class="refmap__hint">${esc(a.map.hint)}</p></li>
+        </div><h3 class="addon__title">${esc(a.items[0].title)}</h3><p>${esc(a.items[0].body)}</p><p class="refmap__hint"><span class="refmap__hint-mouse">${esc(a.map.hint)}</span><span class="refmap__hint-touch">${esc(a.map.hintTouch)}</span></p></li>
         <li class="addon"><h3 class="addon__title">${esc(a.items[1].title)}</h3><p>${esc(a.items[1].body)}</p></li>
       </ul>
     </div>

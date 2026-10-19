@@ -111,6 +111,7 @@
   --container-pad: 48px;
   --header-h: 46px;
   --mobile-bar-h: 0px;
+  --tap-min: 44px;         /* pienin kosketusalue mobiilissa */
 /* @module 04-layout:end */
 
 /* @module 05-surfaces:start */

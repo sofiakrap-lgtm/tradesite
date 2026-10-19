@@ -19,10 +19,10 @@ export default {
   PRICE: 500,
   MONTHLY: 36,
   COMMITMENT_MONTHS: 12,
-  VAT_NOTE: 'alv 0 %',
+  VAT_NOTE: 'alv 0 %',
 
   // Säästövertailu: mainostoimiston arvot. Älä keksi omia lukuja.
-  AGENCY_PRICE_RANGE: '540-1 600 € (alv 0 %)',
+  AGENCY_PRICE_RANGE: '540-1 600 € (alv 0 %)',
   AGENCY_DELIVERY: '2-4 viikkoa, täysi palvelu 4-8 viikkoa',
   AGENCY_TEXTS: 'Edullisissa paketeissa asiakas itse',
   AGENCY_DEMO: 'Useimmilla vasta tilauksen jälkeen',
